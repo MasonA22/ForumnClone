@@ -66,14 +66,13 @@ Template.questions.events({
 		if (startTime > 0){
 			showTimer = true;
 		}
-		
 		Meteor.call("makeActiveQuestion", questionId, showTimer, startTime);
 	},
 	"click .removeActiveQuestion": function(evt, template){
 		evt.preventDefault();
 		var questionId = this._id;
 		var roomId = Questions.findOne(questionId).questionFormHash.roomId;
-		Meteor.call("removeActiveQuestion", questionId);
+		Meteor.call("removeActiveQuestion", questionId, roomId);
 		Meteor.call("updateScoreBoardRanks", roomId);
 	},
 	"click .resetVotes": function(evt, template){

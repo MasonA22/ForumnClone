@@ -300,9 +300,8 @@ Meteor.methods({
 			createdAt: new Date()
 		});
 	},
-	removeActiveQuestion: function(questionId){
+	removeActiveQuestion: function(questionId, roomId){
 		console.log("Removing active question...");
-		var roomId = Questions.findOne(questionId).questionFormHash.roomId;
 		Questions.update({_id: questionId},{
 			$set: {
 				activeQuestion: false,
