@@ -17,7 +17,7 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-	activateBadges: function(){
+	activateBadges: function(totalQuestions){
 		console.log("Activating Badges...");
 		ActivateBadges.insert({
 			createdAt: new Date()
@@ -27,9 +27,8 @@ Meteor.methods({
 			largestRankRiseNumber = 0,
 			largestRankDropNumber = 0,
 			largestRankRiseUser = null,
-			largestRankDropUser = null,
-			totalQuestions = Questions.find({}).count();
-
+			largestRankDropUser = null;
+			
 		users.forEach(function(user){
 			//checking for negative points badge
 			var score = user.profile.score;

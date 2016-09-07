@@ -347,11 +347,12 @@ Template.admin.events({
 	"click .activateBadges": function(evt){
 		evt.preventDefault();
 		var activateBadges = ActivateBadges.find({}).count();
+		var totalQuestions = Questions.find({}).count();
 		if (activateBadges){
 			Meteor.call("deactivateBadges");
 		}
 		else{
-			Meteor.call("activateBadges");
+			Meteor.call("activateBadges", totalQuestions);
 		}
 	}
 });
