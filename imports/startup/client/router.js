@@ -25,6 +25,13 @@ FlowRouter.route('/login', {
 	}
 });
 
+let privateRoutes = FlowRouter.group({
+	name: "private",
+	triggersEnter: [
+		checkLoggedIn
+	]
+});
+
 let adminRoutes = privateRoutes.group({
 	name: "admin",
 	triggersEnter: [
@@ -35,35 +42,28 @@ let adminRoutes = privateRoutes.group({
 adminRoutes.route('/admin', {
 	name: 'admin',
 	action() {
-		BlazeLayout.render('App_body', { main: 'admin' });
+		BlazeLayout.render('layout', { main: 'admin' });
 	}
-});
-
-let privateRoutes = FlowRouter.group({
-	name: "private",
-	triggersEnter: [
-		checkLoggedIn
-	]
 });
 
 privateRoutes.route('/addQuestion', {
 	name: 'addQuestion',
 	action() {
-		BlazeLayout.render('App_body', { main: 'addQuestion' });
+		BlazeLayout.render('layout', { main: 'addQuestion' });
 	}
 });
 
 privateRoutes.route('/scoreBoard', {
 	name: 'scoreBoard',
 	action() {
-		BlazeLayout.render('App_body', { main: 'scoreBoard' });
+		BlazeLayout.render('layout', { main: 'scoreBoard' });
 	}
 });
 
 privateRoutes.route('/badgeBoard', {
 	name: 'badgeBoard',
 	action() {
-		BlazeLayout.render('App_body', { main: 'badgeBoard' });
+		BlazeLayout.render('layout', { main: 'badgeBoard' });
 	}
 });
 
@@ -71,7 +71,7 @@ privateRoutes.route('/logout', {
 	name: 'Logout',
 	action() {
 		Meteor.logout(function() {
-			FlowRouter.go('/');
+			FlowRouter.go('/login');
 		});
 	},
 });
@@ -79,20 +79,20 @@ privateRoutes.route('/logout', {
 privateRoutes.route('/chronicles', {
 	name: 'chronicles',
 	action() {
-		BlazeLayout.render('App_body', { main: 'chronicles' });
+		BlazeLayout.render('layout', { main: 'chronicles' });
 	}
 });
 
 privateRoutes.route('/chronicles/:_id', {
 	name: 'chronicle',
 	action() {
-		BlazeLayout.render('App_body', { main: 'chronicle' });
+		BlazeLayout.render('layout', { main: 'chronicle' });
 	}
 });
 
 function checkLoggedIn(ctx, redirect) {
 	if (!Meteor.userId()) {
-		redirect("/");
+		FlowRouter.go('/login');
 	}
 }
 
