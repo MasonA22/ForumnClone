@@ -1,3 +1,8 @@
+import { Meteor } from "meteor/meteor";
+import { Template } from "meteor/templating";
+
+import "./scoreBoard.html";
+
 Template.scoreBoard.onCreated(function() {
 	Meteor.subscribe("allUsers");
 });

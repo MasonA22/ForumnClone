@@ -1,3 +1,9 @@
+import { Meteor } from "meteor/meteor";
+import { Template } from "meteor/templating";
+import { Rooms } from "../../api/rooms.js";
+
+import "./rooms.html";
+
 Template.rooms.onCreated(function(){
 	Meteor.subscribe("rooms");
 });

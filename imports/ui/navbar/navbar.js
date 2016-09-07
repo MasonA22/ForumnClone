@@ -1,3 +1,10 @@
+import { Meteor } from "meteor/meteor";
+import { Template } from "meteor/templating";
+import { ActivateQuestions } from "../../api/activateQuestions.js";
+import { ActivateBadges } from "../../api/activateBadges.js";
+
+import "./navbar.html";
+
 Template.navbar.onCreated(function(){
 	Meteor.subscribe("activateBadges");
 	Meteor.subscribe("activateQuestions");

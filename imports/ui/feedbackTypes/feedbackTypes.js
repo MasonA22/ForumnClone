@@ -1,3 +1,9 @@
+import { Meteor } from "meteor/meteor";
+import { Template } from "meteor/templating";
+import { FeedbackTypes } from "../../api/feedbackTypes.js";
+
+import "./feedbackTypes.html";
+
 Template.feedbackTypes.onCreated(function(){
 	Meteor.subscribe("feedbackTypes");
 });

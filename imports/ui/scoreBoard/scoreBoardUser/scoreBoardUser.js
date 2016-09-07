@@ -1,3 +1,7 @@
+import { Template } from "meteor/templating";
+
+import "./scoreBoardUser.html";
+
 Template.scoreBoardUser.helpers({
 	userName: function(){
 		var user = this;

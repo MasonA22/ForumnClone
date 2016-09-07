@@ -1,3 +1,8 @@
+import { Meteor } from "meteor/meteor";
+import { Template } from "meteor/templating";
+
+import "./login.html";
+
 Template.login.onCreated(function(){
 	Meteor.subscribe("allUsers");
 });
