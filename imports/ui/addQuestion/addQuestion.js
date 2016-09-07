@@ -4,6 +4,13 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 import { Rooms } from "../../api/rooms.js";
 
 import "./addQuestion.html";
+import "./questionTypes/addRoom.js";
+import "./questionTypes/addBadge.js";
+import "./questionTypes/addFeedbackType.js";
+import "./questionTypes/triviaQuestion.js";
+import "./questionTypes/pollQuestion.js";
+import "./questionTypes/pictureQuestion.js";
+import "./questionTypes/inputQuestion.js";
 
 Template.addQuestion.onCreated(function(){
 	this.state = new ReactiveDict();

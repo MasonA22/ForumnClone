@@ -4,6 +4,7 @@ import { Questions } from "../../api/questions.js";
 import { Rooms } from "../../api/rooms.js";
 
 import "./questions.html";
+import "./question/question.html";
 
 Template.questions.onCreated(function(){
 	Meteor.subscribe("questions");
