@@ -1,5 +1,7 @@
 import { Mongo } from "meteor/mongo";
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
+import { ActivateQuestions } from "./activateQuestions.js";
+import { Notifications } from "./notifications.js";
 
 export const Questions = new Mongo.Collection("questions");
 
