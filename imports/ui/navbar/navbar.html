@@ -1,16 +1,16 @@
 <template name="navbar">
 	<div class="navbar">
 		<div class="navbar-nonmobile">
-			<a href="{{pathFor route="home"}}">Home</a>
-			<span>|</span>
-			<a class="{{isActiveRoute 'scoreBoard'}}" href="{{pathFor route="scoreBoard"}}">Score Board</a>
-			<span>|</span>
-			<a class="{{isActiveRoute 'chronicles'}}" href="{{pathFor route="chronicles"}}">Chronicles of...</a>
-			{{#if activateBadges.count}}
-				<span>|</span>
-				<a class="{{isActiveRoute 'badgeBoard'}}" href="{{pathFor route="badgeBoard"}}">Badges</a>
-			{{/if}}
 			{{#if currentUser}}
+				<a href="{{pathFor route="home"}}">Home</a>
+				<span>|</span>
+				<a class="{{isActiveRoute 'scoreBoard'}}" href="{{pathFor route="scoreBoard"}}">Score Board</a>
+				<span>|</span>
+				<a class="{{isActiveRoute 'chronicles'}}" href="{{pathFor route="chronicles"}}">Chronicles of...</a>
+				{{#if activateBadges.count}}
+					<span>|</span>
+					<a class="{{isActiveRoute 'badgeBoard'}}" href="{{pathFor route="badgeBoard"}}">Badges</a>
+				{{/if}}
 				{{#if currentUser.profile.isAdmin}}
 					<span>|</span>
 					<a class="{{isActiveRoute 'addQuestion'}}" href="{{pathFor route="addQuestion"}}">Add _</a>
@@ -28,7 +28,6 @@
 				</div>
 			</a>
 		</div>
-
 		<a class="headerLink" href="/">
 			<div class="headerImage">
 				<div data-text="FORUM LIVE">
@@ -41,21 +40,22 @@
 		{{else}}
 			<div class="headerPowerButtonOff"></div>
 		{{/if}}
-
-		<a class="hamburger-menu-icon"></a>
-		<div class="start-menu-icon">
-			<div class="start-menu-arrow">
-				↓
+		{{#if currentUser}}
+			<a class="hamburger-menu-icon"></a>
+			<div class="start-menu-icon">
+				<div class="start-menu-arrow">
+					↓
+				</div>
 			</div>
-		</div>
+		{{/if}}
 		<ul class="mobile-dropdown-menu">
-			<li><a href="{{pathFor route="home"}}">Home</a></li>
-			<li><a class="{{isActiveRoute 'scoreBoard'}}" href="{{pathFor route="scoreBoard"}}">Score Board</a></li>
-			<li><a class="{{isActiveRoute 'chronicles'}}" href="{{pathFor route="chronicles"}}">Chronicles of...</a></li>
-			{{#if activateBadges.count}}
-				<li><a class="{{isActiveRoute 'badgeBoard'}}" href="{{pathFor route="badgeBoard"}}">Badges</a></li>
-			{{/if}}
 			{{#if currentUser}}
+				<li><a href="{{pathFor route="home"}}">Home</a></li>
+				<li><a class="{{isActiveRoute 'scoreBoard'}}" href="{{pathFor route="scoreBoard"}}">Score Board</a></li>
+				<li><a class="{{isActiveRoute 'chronicles'}}" href="{{pathFor route="chronicles"}}">Chronicles of...</a></li>
+				{{#if activateBadges.count}}
+					<li><a class="{{isActiveRoute 'badgeBoard'}}" href="{{pathFor route="badgeBoard"}}">Badges</a></li>
+				{{/if}}
 				{{#if currentUser.profile.isAdmin}}
 					<li><a class="{{isActiveRoute 'addQuestion'}}" href="{{pathFor route="addQuestion"}}">Add _</a></li>
 					<li><a class="{{isActiveRoute 'admin'}}" href="{{pathFor route="admin"}}">Admin</a></li>
