@@ -1,0 +1,26 @@
+<template name="triviaQuestion">
+	<form class="questionForm">
+		<div>
+			<span>Question:</span>
+			<input type="text" name="question" />
+		</div>
+		<span>Answer:</span>
+		<input type="text" name="answer" class="answer correctAnswer" />
+		<input type="hidden" name="correct" class="hiddenAnswer" value="true" />
+		<div class="markCorrect">Mark as correct answer</div>
+		<input type="text" name="answer" class="answer" />
+		<input type="hidden" name="correct" class="hiddenAnswer" value="false" />
+		<div class="markCorrect disabled">Mark as correct answer</div>
+		<div class="addTriviaAnswer" title="Add an additional answer">+</div>
+		<div>
+			<span>Points Worth:</span>
+			<input type="number" name="points" value="1000"/>
+		</div>
+		<div class="advancedToggleContainer">
+			<span class="wagerToggle disabled" wagerEnabled="false">Enable Point Wager</span>
+			<span> | </span>
+			<span class="feedbackToggle disabled" feedbackEnabled="false">Enable Feedback</span>
+		</div>
+		<button class="addQuestionButton" disabled>Save</button>
+	</form>
+</template>

@@ -1,0 +1,27 @@
+<template name="activeQuestionGraph">
+	<div class="activeQuestionGraph">
+		<div class="activeQuestionGraphHeader">
+			{{#each activeQuestion}}
+				<span> Question: </span>
+				{{questionFormHash.question}}
+				{{#if questionFormHash.isInput}}
+					<div class="activeQuestionGraphAnswer">
+						<span>Answer: </span>
+						{{questionFormHash.inputAnswer}}
+					</div>
+				{{/if}}
+			{{/each}}
+			{{#if questionFormHash.isTrivia}}
+				<div class="activeQuestionGraphAnswer">
+					<span>Answer: </span>
+					{{#each questionFormHash.answers}}
+						{{#if equals this.correct "true"}}
+							{{this.text}}
+						{{/if}}
+					{{/each}}
+				</div>
+			{{/if}}
+		</div>
+		<canvas id="activeQuestionGraph" height="300"></canvas>
+	</div>
+</template>

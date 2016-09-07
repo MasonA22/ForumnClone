@@ -1,0 +1,209 @@
+@import "../colours";
+@import "../mixins";
+@import "../fonts";
+
+.navbar{
+	padding: 25px;
+	font-size: 20px;
+	text-align: center;
+	color: $navbar-primary;
+	background-color: $secondary-transparent;
+}
+
+.navbar a{
+	color: inherit;
+	padding: 3px;
+	text-decoration: none;
+}
+
+.navbar a:hover{
+	color: $secondary;
+	@include animation-transition;
+}
+
+.navbar a.active{
+	color: $secondary;
+}
+
+.hamburger-menu-icon{
+	display: none;
+	position: relative;
+	padding-left: 1.25em;
+	cursor: pointer;
+}
+
+.hamburger-menu-icon:before{
+	margin-top: 5px;
+	content: "";
+	position: absolute;
+	left: 0;
+	width: 1em;
+	height: 0.15em;
+	background: $secondary-light;
+	box-shadow: 
+		0 0.25em 0 0 $secondary-light,
+		0 0.5em 0 0 $secondary-light;
+}
+
+.mobile-dropdown-menu{
+	display: none;
+	padding: 20px 0px 0px 0px;
+}
+
+.mobile-dropdown-menu li{
+	list-style-type: none;
+	padding-top: 5px;
+}
+
+.mobile-dropdown-menu li a{
+	padding: 0px;
+}
+
+.mobile-dropdown-menu li:hover{
+	cursor: pointer;
+}
+
+.headerLink{
+	padding: 0px !important;
+}
+
+.headerImage{
+	display: none;
+	padding: 50px 0px;
+	text-align: center;
+	font-size: 2em;
+	margin-bottom: 10px;
+	width: 100%;
+	background-color: $primary-green;
+	background-image:
+		linear-gradient(#5A894A, #6C993A);
+	box-shadow: inset 3px 3px rgb(105, 100, 100);
+}
+
+.headerImage div{
+	@include vertical-align;
+	font-family: "press_start";
+	color: rgb(52, 81, 27);
+	text-shadow: 2px 2px #23370F;
+	transform: perspective(200px) rotateX(30deg);
+	-webkit-transform: perspective(200px) rotateX(30deg);
+	-webkit-font-smoothing: subpixel-antialiased;
+	word-spacing: -20px;
+}
+
+.headerImageActive{ 
+	background-image: repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.66), black 1px, transparent 1px, transparent 3px);
+}
+
+.headerImageActive div{ 
+	color: rgb(161, 226, 106);
+	-webkit-perspective: 500px;
+	perspective: 500px;
+}
+
+.start-menu-icon{
+	display: none;
+	width: 45px;
+	height: 15px;
+	background-color: #6C6C6C;
+	border-radius: 10px;
+	right: 0;
+	position: absolute;
+	margin-right: 40px;
+	box-shadow: 2px 2px #5A5A5A;
+	cursor: pointer;
+	-webkit-tap-highlight-color:transparent;
+}
+
+.start-menu-icon:active{ 
+	box-shadow: inset 4px 2px #5A5A5A;
+}
+
+.start-menu-arrow{
+	@include slow-animation-transition;
+	font-size: 17px;
+	text-align: center;
+	margin-top: -4px;
+	font-weight: bold;
+}
+
+.start-menu-icon .rotate {
+	transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	margin-top: -1px;
+}
+
+.headerPowerButtonOn, .headerPowerButtonOff{
+	display: none;
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	border-radius: 20px;
+}
+
+.headerPowerButtonOn{
+	background-color: rgb(200, 32, 32);
+}
+
+.headerPowerButtonOff{
+	background-color: #D0D0D0;
+}
+
+.forumLiveLogo{
+	width: 70px;
+	font-size: 13px;
+	position: absolute;
+	right: 0;
+	margin-top: -25px;
+	margin-right: 10px;
+}
+
+.forumLiveLogo div{
+	font-family: "press_start";
+}
+
+.navbarScore{
+	font-size: 12px;
+	margin-bottom: 20px;
+	color: $secondary-light;
+}
+
+.navbarScoreEmblem{
+	display: table;
+	float: right;
+	padding: 3px 10px 5px 10px;
+	background-color: $secondary-transparent;
+}
+
+@media all and (max-width: 50em) {
+	.navbar{
+		text-align: right;
+		background-color: $primary-dark;
+		border-radius: 7px 7px 0px 7px;
+	}
+	.navbar a{
+		padding: 10px;
+	}
+	.navbar a:hover, .navbar a.active{
+		color: $secondary-light;
+	}
+	.navbarScoreEmblem{
+		background-color: $primary-dark;
+	}
+	.start-menu-icon{ 
+		display: block;
+	}
+	.hamburger-menu-icon{
+		// display: initial;
+	}
+    .navbar-nonmobile{
+    	display: none;
+    }
+    .headerImage{
+        display: block;
+    }
+    .headerPowerButtonOn, .headerPowerButtonOff{ 
+    	display: block;
+    }
+}
+

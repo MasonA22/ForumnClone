@@ -1,0 +1,51 @@
+<template name="addQuestion">
+	<div class="addQuestion">
+		<div class="questionTypeContainer">
+			<span class="questionType" questionType="isRoom">Add Room</span>
+			{{#if rooms.count}}
+				<span> | </span>
+				<span class="questionType" questionType="isTrivia">Add Trivia Question</span>
+				<span> | </span>
+				<span class="questionType" questionType="isPoll">Add Poll Question</span>
+				<span> | </span>
+				<span class="questionType" questionType="isPicture">Add Picture Question</span>
+				<span> | </span>
+				<span class="questionType" questionType="isInput">Add Input Question</span>
+			{{/if}}
+			<span> | </span>
+			<span class="questionType" questionType="isBadge">Add Badge</span>
+			<span> | </span>
+			<span class="questionType" questionType="isFeedbackType">Add Feedback Type</span>
+		</div>
+		{{#if showRoomSelection}}
+			<div class="roomSelectionContainer">
+				<select class="roomSelectionDropDown">
+					{{#each rooms}}
+						<option value="{{_id}}">{{name}}</option>
+					{{/each}}
+				</select>
+			</div>
+		{{/if}}
+		{{#if showRoom}}
+			{{> addRoom}}
+		{{/if}}
+		{{#if showBadge}}
+			{{> addBadge}}
+		{{/if}}
+		{{#if showFeedbackType}}
+			{{> addFeedbackType}}
+		{{/if}}
+		{{#if showTrivia}}
+			{{> triviaQuestion}}
+		{{/if}}
+		{{#if showPoll}}
+			{{> pollQuestion}}
+		{{/if}}
+		{{#if showPicture}}
+			{{> pictureQuestion}}
+		{{/if}}
+		{{#if showInput}}
+			{{> inputQuestion}}
+		{{/if}}
+	</div>
+</template>

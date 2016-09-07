@@ -1,0 +1,32 @@
+<template name="pictureQuestion">
+	<form class="questionForm">
+		<div>
+			<span>Question:</span>
+			<input type="text" name="question" />
+		</div>
+		<span>Answer:</span>
+		<input type="hidden" name="imagePath" class="hiddenImagePath" value="" />
+		<input type="text" class="pictureCaption" name="caption" placeholder="Enter caption here" />
+		<input type="file" class="answer correctAnswer pictureAnswer" />
+		<input type="hidden" name="correct" class="hiddenAnswer" value="true" />
+		<div class="markCorrect">Mark as correct answer</div>
+
+		<input type="hidden" name="imagePath" class="hiddenImagePath" value="" />
+		<input type="text" class="pictureCaption" name="caption" placeholder="Enter caption here" />
+		<input type="file" class="answer pictureAnswer" />
+		<input type="hidden" name="correct" class="hiddenAnswer" value="false" />
+		<div class="markCorrect disabled">Mark as correct answer</div>
+
+		<div class="addPictureAnswer" title="Add an additional answer">+</div>
+		<div>
+			<span>Points Worth:</span>
+			<input type="number" name="points" value="1000"/>
+		</div>
+		<div class="advancedToggleContainer">
+			<span class="wagerToggle disabled" wagerEnabled="false">Enable Point Wager</span>
+			<span> | </span>
+			<span class="feedbackToggle disabled" feedbackEnabled="false">Enable Feedback</span>
+		</div>
+		<button class="addPictureQuestionButton" disabled>Save</button>
+	</form>
+</template>

@@ -1,0 +1,36 @@
+<template name="badgeType">
+    <div class="badgeBoardContainer">
+        <div class="badgeBoardInfo">
+            <div class="badgeBoardInfoAvatar">
+                <img src="{{avatar}}">
+            </div>
+            <div class="badgeBoardInfoContent">
+                <div class="badgeBoardInfoName">
+                    {{name}}
+                </div>
+                <div class="badgeBoardInfoDescription">
+                    {{description}}
+                </div>
+            </div>
+        </div>
+        <div class="badgeBoardUsers">
+            {{#if equals name "Everyone's a winner"}}
+                <span class="activeBadgeBoardUser">
+                    You and everyone else
+                </span>
+            {{else}}
+                {{#each userBadges}}
+                    {{#if equals currentUser._id userId}}
+                        <span class="activeBadgeBoardUser">
+                            {{> userBadge}}
+                        </span>
+                    {{else}}
+                        <span>
+                            {{> userBadge}}
+                        </span>
+                    {{/if}}
+                {{/each}}
+            {{/if}}
+        </div>
+    </div>
+</template>

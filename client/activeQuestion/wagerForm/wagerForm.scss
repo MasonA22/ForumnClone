@@ -1,0 +1,43 @@
+@import "../../colours";
+@import "../../mixins";
+
+.wagerFormContent{
+	padding: 12px;
+}
+
+#wageRangeSlider{
+	margin-top: 17px;
+}
+
+.noUi-connect{
+	background-color: $secondary;
+}
+
+.noUi-target{
+	border: 1px solid black;
+}
+
+.noUi-horizontal .noUi-handle{
+	width: 35px;
+	height: 35px;
+	top: -11px;
+	border-radius: 50px;
+	border: 2px solid $primary;
+	background-color: $secondary-light;
+	box-shadow: none;
+	cursor: move;
+}
+
+.noUi-handle:before, .noUi-handle:after{
+	top: 7px;
+	height: 16px;
+	background-color: #B8B8B8;
+}
+
+.noUi-handle:before{
+	left: 13px;
+}
+
+.noUi-handle:after{
+	left: 17px;
+}

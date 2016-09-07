@@ -1,0 +1,29 @@
+<template name="feedback">
+	<div class="feedbackContainer">
+		<div class="feedbackHeader">
+			What did you think of the session?
+		</div>
+		{{#if showSuggestedFeedbackSection}}
+			<div class="feedbackSelectionContainer">
+				<div class="feedbackSelectionHeader">
+					(Select all that apply)
+				</div>
+				{{#each feedbackTypes}}
+					<div class="feedbackSelection" name={{name}}>
+						{{name}}
+					</div>
+				{{/each}}
+			</div>
+			<div class="feedbackSubmit">
+				Send Feedback
+			</div>
+		{{else}}
+			<div class="feedbackVote" vote="good">
+				<img class="feedbackUpVote">
+			</div>
+			<div class="feedbackVote" vote="bad">
+				<img class="feedbackDownVote">
+			</div>
+		{{/if}}
+	</div>
+</template>

@@ -1,0 +1,28 @@
+<template name="questions">
+	{{#if rooms.count}}
+		<div class="roomSelectionContainer">
+			<select class="roomSelectionDropDown">
+				<option value="">All Rooms</option>
+				{{#each rooms}}
+					{{#if equals _id currentUser.profile.currentRoomId}}
+						<option selected value="{{_id}}">{{name}}</option>
+					{{else}}
+						<option value="{{_id}}">{{name}}</option>
+					{{/if}}
+				{{/each}}
+			</select>
+		</div>
+	{{/if}}
+	{{#if questions.count}}
+		<div class="questions">
+			<div class="editQuestionsContainer">
+				<span class="editQuestions" editEnabled="false">
+					Edit
+				</span>
+			</div>
+			{{#each questions}}
+				{{> question}}
+			{{/each}}
+		</div>
+	{{/if}}
+</template>

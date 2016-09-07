@@ -1,0 +1,15 @@
+<template name="rooms">
+	{{#if rooms.count}}
+		<div class="rooms">
+			<div class="adminCollectionHeader">
+			    Rooms
+			</div>
+			{{#each rooms}}
+				<div class="room">
+					<input class="roomName" value={{name}} readonly="readonly" />
+					<span class="deleteRoom">Delete</span>
+				</div>
+			{{/each}}
+		</div>
+	{{/if}}
+</template>

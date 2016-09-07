@@ -1,0 +1,25 @@
+@import "../../mixins";
+@import "../../colours";
+
+.activeQuestionGraph{
+	background-color: $secondary-light;
+	border: 1px solid $primary;
+	padding: 10px;
+}
+
+.activeQuestionGraphHeader{
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+	margin-bottom: 15px;
+	color: $primary;
+}
+
+.activeQuestionGraphAnswer{
+	font-size: 14px;
+}
+
+#activeQuestionGraph{
+	width: 100%;
+	height: 300px;
+}

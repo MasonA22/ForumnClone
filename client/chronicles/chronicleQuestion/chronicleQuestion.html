@@ -1,0 +1,27 @@
+<template name="chronicleQuestion">
+    <div class="chronicleQuestion">
+        <a href="{{pathFor route="chronicle"}}">
+            <div class="chronicleQuestionSession">
+                {{questionFormHash.sessionName}}
+            </div>
+            <div>
+                <span>Question: </span>
+                {{questionFormHash.question}}
+            </div>
+            <div>
+                <span>Answer: </span>
+                {{correctAnswer}}
+            </div>
+            {{#if currentUser.profile.isAdmin}}
+                {{#if questionFormHash.feedbackEnabled}}
+                    <div class="chronicleQuestionFeedback">
+                        <span>Feedback Enabled: </span>
+                        <span class="feedbackGood">{{questionFormHash.feedback.good}}</span>
+                        <span>/</span>
+                        <span class="feedbackBad">{{questionFormHash.feedback.bad}}</span>
+                    </div>
+                {{/if}}
+            {{/if}}
+        </a>
+    </div>
+</template>

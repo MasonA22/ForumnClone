@@ -1,0 +1,124 @@
+@import "../mixins";
+@import "../colours";
+@import "../fonts";
+
+.clickForGraph, .clickForDoughnut{
+	color: $primary;
+	padding: 20px;
+	border: 1px solid $primary;
+	cursor: pointer;
+	background-color: $secondary-transparent;
+}
+
+.clickForGraph:hover, .clickForDoughnut:hover{
+	background-color: $secondary-light;
+	@include animation-transition;
+}
+
+.activeQuestion{
+	font-size: 20px;
+}
+
+.activeQuestion.disabled{
+	pointer-events: none;
+	opacity: 0.5;
+}
+
+.activeQuestionHeader{
+	font-weight: bold;
+	margin-bottom: 15px;
+	text-align: center;
+	color: $primary;
+}
+
+.activeQuestionPoints{
+	font-size: 14px;
+}
+
+.activeQuestionAnswersHeader{
+	font-size: 15px;
+	margin-bottom: 10px;
+}
+
+.answerContainer.image{
+	width: 40%;
+	min-height: 100px;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	cursor: pointer;
+	@include blue-background-box;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.answerContainer.image img{
+	width: 100%;
+}
+
+.answerContainer.image:hover{
+	border: 2px solid $primary;
+	background-color: $secondary;
+	@include animation-transition;
+}
+
+.answerContainer.all{
+	display: table;
+	position: relative;
+	width: 100%;
+	text-align: center;
+	min-height: 70px;
+	font-size: 24px;
+	border: 5px solid $primary-dark-1;
+	margin-bottom: 20px;
+	cursor: pointer;
+	color: $primary;
+	background-color: $secondary-transparent;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.answerContainer.all:hover, .answerContainer.all:active{
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	border: 5px solid $primary-darker;
+	background-color: $primary-red;
+	@include animation-transition;
+}
+
+.answerContainerContent{
+	padding: 10px;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.answerContainerContent img{
+	width: 100%;
+}
+
+.currentRank{
+	font-size: 14px;
+}
+
+.wagerForm{
+	margin-bottom: 10px;
+}
+
+.currentRoomContainer{
+	text-align: right;
+	font-size: 12px;
+	margin-bottom: 10px;
+}
+
+.returnToLobby{
+	cursor: pointer;
+}
+
+@media all and (max-width: 50em) {
+	.answerContainer.all:hover{
+		border: 5px solid $primary-dark-1;
+		background-color: $secondary-transparent;
+	}
+}

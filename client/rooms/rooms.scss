@@ -1,0 +1,30 @@
+@import "../mixins";
+@import "../colours";
+
+.rooms{
+	font-size: 14px;
+	padding: 20px;
+	@include blue-background-box;
+}
+
+.room{
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid black;
+}
+
+.deleteRoom{
+	float: right;
+	cursor: pointer;
+}
+
+.roomName{
+	border: none;
+	outline: none;
+	width: 50%;
+	padding: 2px 4px 2px 4px;
+}
+
+.room input:read-only{
+	background-color: $secondary-transparent;
+}

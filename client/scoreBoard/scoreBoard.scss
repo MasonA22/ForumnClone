@@ -1,0 +1,60 @@
+@import "../colours";
+@import "../mixins";
+
+.scoreBoard{
+	text-align: center;
+	font-size: 20px;
+	color: $primary;
+	@include white-background-box;
+}
+
+.scoreBoard table{
+	width: 100%;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+.showAllScores {
+	cursor: pointer;
+	margin-top: 10px;
+	font-size: 20px;
+}
+
+.scoreBoardHeaders{
+	border-bottom: 1px solid $primary;
+}
+
+.scoreBoard th, .scoreBoard td{
+	padding: 5px;
+}
+
+.scoreBoard th:not(:last-child), .scoreBoard td:not(:last-child){
+	border-right: 1px solid $primary;
+}
+
+.activeScoreBoardUser{
+	color: $direct;
+}
+
+.scoreBoardRankNumber{ 
+	width: 30px;
+}
+
+.rankChangePositive{
+	color: $primary-green;
+}
+
+.rankChangeNegative{
+	color: $primary-red;
+}
+
+.rankChangeType{
+	font-style: italic;
+}
+
+@media all and (max-width: 50em) {
+	.scoreBoardUser{
+		font-size: 10px;
+	}
+}
+

@@ -1,0 +1,65 @@
+@import "../../mixins";
+@import "../../colours";
+
+.feedbackContainer{
+	text-align: center;
+}
+
+.feedbackHeader{
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.feedbackVote{
+	font-size: 25px;
+	cursor: pointer;
+	width: 40%;
+	height: 100px;
+	display: inline-block;
+	@include white-background-box;
+}
+
+.feedbackUpVote{
+	height: 100%;
+	content: url("../../thumbs_up.png");
+}
+
+.feedbackDownVote{
+	transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	height: 100%;
+	content: url("../../thumbs_up.png");
+}
+
+.feedbackVote div{
+	text-align: center;
+	@include vertical-align;
+}
+
+.feedbackVote:hover{
+	background-color: $direct;
+	@include animation-transition;
+}
+
+.feedbackSelectionContainer{
+	margin-top: 10px;
+}
+
+.feedbackSelection{
+	cursor: pointer;
+	display: inline-block;
+	@include white-background-box;
+}
+
+.feedbackSelection.active, .feedbackSelection:hover{
+	@include blue-background-box;
+	@include animation-transition;
+}
+
+.feedbackSubmit{
+	cursor: pointer;
+	margin-top: 10px;
+	@include blue-background-box;
+	background-color: $primary-green;
+}

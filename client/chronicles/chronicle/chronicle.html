@@ -1,0 +1,50 @@
+<template name="chronicle">
+    <div class="chronicle">
+        {{#if showChronicleGraph}}
+            {{> chronicleQuestionGraph}}
+        {{else}}
+            <div class="chronicleQuestionOption chronicleGraph">
+                Click to see graph results.
+            </div>
+        {{/if}}
+        <div class="chronicleQuestionRanks">
+            <div class="chronicleQuestionHeader">
+                Rank Order (users who got the answer correct):
+            </div>
+            <div class="chronicleQuestionRanksContent">
+                {{#each rankOrder}}
+                    {{#if equals currentUser.emails.[0].address this}}
+                        <span class="chronicleQuestionCurrentUser">
+                            {{this}}
+                        </span>
+                    {{else}}
+                        {{this}}
+                    {{/if}}
+                {{/each}}
+            </div>
+        </div>
+        {{#if (or currentUser.profile.isAdmin currentUser.profile.isModerator)}}
+            <div class=chronicleQuestionFeedbackTable>
+                <div class="chronicleQuestionHeader">
+                    Feedback:
+                </div>
+                <table>
+                    <tr>
+                        <th>User</th>
+                        <th>Details</th>
+                    </tr>
+                    {{#each questionFormHash.feedback.feedbackUsers}}
+                        <tr>
+                            <td>
+                                {{> feedbackUser}}
+                            </td>
+                            <td>
+                                {{this.feedbackArray}}
+                            </td>
+                        </tr>
+                    {{/each}}
+                </table>
+            </div>
+        {{/if}}
+    </div>
+</template>

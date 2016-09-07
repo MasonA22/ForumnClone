@@ -1,0 +1,17 @@
+<template name="feedbackTypes">
+    {{#if feedbackTypes.count}}
+        <div class="feedbackTypes">
+            <div class="adminCollectionHeader">
+                Feedback Types
+            </div>
+            {{#each feedbackTypes}}
+                <div class="feedbackType">
+                    {{name}} 
+                    <span class="deleteFeedbackType">
+                        Delete
+                    </span>
+                </div>
+            {{/each}}
+        </div>
+    {{/if}}
+</template>

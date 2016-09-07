@@ -1,0 +1,12 @@
+<template name="badges">
+    {{#if badges.count}}
+        <div class="badges">
+            <div class="adminCollectionHeader">
+                Badges
+            </div>
+            {{#each badges}}
+                {{> badge}}
+            {{/each}}
+        </div>
+    {{/if}}
+</template>

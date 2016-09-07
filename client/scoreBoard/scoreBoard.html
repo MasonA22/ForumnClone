@@ -1,0 +1,65 @@
+<template name="scoreBoard">
+	<div class="scoreBoard">
+		<table>
+			<tr class="scoreBoardHeaders">
+				<th>Rank</th>
+				<th>User</th>
+				<th>Score</th>
+			</tr>
+			{{#each users}}
+				<tr>
+					{{#if equals currentUser._id _id}}
+						<td class="activeScoreBoardUser">
+							<td class="scoreBoardRankNumber">
+								<span>{{inc @index}}</span>
+							</td>
+							<td>
+								{{#if rankPositivity profile.rankChange}}
+									<span class="rankChangeType rankChangePositive">↑{{profile.rankChange}}</span>
+								{{else}}
+									{{#if equals profile.rankChange 0}}
+										<span>—</span>
+									{{else}}
+										<span class="rankChangeType rankChangeNegative">↓{{absoluteValue profile.rankChange}}</span>
+									{{/if}}
+								{{/if}}
+							</td>
+						</td>
+						<td class="scoreBoardUser activeScoreBoardUser">
+							{{> scoreBoardUser}}
+						</td>
+						<td class="activeScoreBoardUser">{{profile.score}}</td>
+					{{else}}
+						<td>
+							<td class="scoreBoardRankNumber">
+								<span>{{inc @index}}</span>
+							</td>
+							<td>
+								{{#if rankPositivity profile.rankChange}}
+									<span class="rankChangeType rankChangePositive">↑{{profile.rankChange}}</span>
+								{{else}}
+									{{#if equals profile.rankChange 0}}
+										<span>—</span>
+									{{else}}
+										<span class="rankChangeType rankChangeNegative">↓{{absoluteValue profile.rankChange}}</span>
+									{{/if}}
+								{{/if}}
+							</td>
+						</td>
+						<td class="scoreBoardUser">
+							{{> scoreBoardUser}}
+						</td>
+						<td>{{profile.score}}</td>
+					{{/if}}
+				</tr>
+			{{/each}}
+		</table>
+		<div class="showAllScores">
+		{{#if showAllScores}}
+			Show Elite
+		{{else}}
+			Show All
+		{{/if}}
+		</div>
+	</div>
+</template>

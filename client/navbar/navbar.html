@@ -1,0 +1,82 @@
+<template name="navbar">
+	<div class="navbar">
+		<div class="navbar-nonmobile">
+			<a href="{{pathFor route="home"}}">Home</a>
+			<span>|</span>
+			<a class="{{isActiveRoute 'scoreBoard'}}" href="{{pathFor route="scoreBoard"}}">Score Board</a>
+			<span>|</span>
+			<a class="{{isActiveRoute 'chronicles'}}" href="{{pathFor route="chronicles"}}">Chronicles of...</a>
+			{{#if activateBadges.count}}
+				<span>|</span>
+				<a class="{{isActiveRoute 'badgeBoard'}}" href="{{pathFor route="badgeBoard"}}">Badges</a>
+			{{/if}}
+			{{#if currentUser}}
+				{{#if currentUser.profile.isAdmin}}
+					<span>|</span>
+					<a class="{{isActiveRoute 'addQuestion'}}" href="{{pathFor route="addQuestion"}}">Add _</a>
+					<span>|</span>
+					<a class="{{isActiveRoute 'admin'}}" href="{{pathFor route="admin"}}">Admin</a>
+				{{/if}}
+				<span>|</span>
+				<a class="logoutButton" href="/logout">Logout ({{userName}})</a>
+			{{else}}
+				<span>|</span>
+				<a class="{{isActiveRoute 'login'}}" href="{{pathFor route="login"}}">Register</a>
+			{{/if}}
+			<a href="{{pathFor route="home"}}">
+				<div class="forumLiveLogo">
+					<div>
+						FORUM LIVE
+					</div>
+				</div>
+			</a>
+		</div>
+
+		<a class="headerLink" href="/">
+			<div class="headerImage">
+				<div data-text="FORUM LIVE">
+					FORUM LIVE
+				</div>
+			</div>
+		</a>
+		{{#if isQuestionActive}}
+			<div class="headerPowerButtonOn"></div>
+		{{else}}
+			<div class="headerPowerButtonOff"></div>
+		{{/if}}
+
+		<a class="hamburger-menu-icon"></a>
+		<div class="start-menu-icon">
+			<div class="start-menu-arrow">
+				↓
+			</div>
+		</div>
+		<ul class="mobile-dropdown-menu">
+			<li><a href="{{pathFor route="home"}}">Home</a></li>
+			<li><a class="{{isActiveRoute 'scoreBoard'}}" href="{{pathFor route="scoreBoard"}}">Score Board</a></li>
+			<li><a class="{{isActiveRoute 'chronicles'}}" href="{{pathFor route="chronicles"}}">Chronicles of...</a></li>
+			{{#if activateBadges.count}}
+				<li><a class="{{isActiveRoute 'badgeBoard'}}" href="{{pathFor route="badgeBoard"}}">Badges</a></li>
+			{{/if}}
+			{{#if currentUser}}
+				{{#if currentUser.profile.isAdmin}}
+					<li><a class="{{isActiveRoute 'addQuestion'}}" href="{{pathFor route="addQuestion"}}">Add _</a></li>
+					<li><a class="{{isActiveRoute 'admin'}}" href="{{pathFor route="admin"}}">Admin</a></li>
+				{{/if}}
+				<li><a class="logoutButton" href="/logout">Logout ({{userName}})</a></li>
+			{{else}}
+				<li><a class="{{isActiveRoute 'login'}}" href="{{pathFor route="login"}}">Register</a></li>
+			{{/if}}
+		</ul>
+	</div>
+	{{#if currentUser}}
+		<div class="navbarScore">
+			<div class="navbarScoreEmblem">
+				Score: {{currentUser.profile.score}}
+			</div>
+		</div>
+	{{else}}
+		<div class="navbarScore">
+		</div>
+	{{/if}}
+</template>

@@ -1,0 +1,43 @@
+@mixin vertical-align{
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+}
+
+@mixin animation-transition{
+	-webkit-transition: all 0.1s ease;
+	-moz-transition: all 0.1s ease;
+	-ms-transition: all 0.1s ease;
+	-o-transition: all 0.1s ease;
+	transition: all 0.1s ease;
+}
+
+@mixin slow-animation-transition{
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	-ms-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+}
+
+@mixin blue-background-box{
+	background-color: $secondary-transparent;
+	border: 1px solid $primary;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+@mixin white-background-box{
+	background-color: $secondary-light;
+	border: 1px solid $primary;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+@mixin direct-background-box{
+	background-color: $direct;
+	border: 1px solid $primary;
+	padding: 10px;
+}

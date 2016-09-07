@@ -1,0 +1,15 @@
+@import "../colours";
+
+.resendCode{
+	font-size: 10px;
+	text-align: right;
+	margin-top: 10px;
+	cursor: pointer;
+}
+
+.codeSentMessage{
+	display: none;
+	font-size: 10px;
+	font-style: italic;
+	text-align: right;
+}

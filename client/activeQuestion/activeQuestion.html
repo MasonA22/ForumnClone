@@ -1,0 +1,84 @@
+<template name="activeQuestion">
+	<div class="currentRoomContainer">
+		<div>{{currentRoom.name}}</div>
+		<div class="returnToLobby">(← Return to Lobby)</div>
+	</div>
+
+	{{#if answeredQuestion}}
+		{{#each activeQuestion}}
+			{{#if showActiveQuestionGraph}}
+				{{> activeQuestionGraph}}
+			{{else}}
+				{{#if showFeedbackSection}}
+					{{> feedback}}
+				{{else}}
+					<div class="clickForGraph">
+						Thank you for your answer. Click here for the graph results.
+					</div>
+				{{/if}}
+			{{/if}}
+		{{/each}}
+	{{else}}
+		<div class="activeQuestion">
+			{{#each activeQuestion}}
+				{{#if showTimer}}
+					{{> activeQuestionTimer}}
+				{{else}}
+					<div class="activeQuestionHeader">
+						<span>Question: </span>
+						{{questionFormHash.question}}
+						{{#if questionFormHash.isTrivia}}
+							<div class="currentRank">
+								Rank Number if you answer now:
+								<span class="currentRankNumber">
+									{{rankNumber}}
+								</span> 
+							</div>
+							<div class="activeQuestionPoints" title="Participation Points: {{questionFormHash.points}} (X2 for correct), Rank Points: {{rankPoints}}">
+								<span>Points worth: </span>
+								{{triviaPointsWorth}}
+							</div>
+						{{else}}
+							<div class="activeQuestionPoints">
+								<span>Points worth: </span>
+								{{questionFormHash.points}}
+							</div>
+						{{/if}}
+					</div>
+					{{#if questionFormHash.isInput}}
+						{{#if questionFormHash.wagerEnabled}}
+							{{> wagerForm}}
+						{{/if}}
+						<form>
+							<span>Answer:</span>
+							<input type="text" id="user-answer" />
+							<button class="inputAnswerSubmit">Submit</button>
+						</form>
+					{{else}}
+						{{#if questionFormHash.wagerEnabled}}
+							{{> wagerForm}}
+						{{/if}}
+						<div class="activeQuestionAnswersHeader">
+							Answers (Select One): 
+						</div>
+						{{#if questionFormHash.isPicture}}
+							{{#each questionFormHash.answers}}
+								<div class="answerContainer image" questionId={{../_id}}>
+									<img src="{{this.imagePath}}">
+								</div>
+							{{/each}}
+						{{else}}
+							{{#each questionFormHash.answers}}
+								<div class="answerContainer all" questionId={{../_id}}>
+									<div class="answerContainerContent">
+										{{this.text}}
+									</div>
+								</div>
+							{{/each}}
+						{{/if}}
+					{{/if}}
+				{{/if}}
+			{{/each}}
+		</div>
+	{{/if}}
+</template>

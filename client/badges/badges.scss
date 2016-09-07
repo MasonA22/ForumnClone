@@ -1,0 +1,43 @@
+@import "../mixins";
+@import "../colours";
+
+.badges{
+    font-size: 14px;
+    @include blue-background-box;
+}
+
+.badge{
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+.badge label{
+    display: block;
+    cursor: pointer;
+}
+
+.badge input[type="file"]{
+    visibility: hidden;
+}
+
+.updateBadgeAvatarContainer{
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+    float: left;
+    margin-top: 3px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.updateBadgeAvatarContainer img{
+    width: 10px;
+    height: 10px;
+    display: block;
+}
+
+.deleteBadge{
+    cursor: pointer;
+    float: right;
+}

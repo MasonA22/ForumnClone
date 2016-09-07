@@ -1,0 +1,20 @@
+<template name="inputQuestion">
+	<form class="questionForm">
+		<div>
+			<span>Question:</span>
+			<input type="text" name="question" />
+		</div>
+		<span>Answer:</span>
+		<input type="text" name="inputAnswer" />
+		<div>
+			<span>Points Worth:</span>
+			<input type="number" name="points" value="1000"/>
+		</div>
+		<div class="advancedToggleContainer">
+			<span class="wagerToggle disabled" wagerEnabled="false">Enable Point Wager</span>
+			<span> | </span>
+			<span class="feedbackToggle disabled" feedbackEnabled="false">Enable Feedback</span>
+		</div>
+		<button class="addQuestionButton" disabled>Save</button>
+	</form>
+</template>

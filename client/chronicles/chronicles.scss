@@ -1,0 +1,70 @@
+@import "../colours";
+@import "../mixins";
+
+.chronicleQuestion, .chronicleQuestionOption{
+    cursor: pointer;
+    margin-top: 10px;
+    @include blue-background-box;
+}
+
+.chronicleQuestion:hover, .chronicleQuestionOption:hover{
+    background-color: $secondary-light;
+    @include animation-transition;
+}
+
+.chronicleQuestion span{
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.chronicleQuestionSession{
+    font-size: 10px;
+    font-weight: normal;
+    font-style: italic;
+    text-align: right;
+    margin-bottom: 12px;
+}
+
+.chronicleQuestionFeedback{
+    margin-top: 10px;
+    text-align: right;
+}
+
+.chronicleQuestionRanks, .chronicleQuestionFeedbackTable{
+    margin-top: 10px;
+    font-size: 14px;
+    @include white-background-box;
+}
+
+.chronicleQuestionFeedbackTable{
+    padding: 5px;
+}
+
+.chronicleQuestionHeader{
+    margin-bottom: 3px;
+    padding-bottom: 6px;
+    font-weight: bold;
+}
+
+.chronicleQuestionRanksContent{
+    word-wrap: break-word;
+}
+
+.chronicleQuestionCurrentUser {
+    color: $direct;
+}
+
+.chronicleQuestionGraph{
+    text-align: center;
+    @include white-background-box;
+}
+
+.chronicleQuestionFeedbackTable table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.chronicleQuestionFeedbackTable th, .chronicleQuestionFeedbackTable td{
+    border: 1px solid black;
+    padding: 5px;
+}

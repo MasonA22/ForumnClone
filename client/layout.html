@@ -1,0 +1,11 @@
+<template name="layout">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<div id="main" class="noselect">
+		{{> navbar}}
+		<div class="centreContainer">
+			{{> notifications}}
+			{{> yield}}
+		</div>
+		{{> footer}}
+	</div>
+</template>

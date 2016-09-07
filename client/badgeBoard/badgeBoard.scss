@@ -1,0 +1,49 @@
+@import "../mixins";
+@import "../colours";
+
+.badgeBoardContainer{
+    @include blue-background-box;
+}
+
+.badgeBoardInfo{
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+    display: flex;
+}
+
+.badgeBoardInfoAvatar{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border: 1px solid black;
+    float: left;
+    margin-right: 10px;
+}
+
+.badgeBoardInfoAvatar img{
+    width: 100%;
+}
+
+.badgeBoardInfoContent{
+    display: inline-block;
+    width: 65%;
+}
+
+.badgeBoardInfoName{
+    font-size: 17px;
+}
+
+.badgeBoardInfoDescription{
+    font-style: italic;
+    margin-top: 2px;
+    font-size: 12px;
+    padding-bottom: 10px;
+}
+
+.badgeBoardUsers{
+    padding-top: 5px;
+}
+
+.activeBadgeBoardUser{
+    color: $direct;
+}

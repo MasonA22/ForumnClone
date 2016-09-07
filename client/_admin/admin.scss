@@ -1,0 +1,45 @@
+@import "../colours";
+@import "../mixins";
+
+.onlineUser{
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid black;
+}
+
+.makeAdmin, .makeModerator, .assignPoints, .deleteUser{
+	cursor: pointer;
+}
+
+.assignPointsContainer{
+	margin-top: 10px;
+}
+
+.onlineUsersHeader, .offlineUsersHeader{
+	text-align: center;
+	color: $primary;
+	margin-bottom: 10px;
+	font-style: italic;
+}
+
+.massNotificationContainer{
+	margin-top: 10px;
+}
+
+.assignPointsContainer{
+	display: none;
+}
+
+.userManagementContainer{
+	cursor: pointer;
+}
+
+.userManagementContainer:hover{
+	background-color: $secondary-light;
+	@include animation-transition;
+}
+
+.onlineUsers, .offlineUsers, .userManagementContainer{
+	margin-top: 10px;
+	@include blue-background-box;
+}

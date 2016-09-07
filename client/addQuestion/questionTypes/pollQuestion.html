@@ -1,0 +1,20 @@
+<template name="pollQuestion">
+	<form class="questionForm">
+		<div>
+			<span>Question:</span>
+			<input type="text" name="question" />
+		</div>
+		<span>Answer:</span>
+		<input type="text" name="answer" class="answer" />
+		<input type="text" name="answer" class="answer" id="firstAnswer" />
+		<div class="addAnswer" title="Add an additional answer">+</div>
+		<div>
+			<span>Points Worth:</span>
+			<input type="number" name="points" value="1000"/>
+		</div>
+		<div class="advancedToggleContainer">
+			<span class="feedbackToggle disabled" feedbackEnabled="false">Enable Feedback</span>
+		</div>
+		<button class="addQuestionButton" disabled>Save</button>
+	</form>
+</template>

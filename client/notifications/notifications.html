@@ -1,0 +1,16 @@
+<template name="notifications">
+	{{#if showNotifications}}
+		<div class="notifications">
+			<div class="clearNotifications">
+				<div>x</div>
+			</div>
+			{{#each notifications}}
+				<div class="notification">
+					<li>
+						{{message}}
+					</li>
+				</div>
+			{{/each}}
+		</div>
+	{{/if}}
+</template>

@@ -1,0 +1,90 @@
+<template name="question">
+	<div {{activeQuestionAttributes}}>
+		<div class="questionHeader editQuestionHeader">
+			Question: 
+			<input class="questionText" value={{questionFormHash.question}} readonly="readonly" />
+			<div class="questionRoomName">{{room.name}}</div>
+			<div class="questionDetails">
+				<input class="questionSessionName" type="text" value={{questionFormHash.sessionName}} readonly="readonly" />
+				<span> | </span>
+				<input class="questionAskOrder" type="text" value={{questionFormHash.askOrder}} readonly="readonly" />
+			</div>
+		</div>
+		{{#if questionFormHash.isInput}}
+			<div>Answer: </div>
+			<div>
+				{{questionFormHash.inputAnswer}}
+			</div>
+			<div>
+				<span>Correct: {{questionFormHash.answerData.correct}}</span>
+				<span> | </span>
+				<span>Incorrect: {{questionFormHash.answerData.incorrect}}</span>
+			</div>
+		{{else}}
+			<div>Answers: </div>
+			{{#each questionFormHash.answers}}
+				<div class="editAnswers">
+					<li>
+						<input value={{this.text}} selectedAnswerIndex={{@index}} questionId={{../_id}} readonly="readonly" />
+						<span> | </span>
+						<span>Votes: </span>
+						{{this.votes}}
+						{{#if this.correct}}
+							<span> | </span>
+							<span>Correct Answer: </span>
+							{{this.correct}}
+						{{/if}}
+					</li>
+				</div>
+			{{/each}}
+		{{/if}}
+		<div class="pointsWorthContainer editPoints">
+			<span>Points Worth: </span>
+			<input type="number" value={{questionFormHash.points}} readonly="readonly" />
+		</div>
+		{{#if questionFormHash.wagerEnabled}}
+			<div class="optionEnabledContainer">
+				<span>Wager Enabled</span>
+			</div>
+		{{/if}}
+		{{#if questionFormHash.feedbackEnabled}}
+			<div class="optionEnabledContainer">
+				<span>Feedback Enabled: </span>
+				<span class="feedbackGood">{{questionFormHash.feedback.good}}</span>
+				<span>/</span>
+				<span class="feedbackBad">{{questionFormHash.feedback.bad}}</span>
+			</div>
+		{{/if}}
+		{{#if activeQuestion}}
+			<span class="removeActiveQuestion">
+				Remove Active:
+			</span>
+		{{else}}
+			<span class="makeActiveQuestion">
+				Make Active:
+			</span>
+		{{/if}}
+		<input type="number" class="startTimerSeconds" value=0 />
+		<span> | </span>
+		<span class="resetVotes">
+			Reset Votes
+		</span>
+		<span> | </span>
+		<span class="toggleQuestionFeedback">
+			Feedback
+		</span>
+		<span> | </span>
+		<span class="toggleQuestionWager">
+			Wager
+		</span>
+		<span> | </span>
+		<span class="deleteQuestion">
+			Delete
+		</span>
+		{{#if questionFormHash.isPoll}}
+			<span class="questionJson">Generate Data JSON</span>
+			<span> | </span>
+			<span class="resetQuestionData">Reset Data</span>
+		{{/if}}
+	</div>
+</template>

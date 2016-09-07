@@ -1,0 +1,16 @@
+<template name="selectRoom">
+	<div class="selectRoomContainer">
+		{{#if rooms.count}}
+			<div class="selectRoomHeader">
+				Select a Room to Join
+			</div>
+		{{/if}}
+		{{#each rooms}}
+			<div class="selectRoom">
+				<div class="selectRoomTierOne"></div>
+				<div class="selectRoomName">{{name}}</div>
+				<div class="doorEntrance"></div>
+			</div>
+		{{/each}}
+	</div>
+</template>

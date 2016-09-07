@@ -1,0 +1,14 @@
+<template name="home">
+	{{#if currentUser.profile.currentRoomId}}
+		{{> activeQuestion}}
+	{{else}}
+		{{> selectRoom}}
+	{{/if}}
+	
+	{{#if currentUser.profile.isAdmin}}
+		{{> questions}}
+		{{> rooms}}
+		{{> badges}}
+		{{> feedbackTypes}}
+	{{/if}}
+</template>

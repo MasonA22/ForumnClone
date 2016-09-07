@@ -1,0 +1,95 @@
+@import "../colours";
+@import "../mixins";
+
+.addAnswer, .addTriviaAnswer, .addPictureAnswer{
+	font-size: 40px;
+	text-align: center;
+	cursor: pointer;
+	clear: both;
+}
+
+.questionTypeContainer{
+	text-align: center;
+	font-size: 15px;
+	margin-bottom: 20px;
+	@include white-background-box;
+}
+
+.questionType{
+	color: $primary;
+	cursor: pointer;
+}
+
+.questionType:hover{
+	color: $secondary;
+	@include animation-transition;
+}
+
+.markCorrect{
+	font-size: 12px;
+	font-weight: bold;
+	margin-bottom: 15px;
+	cursor: pointer;
+	color: $primary;
+	display: inline-block;
+	float: right;
+}
+
+.answer{
+	border: 2px solid rgb(152, 61, 97);
+}
+
+.correctAnswer{
+	border: 2px solid #328C67;
+}
+
+.advancedToggleContainer{
+	text-align: right;
+}
+
+.wagerToggle, .feedbackToggle{
+	cursor: pointer;
+	font-size: 12px;
+	color: $primary;
+	font-weight: bold;
+	margin-bottom: 10px;
+	display: inline-block;
+}
+
+.markCorrect.disabled, .wagerToggle.disabled, .feedbackToggle.disabled{
+	opacity: 0.4;
+}
+
+.markCorrect:hover, .wagerToggle:hover, .feedbackToggle:hover{
+	opacity: 1;
+	@include animation-transition;
+}
+
+.pictureAnswer{
+	cursor: pointer;
+	width: 100%;
+	height: 100px;
+	padding: 10px;
+}
+
+.pictureAnswer.answer{
+	border: 2px solid rgb(152, 61, 97);
+}
+
+.pictureAnswer.correctAnswer{
+	border: 2px solid #328C67;
+}
+
+.roomSelectionContainer{
+	margin: 40px 0px 10px 0px;
+}
+
+.roomSelectionDropDown{
+	width: 100%;
+	padding: 3px;
+	font-size: 15px;
+}
+
+.badgeAvatar{
+	padding: 2px;
+}
