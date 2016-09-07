@@ -3,7 +3,7 @@ import { Template } from "meteor/templating";
 import { ReactiveDict } from 'meteor/reactive-dict';
 
 import "./scoreBoard.html";
-import "./scoreBoardUser/scoreBoardUser.html";
+import "./scoreBoardUser/scoreBoardUser.js";
 
 Template.scoreBoard.onCreated(function() {
 	this.state = new ReactiveDict();
