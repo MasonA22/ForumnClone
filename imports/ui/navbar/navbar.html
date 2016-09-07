@@ -19,9 +19,6 @@
 				{{/if}}
 				<span>|</span>
 				<a class="logoutButton" href="/logout">Logout ({{userName}})</a>
-			{{else}}
-				<span>|</span>
-				<a class="{{isActiveRoute 'login'}}" href="{{pathFor route="login"}}">Register</a>
 			{{/if}}
 			<a href="{{pathFor route="home"}}">
 				<div class="forumLiveLogo">
@@ -64,8 +61,6 @@
 					<li><a class="{{isActiveRoute 'admin'}}" href="{{pathFor route="admin"}}">Admin</a></li>
 				{{/if}}
 				<li><a class="logoutButton" href="/logout">Logout ({{userName}})</a></li>
-			{{else}}
-				<li><a class="{{isActiveRoute 'login'}}" href="{{pathFor route="login"}}">Register</a></li>
 			{{/if}}
 		</ul>
 	</div>

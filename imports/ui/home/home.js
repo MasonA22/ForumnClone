@@ -1,4 +1,5 @@
 import "./home.html";
+import "../login/login.js";
 import "../activeQuestion/activeQuestion.js";
 import "../selectRoom/selectRoom.js";
 import "../questions/questions.js";
