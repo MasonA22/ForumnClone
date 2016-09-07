@@ -1,6 +1,5 @@
 import { Mongo } from "meteor/mongo";
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
-import { Questions } from "./questions.js";
 
 var Schemas = {};
 
@@ -213,13 +212,12 @@ Meteor.methods({
             }
         });
     },
-    updateScoreBoardRanks: function(questionId){
+    updateScoreBoardRanks: function(roomId){
         console.log("Updating the score board ranks...");
         var users = Meteor.users.find({"profile.isAdmin": false},
                                  {sort: {"profile.score": -1}},
                                  {fields: {"profile": 1, "emails": 1}}
                                 );
-        var roomId = Questions.findOne(questionId).questionFormHash.roomId;
         users.forEach(function(user, index){
             var userId = user._id;
             var rank = index + 1;

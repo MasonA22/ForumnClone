@@ -72,8 +72,9 @@ Template.questions.events({
 	"click .removeActiveQuestion": function(evt, template){
 		evt.preventDefault();
 		var questionId = this._id;
+		var roomId = Questions.findOne(questionId).questionFormHash.roomId;
 		Meteor.call("removeActiveQuestion", questionId);
-		Meteor.call("updateScoreBoardRanks", questionId);
+		Meteor.call("updateScoreBoardRanks", roomId);
 	},
 	"click .resetVotes": function(evt, template){
 		evt.preventDefault();
