@@ -1,3 +1,9 @@
+import { Meteor } from "meteor/meteor";
+import { Template } from "meteor/templating";
+import { Questions } from "../../api/questions.js";
+
+import "./activeQuestionTimer.html";
+
 Template.activeQuestionTimer.onRendered(function(){
 	var roomId = Meteor.user().profile.currentRoomId;
 	var activeQuestion = Questions.findOne({activeQuestion: true, "questionFormHash.roomId": roomId});

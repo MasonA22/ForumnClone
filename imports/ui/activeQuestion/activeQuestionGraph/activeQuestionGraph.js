@@ -1,3 +1,9 @@
+import { Meteor } from "meteor/meteor";
+import { Template } from "meteor/templating";
+import { Questions } from "../../api/questions.js";
+
+import "./activeQuestionGraph.html";
+
 Template.activeQuestionGraph.onRendered(function(){
 	this.autorun(function(){
 		drawChart();

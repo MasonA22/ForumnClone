@@ -1,3 +1,10 @@
+import { Meteor } from "meteor/meteor";
+import { Template } from "meteor/templating";
+import { Questions } from "../../api/questions.js";
+import { Rooms } from "../../api/rooms.js";
+
+import "./activeQuestion.html";
+
 Template.activeQuestion.onCreated(function(){
 	Meteor.subscribe("questions");
 });

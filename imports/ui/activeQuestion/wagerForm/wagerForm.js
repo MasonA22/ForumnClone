@@ -1,3 +1,8 @@
+import { Meteor } from "meteor/meteor";
+import { Template } from "meteor/templating";
+
+import "./wagerForm.html";
+
 Template.wagerForm.onRendered(function(){
 	var slider = document.getElementById('wageRangeSlider');
 	var score = Meteor.user().profile.score;
