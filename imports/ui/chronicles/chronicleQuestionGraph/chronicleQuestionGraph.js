@@ -1,4 +1,5 @@
 import { Template } from "meteor/templating";
+import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Questions } from "../../../api/questions.js";
 
 import "./chronicleQuestionGraph.html";
