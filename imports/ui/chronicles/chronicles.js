@@ -3,6 +3,7 @@ import { Template } from "meteor/templating";
 import { Questions } from "../../api/questions.js";
 
 import "./chronicles.html";
+import "./chronicleQuestion/chronicleQuestion.js";
 
 Template.chronicles.onCreated(function(){
 	Meteor.subscribe("questions");

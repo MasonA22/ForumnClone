@@ -4,6 +4,8 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 import { Questions } from "../../../api/questions.js";
 
 import "./chronicle.html";
+import "../chronicleQuestionGraph/chronicleQuestionGraph.js";
+import "./feedbackUser/feedbackUser.js";
 
 Template.chronicle.onCreated(function(){
     this.state = new ReactiveDict();
