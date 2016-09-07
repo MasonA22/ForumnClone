@@ -5,6 +5,10 @@ import { Questions } from "../../api/questions.js";
 import { Rooms } from "../../api/rooms.js";
 
 import "./activeQuestion.html";
+import "./activeQuestionGraph/activeQuestionGraph.js";
+import "./activeQuestionTimer/activeQuestionTimer.js";
+import "./feedback/feedback.js";
+import "./wagerForm/wagerForm.js";
 
 Template.activeQuestion.onCreated(function(){
 	this.state = new ReactiveDict();

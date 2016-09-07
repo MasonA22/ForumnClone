@@ -18,7 +18,7 @@ Template.feedback.helpers({
 	},
 	showSuggestedFeedbackSection: function(){
 		const instance = Template.instance();
-		if (instance.get("showSuggestedFeedbackSection")){
+		if (instance.state.get("showSuggestedFeedbackSection")){
 			return true;
 		}
 		else{
