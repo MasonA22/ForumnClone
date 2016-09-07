@@ -1,5 +1,13 @@
 
 import '../../ui/layout/layout.js';
+import '../../ui/home/home.js';
+import '../../ui/login/login.js';
+import '../../ui/addQuestion/addQuestion.js';
+import '../../ui/scoreBoard/scoreBoard.js';
+import '../../ui/badgeBoard/badgeBoard.js';
+import '../../ui/chronicles/chronicles.js';
+import '../../ui/chronicles/chronicle/chronicle.js';
+import '../../ui/_admin/admin.js';
 
 Router.configure({
 	layoutTemplate: "layout"
