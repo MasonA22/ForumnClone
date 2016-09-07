@@ -4,8 +4,8 @@ import { Questions } from "../../../api/questions.js";
 import "./chronicleQuestionGraph.html";
 
 Template.chronicleQuestionGraph.onRendered(function(){
+    var questionId = FlowRouter.getParam("_id");
     this.autorun(function(){
-        var questionId = Template.currentData()._id;
         drawChart(questionId);
     });
 
@@ -17,7 +17,6 @@ Template.chronicleQuestionGraph.onRendered(function(){
     window.addEventListener(orientationEvent, function() {
         templateThis.autorun(function(){
             clearTimeout(id);
-            var questionId = Template.currentData()._id;
             id = setTimeout(doneResizing(questionId), 1000);
         });
     }, false);
