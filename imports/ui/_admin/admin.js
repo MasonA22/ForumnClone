@@ -1,10 +1,14 @@
 import { Meteor } from "meteor/meteor";
 import { Template } from "meteor/templating";
+import { ReactiveDict } from 'meteor/reactive-dict';
 import { Questions } from "../../api/questions.js";
 
 import "./admin.html";
 
 Template.admin.onCreated(function(){
+	this.state = new ReactiveDict();
+	const instance = Template.instance();
+	instance.state.set("massNotification", false);
 	Meteor.subscribe("presences");
 	Meteor.subscribe("allUsers");
 	Meteor.subscribe("activateBadges");
@@ -13,7 +17,8 @@ Template.admin.onCreated(function(){
 
 Template.admin.helpers({
 	massNotification: function(){
-		if (Session.get("massNotification")){
+		const instance = Template.instance();
+		if (instance.state.get("massNotification")){
 			return true;
 		}
 		else{
@@ -107,11 +112,11 @@ Template.admin.events({
 	"click .massNotificationHeader": function(evt, template){
 		evt.preventDefault();
 
-		if (Session.get("massNotification")){
-			Session.set("massNotification", false);
+		if (template.state.get("massNotification")){
+			template.state.set("massNotification", false);
 		}
 		else{
-			Session.set("massNotification", true);
+			template.state.set("massNotification", true);
 		}
 	},
 	"click .massNotificationBtn": function(evt, template){
@@ -124,7 +129,7 @@ Template.admin.events({
 		var message = "Mass Notification: " + massNotificationMessage;
 		$.each(allIds, function(key, value){
 			Meteor.call("createNotification", value, message, function(error, result){
-				Session.set("massNotification", false);
+				template.state.set("massNotification", false);
 			});
 		});
 	},

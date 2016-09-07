@@ -1,16 +1,22 @@
 import { Meteor } from "meteor/meteor";
 import { Template } from "meteor/templating";
+import { ReactiveDict } from 'meteor/reactive-dict';
 import { Rooms } from "../../api/rooms.js";
 
 import "./addQuestion.html";
 
 Template.addQuestion.onCreated(function(){
+	this.state = new ReactiveDict();
+	const instance = Template.instance();
+	instance.state.set("questionType", false);
+	instance.state.set("showRoomSelection", false);
 	Meteor.subscribe("images");
 });
 
 Template.addQuestion.helpers({
 	showRoom: function(){
-		if (Session.get("questionType") === "isRoom"){
+		const instance = Template.instance();
+		if (instance.state.get("questionType") === "isRoom"){
 			return true;
 		}
 		else{
@@ -18,7 +24,8 @@ Template.addQuestion.helpers({
 		}
 	},
 	showBadge: function(){
-		if (Session.get("questionType") === "isBadge"){
+		const instance = Template.instance();
+		if (instance.state.get("questionType") === "isBadge"){
 			return true;
 		}
 		else{
@@ -26,7 +33,8 @@ Template.addQuestion.helpers({
 		}
 	},
 	showFeedbackType: function(){
-		if (Session.get("questionType") === "isFeedbackType"){
+		const instance = Template.instance();
+		if (instance.state.get("questionType") === "isFeedbackType"){
 			return true;
 		}
 		else{
@@ -34,7 +42,8 @@ Template.addQuestion.helpers({
 		}
 	},
 	showTrivia: function(){
-		if (Session.get("questionType") === "isTrivia"){
+		const instance = Template.instance();
+		if (instance.state.get("questionType") === "isTrivia"){
 			return true;
 		}
 		else{
@@ -42,7 +51,8 @@ Template.addQuestion.helpers({
 		}
 	},
 	showPoll: function(){
-		if (Session.get("questionType") === "isPoll"){
+		const instance = Template.instance();
+		if (instance.state.get("questionType") === "isPoll"){
 			return true;
 		}
 		else{
@@ -50,7 +60,8 @@ Template.addQuestion.helpers({
 		}
 	},
 	showPicture: function(){
-		if (Session.get("questionType") === "isPicture"){
+		const instance = Template.instance();
+		if (instance.state.get("questionType") === "isPicture"){
 			return true;
 		}
 		else{
@@ -58,7 +69,8 @@ Template.addQuestion.helpers({
 		}
 	},
 	showInput: function(){
-		if (Session.get("questionType") === "isInput"){
+		const instance = Template.instance();
+		if (instance.state.get("questionType") === "isInput"){
 			return true;
 		}
 		else{
@@ -69,7 +81,8 @@ Template.addQuestion.helpers({
 		return Rooms.find({});
 	},
 	showRoomSelection: function(){
-		if (Session.get("showRoomSelection")){
+		const instance = Template.instance();
+		if (instance.state.get("showRoomSelection")){
 			return true;
 		}
 		else{
@@ -82,7 +95,7 @@ Template.addQuestion.events({
 	"click .addQuestionButton": function(evt, template){
 		evt.preventDefault();
 		var questionFormInputs = $('form').serializeArray();
-		var questionType = Session.get("questionType");
+		var questionType = template.state.get("questionType");
 		var roomId = $(".roomSelectionDropDown").val();
 		var questionFormHash = {};
 		var answersArray = [];
@@ -146,7 +159,7 @@ Template.addQuestion.events({
 		evt.preventDefault();
 
 		var questionFormInputs = $('form').serializeArray();
-		var questionType = Session.get("questionType");
+		var questionType = template.state.get("questionType");
 		var questionFormHash = {};
 		var answersArray = [];
 		var caption;
@@ -242,13 +255,13 @@ Template.addQuestion.events({
 		evt.preventDefault();
 		
 		var questionType = $(evt.currentTarget).attr("questionType");
-		Session.set("questionType", questionType);
+		template.state.set("questionType", questionType);
 
 		if (questionType === "isTrivia" || questionType === "isPoll" || questionType === "isPicture" || questionType === "isInput"){
-			Session.set("showRoomSelection", true);
+			template.state.set("showRoomSelection", true);
 		}
 		else{
-			Session.set("showRoomSelection", false);
+			template.state.set("showRoomSelection", false);
 		}
 	},
 	"click .markCorrect": function(evt, template){
@@ -375,7 +388,7 @@ Template.addQuestion.events({
 			if (error){
 			}
 			else{
-				Session.set("questionType", false);
+				template.state.set("questionType", false);
 			}
 		});
 	}

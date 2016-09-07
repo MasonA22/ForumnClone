@@ -1,15 +1,20 @@
 import { Meteor } from "meteor/meteor";
 import { Template } from "meteor/templating";
+import { ReactiveDict } from 'meteor/reactive-dict';
 
 import "./scoreBoard.html";
 
 Template.scoreBoard.onCreated(function() {
+	this.state = new ReactiveDict();
+	const instance = Template.instance();
+	instance.state.set("showAllScores", false);
 	Meteor.subscribe("allUsers");
 });
 
 Template.scoreBoard.helpers({
 	users: function(){
-		var showAllScores = Session.get("showAllScores");
+		const instance = Template.instance();
+		var showAllScores = instance.state.get("showAllScores");
 		if (showAllScores) {
 			return Meteor.users.find({"profile.isAdmin": false},
 									 {sort: {"profile.score": -1}},
@@ -24,7 +29,8 @@ Template.scoreBoard.helpers({
 		}
 	},
 	showAllScores: function(){
-		if (Session.get("showAllScores")){
+		const instance = Template.instance();
+		if (instance.state.get("showAllScores")){
 			return true;
 		}
 		else{
@@ -34,13 +40,13 @@ Template.scoreBoard.helpers({
 });
 
 Template.scoreBoard.events({
-	"click .showAllScores": function(evt){
+	"click .showAllScores": function(evt, template){
 		evt.preventDefault();
-		if (Session.get("showAllScores")){
-			Session.set("showAllScores", false);
+		if (template.state.get("showAllScores")){
+			template.state.set("showAllScores", false);
 		}
 		else{
-			Session.set("showAllScores", true);
+			template.state.set("showAllScores", true);
 		}
 	}
 });

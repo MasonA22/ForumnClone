@@ -1,11 +1,16 @@
 import { Meteor } from "meteor/meteor";
 import { Template } from "meteor/templating";
+import { ReactiveDict } from 'meteor/reactive-dict';
 import { Questions } from "../../api/questions.js";
 import { Rooms } from "../../api/rooms.js";
 
 import "./activeQuestion.html";
 
 Template.activeQuestion.onCreated(function(){
+	this.state = new ReactiveDict();
+	const instance = Template.instance();
+	instance.state.set("showActiveQuestionGraph", false);
+	instance.state.set("showFeedbackSection", false);
 	Meteor.subscribe("questions");
 });
 
@@ -64,7 +69,8 @@ Template.activeQuestion.helpers({
 		return rankPoints;
 	},
 	showActiveQuestionGraph: function(){
-		if (Session.get("showActiveQuestionGraph")){
+		const instance = Template.instance();
+		if (instance.state.get("showActiveQuestionGraph")){
 			return true;
 		}
 		else{
@@ -72,7 +78,8 @@ Template.activeQuestion.helpers({
 		}
 	},
 	showFeedbackSection: function(){
-		if (Session.get("showFeedbackSection")){
+		const instance = Template.instance();
+		if (instance.state.get("showFeedbackSection")){
 			if (Meteor.user().profile.isModerator){
 				return false;
 			}
@@ -91,7 +98,7 @@ Template.activeQuestion.helpers({
 });
 
 Template.activeQuestion.events({
-	"click .answerContainer": function(evt){
+	"click .answerContainer": function(evt, template){
 		evt.preventDefault();
 		var $this = $(evt.currentTarget),
 			questionId = $this.attr("questionId"),
@@ -102,14 +109,13 @@ Template.activeQuestion.events({
 		$(".userWager").val() ? userWager = $(".userWager").val() : userWager = 0;
 		$(".activeQuestion").addClass("disabled");
 		$this.find(".answerContainerContent").text("Your vote is being processed...");
-
-		Session.set("showActiveQuestionGraph", false);
+		template.state.set("showActiveQuestionGraph", false);
 		var questionFormHash = Questions.findOne(questionId).questionFormHash;
 		if (questionFormHash.feedbackEnabled){
-			Session.set("showFeedbackSection", true);
+			template.state.set("showFeedbackSection", true);
 		}
 		else{
-			Session.set("showFeedbackSection", false);
+			template.state.set("showFeedbackSection", false);
 		}
 
 		if (parseInt(userWager) === score){
@@ -117,23 +123,22 @@ Template.activeQuestion.events({
 		}
 		Meteor.call("voteOnActiveQuestion", questionId, selectedAnswerIndex, userWager);
 	},
-	"click .clickForGraph": function(evt){
+	"click .clickForGraph": function(evt, template){
 		evt.preventDefault();
-		Session.set("showActiveQuestionGraph", true);
+		template.state.set("showActiveQuestionGraph", true);
 	},
-	"click .clickForDoughnut": function(evt){
+	"click .clickForDoughnut": function(evt, template){
 		evt.preventDefault();
-		Session.set("showActiveQuestionGraph", true);
+		template.state.set("showActiveQuestionGraph", true);
 	},
 	"click .inputAnswerSubmit": function(evt, template){
 		evt.preventDefault();
-
 		var questionId = this._id;
 		var userAnswer = template.find("#user-answer").value;
 		userAnswer = userAnswer.toLowerCase().replace(/\s+/g, '');
 		var userWager;
 		$(".userWager").val() ? userWager = $(".userWager").val() : userWager = 0;
-		Session.set("showActiveQuestionGraph", true);
+		template.state.set("showActiveQuestionGraph", true);
 		Meteor.call("answerInputQuestion", questionId, userAnswer, userWager);
 	},
 	"click .returnToLobby": function(evt){

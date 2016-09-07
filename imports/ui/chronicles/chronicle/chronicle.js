@@ -1,17 +1,22 @@
 import { Meteor } from "meteor/meteor";
 import { Template } from "meteor/templating";
+import { ReactiveDict } from 'meteor/reactive-dict';
 import { Questions } from "../../../api/questions.js";
 
 import "./chronicle.html";
 
 Template.chronicle.onCreated(function(){
+    this.state = new ReactiveDict();
+    const instance = Template.instance();
+    instance.state.set("showChronicleGraph", false);
     Meteor.subscribe("allUsers");
     Meteor.subscribe("questions");
 });
 
 Template.chronicle.helpers({
     showChronicleGraph: function(){
-        if (Session.get("showChronicleGraph")){
+        const instance = Template.instance();
+        if (instance.state.get("showChronicleGraph")){
             return true;
         }
         else{
@@ -37,13 +42,13 @@ Template.chronicle.helpers({
 });
 
 Template.chronicle.events({
-    "click .chronicleGraph": function(evt){
+    "click .chronicleGraph": function(evt, template){
         evt.preventDefault();
-        if (Session.get("showChronicleGraph")){
-            Session.set("showChronicleGraph", false);
+        if (template.state.get("showChronicleGraph")){
+            template.state.set("showChronicleGraph", false);
         }
         else{
-            Session.set("showChronicleGraph", true);
+            template.state.set("showChronicleGraph", true);
         }
     }
 });

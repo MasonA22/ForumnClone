@@ -1,12 +1,15 @@
 import { Meteor } from "meteor/meteor";
 import { Template } from "meteor/templating";
+import { ReactiveDict } from 'meteor/reactive-dict';
 import { Questions } from "../../../api/questions.js";
 import { FeedbackTypes } from "../../../api/feedbackTypes.js";
 
 import "./feedback.html";
 
 Template.feedback.onRendered(function(){
-	Session.set("showSuggestedFeedbackSection", false);
+	this.state = new ReactiveDict();
+	const instance = Template.instance();
+	instance.state.set("showSuggestedFeedbackSection", false);
 });
 
 Template.feedback.helpers({
@@ -14,7 +17,8 @@ Template.feedback.helpers({
 		return FeedbackTypes.find({});
 	},
 	showSuggestedFeedbackSection: function(){
-		if (Session.get("showSuggestedFeedbackSection")){
+		const instance = Template.instance();
+		if (instance.get("showSuggestedFeedbackSection")){
 			return true;
 		}
 		else{
@@ -24,7 +28,7 @@ Template.feedback.helpers({
 });
 
 Template.feedback.events({
-	"click .feedbackVote": function(evt){
+	"click .feedbackVote": function(evt, template){
 		evt.preventDefault();
 		var feedbackVote = $(evt.currentTarget).attr("vote");
 		var questionId = this._id;
@@ -33,11 +37,11 @@ Template.feedback.events({
 		var feedback = question.questionFormHash.feedback;
 		if (feedbackVote === "good"){
 			feedback["good"]++;
-			Session.set("showActiveQuestionGraph", true);
+			template.state.set("showActiveQuestionGraph", true);
 		}
 		else{
 			feedback["bad"]++;
-			Session.set("showSuggestedFeedbackSection", true);
+			template.state.set("showSuggestedFeedbackSection", true);
 		}
 		Meteor.call("updateQuestionFeedback", questionId, feedback);
 	},
@@ -50,10 +54,10 @@ Template.feedback.events({
 			$(evt.currentTarget).addClass("active");
 		}
 	},
-	"click .feedbackSubmit": function(evt){
+	"click .feedbackSubmit": function(evt, template){
 		evt.preventDefault();
-		Session.set("showActiveQuestionGraph", true);
-		Session.set("showSuggestedFeedbackSection", false);
+		template.state.set("showActiveQuestionGraph", true);
+		template.state.set("showSuggestedFeedbackSection", false);
 		var questionId = this._id,
 			question = Questions.findOne(questionId),
 			feedback = question.questionFormHash.feedback;
