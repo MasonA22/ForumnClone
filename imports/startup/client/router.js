@@ -1,3 +1,6 @@
+
+import '../../ui/layout/layout.js';
+
 Router.configure({
 	layoutTemplate: "layout"
 });
