@@ -19,7 +19,6 @@ ecmascript@0.5.8              # Enable ECMAScript2015+ syntax in app code
 shell-server@0.2.1            # Server-side component of the `meteor shell` command
 
 fourseven:scss
-iron:router
 tmeasday:presence
 accounts-password
 aldeed:simple-schema
@@ -27,3 +26,6 @@ aldeed:collection2
 check
 zimme:active-route
 reactive-dict
+kadira:flow-router
+kadira:blaze-layout
+arillo:flow-router-helpers
