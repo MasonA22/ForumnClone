@@ -1,3 +1,9 @@
+import { Meteor } from "meteor/meteor";
+import { Template } from "meteor/templating";
+import { Rooms } from "../../api/rooms.js";
+
+import "./addQuestion.html";
+
 Template.addQuestion.onCreated(function(){
 	Meteor.subscribe("images");
 });

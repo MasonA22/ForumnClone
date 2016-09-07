@@ -1,3 +1,9 @@
+import { Meteor } from "meteor/meteor";
+import { Template } from "meteor/templating";
+import { Questions } from "../../api/questions.js";
+
+import "./admin.html";
+
 Template.admin.onCreated(function(){
 	Meteor.subscribe("presences");
 	Meteor.subscribe("allUsers");

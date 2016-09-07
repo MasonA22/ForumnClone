@@ -1,3 +1,9 @@
+import { Meteor } from "meteor/meteor";
+import { Template } from "meteor/templating";
+import { Questions } from "../../../api/questions.js";
+
+import "./chronicle.html";
+
 Template.chronicle.onCreated(function(){
     Meteor.subscribe("allUsers");
     Meteor.subscribe("questions");

@@ -1,3 +1,8 @@
+import { Template } from "meteor/templating";
+import { Questions } from "../../../api/questions.js";
+
+import "./chronicleQuestionGraph.html";
+
 Template.chronicleQuestionGraph.onRendered(function(){
     this.autorun(function(){
         var questionId = Template.currentData()._id;

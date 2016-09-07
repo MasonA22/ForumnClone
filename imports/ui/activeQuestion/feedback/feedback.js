@@ -1,7 +1,7 @@
 import { Meteor } from "meteor/meteor";
 import { Template } from "meteor/templating";
-import { Questions } from "../../api/questions.js";
-import { FeedbackTypes } from "../../api/feedbackTypes.js";
+import { Questions } from "../../../api/questions.js";
+import { FeedbackTypes } from "../../../api/feedbackTypes.js";
 
 import "./feedback.html";
 

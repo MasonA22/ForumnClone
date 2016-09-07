@@ -1,3 +1,8 @@
+import { Meteor } from "meteor/meteor";
+import { Template } from "meteor/templating";
+
+import "./userBadge.html";
+
 Template.userBadge.helpers({
     userName: function(){
         var user = Meteor.users.findOne(this.userId);

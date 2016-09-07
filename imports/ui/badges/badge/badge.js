@@ -1,3 +1,8 @@
+import { Meteor } from "meteor/meteor";
+import { Template } from "meteor/templating";
+
+import "./badge.html";
+
 Template.badge.events({
     "click img": function(evt){
         evt.preventDefault();
@@ -9,7 +14,7 @@ Template.badge.events({
         FS.Utility.eachFile(event, function(file) {
             Images.insert(file, function (err, fileObj) {
                 if (err){
-                } 
+                }
                 else {
                     setTimeout(function(){
                         var imagePath = "/cfs/files/images/" + fileObj._id;

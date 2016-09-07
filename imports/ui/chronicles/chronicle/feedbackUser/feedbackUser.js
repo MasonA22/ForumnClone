@@ -1,3 +1,8 @@
+import { Meteor } from "meteor/meteor";
+import { Template } from "meteor/templating";
+
+import "./feedbackUser.html";
+
 Template.feedbackUser.helpers({
     email: function(){
         var userId = this.userId;
