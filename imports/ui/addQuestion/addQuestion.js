@@ -1,5 +1,6 @@
 import { Meteor } from "meteor/meteor";
 import { Template } from "meteor/templating";
+import { FlowRouter } from 'meteor/kadira:flow-router';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { Rooms } from "../../api/rooms.js";
 
@@ -158,7 +159,7 @@ Template.addQuestion.events({
 			if (error){
 			}
 			else{
-				Router.go("/");
+				FlowRouter.go("/");
 			}
 		});
 	},
@@ -219,7 +220,7 @@ Template.addQuestion.events({
 			if (error){
 			}
 			else{
-				Router.go("/");
+				FlowRouter.go("/");
 			}
 		});
 	},
@@ -353,7 +354,7 @@ Template.addQuestion.events({
 			if (error){
 			}
 			else{
-				Router.go("/");
+				FlowRouter.go("/");
 			}
 		});
 	},
@@ -383,7 +384,7 @@ Template.addQuestion.events({
 			if (error){
 			}
 			else{
-				Router.go("/");
+				FlowRouter.go("/");
 			}
 		});
 	},
