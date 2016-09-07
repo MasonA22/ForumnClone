@@ -11,13 +11,6 @@ import '../../ui/chronicles/chronicles.js';
 import '../../ui/chronicles/chronicle/chronicle.js';
 import '../../ui/_admin/admin.js';
 
-FlowRouter.route('/', {
-	name: 'home',
-	action() {
-		BlazeLayout.render('layout', { main: 'home' });
-	}
-});
-
 FlowRouter.route('/login', {
 	name: 'login',
 	action() {
@@ -43,6 +36,13 @@ adminRoutes.route('/admin', {
 	name: 'admin',
 	action() {
 		BlazeLayout.render('layout', { main: 'admin' });
+	}
+});
+
+privateRoutes.route('/', {
+	name: 'home',
+	action() {
+		BlazeLayout.render('layout', { main: 'home' });
 	}
 });
 
@@ -105,9 +105,9 @@ function checkAdmin(ctx, redirect) {
 	}
 }
 
-var setTitle = function(){
-	document.title = "Forum Live";
-}
+// var setTitle = function(){
+// 	document.title = "Forum Live";
+// }
 
 // Router.configure({
 // 	layoutTemplate: "layout"
