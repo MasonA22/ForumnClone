@@ -111,7 +111,7 @@ Template.activeQuestion.events({
 			score = Meteor.user().profile.score;
 
 		$(".userWager").val() ? userWager = $(".userWager").val() : userWager = 0;
-		$(".activeQuestion").addClass("disabled");
+		$this.closest(".activeQuestion").addClass("disabled");
 		$this.find(".answerContainerContent").text("Your vote is being processed...");
 		template.state.set("showActiveQuestionGraph", false);
 		var questionFormHash = Questions.findOne(questionId).questionFormHash;
