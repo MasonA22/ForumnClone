@@ -2,6 +2,9 @@ import { Mongo } from "meteor/mongo";
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { ActivateQuestions } from "./activateQuestions.js";
 import { Notifications } from "./notifications.js";
+import { Rooms } from "./rooms.js";
+import { Badges } from "./badges.js";
+import { FeedbackTypes } from "./feedbackTypes.js";
 
 export const Questions = new Mongo.Collection("questions");
 
