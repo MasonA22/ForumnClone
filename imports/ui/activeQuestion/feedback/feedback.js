@@ -6,7 +6,7 @@ import { FeedbackTypes } from "../../../api/feedbackTypes.js";
 
 import "./feedback.html";
 
-Template.feedback.onRendered(function(){
+Template.feedback.onCreated(function(){
 	this.state = new ReactiveDict();
 	const instance = Template.instance();
 	instance.state.set("showSuggestedFeedbackSection", false);
@@ -37,7 +37,6 @@ Template.feedback.events({
 		var feedback = question.questionFormHash.feedback;
 		if (feedbackVote === "good"){
 			feedback["good"]++;
-			template.state.set("showActiveQuestionGraph", true);
 		}
 		else{
 			feedback["bad"]++;
@@ -56,7 +55,6 @@ Template.feedback.events({
 	},
 	"click .feedbackSubmit": function(evt, template){
 		evt.preventDefault();
-		template.state.set("showActiveQuestionGraph", true);
 		template.state.set("showSuggestedFeedbackSection", false);
 		var questionId = this._id,
 			question = Questions.findOne(questionId),

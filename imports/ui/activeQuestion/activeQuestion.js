@@ -149,5 +149,16 @@ Template.activeQuestion.events({
 		evt.preventDefault();
 		var userId = Meteor.userId();
 		Meteor.call("removeCurrentRoom", userId);
+	},
+	"click .feedbackVote": function(evt, template){
+		evt.preventDefault();
+		var feedbackVote = $(evt.currentTarget).attr("vote");
+		if (feedbackVote === "good"){
+			template.state.set("showActiveQuestionGraph", true);
+		}
+	},
+	"click .feedbackSubmit": function(evt, template){
+		evt.preventDefault();
+		template.state.set("showActiveQuestionGraph", true);
 	}
 });
