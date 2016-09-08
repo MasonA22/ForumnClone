@@ -3,6 +3,7 @@ import { Template } from "meteor/templating";
 import { UserBadges } from "../../../api/userBadges.js";
 
 import "./badgeType.html";
+import "../userBadge/userBadge.js";
 
 Template.badgeType.onCreated(function(){
 	Meteor.subscribe("userBadges");

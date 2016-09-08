@@ -587,6 +587,7 @@ Meteor.methods({
 	        createdAt: new Date()
 	    }, function(error, result){
 	        if (error){
+	        	console.log(error);
 	        }
 	        else{
 	            Meteor.call("initRoomAQuestions", result, function(error, result){});
