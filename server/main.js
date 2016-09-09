@@ -7,3 +7,4 @@ import "../imports/api/userBadges.js";
 import "../imports/api/feedbackTypes.js";
 import "../imports/api/activateBadges.js";
 import "../imports/api/activateQuestions.js";
+import "../imports/api/images.js";
