@@ -18,6 +18,7 @@ Template.addQuestion.onCreated(function(){
 	const instance = Template.instance();
 	instance.state.set("questionType", false);
 	instance.state.set("showRoomSelection", false);
+	Meteor.subscribe("rooms");
 	Meteor.subscribe("images");
 });
 
