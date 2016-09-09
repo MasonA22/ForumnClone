@@ -314,7 +314,6 @@ Template.admin.events({
 			return question;
 		});
 		var questionsDataArray = [];
-
 		$.each(questions, function(index, value){
 			var question = Questions.findOne(value._id);
 			var questionText = question.questionFormHash.question;
@@ -339,6 +338,7 @@ Template.admin.events({
 			questionDataHash["Answers"] = newAnswersArray;
 			questionsDataArray.push(questionDataHash);
 		});
+		console.log(questionsDataArray);
 	},
 	"click .initData": function(evt){
 		evt.preventDefault();
