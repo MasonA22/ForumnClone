@@ -7,7 +7,12 @@
 		<span>Answer:</span>
 		<input type="hidden" name="imagePath" class="hiddenImagePath" value="" />
 		<input type="text" class="pictureCaption" name="caption" placeholder="Enter caption here" />
-		<input type="file" class="answer correctAnswer pictureAnswer" />
+		{{#with currentUpload}}
+			Uploading <b>{{file.name}}</b>: 
+			<span id="progress">{{progress.get}}%</span>
+		{{else}}
+			<input type="file" class="answer correctAnswer pictureAnswer" />
+		{{/with}}
 		<input type="hidden" name="correct" class="hiddenAnswer" value="true" />
 		<div class="markCorrect">Mark as correct answer</div>
 

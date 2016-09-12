@@ -317,19 +317,19 @@ Template.addQuestion.events({
 	"change .pictureAnswer": function(evt, template){
 		evt.preventDefault();
 
-		FS.Utility.eachFile(event, function(file) {
-	        Images.insert(file, function (err, fileObj) {
-	        	if (err){
-	        	} 
-	        	else {
-	        		setTimeout(function(){
-	        			var imagePath = "/cfs/files/images/" + fileObj._id;
-	        			$(evt.target).css("background-image", "url('" + imagePath + "')");
-	        			$(evt.target).prev().prev().attr("value", imagePath);
-	        		}, 1000);
-	        	}
-	        });
-		});
+		// FS.Utility.eachFile(event, function(file) {
+	 //        Images.insert(file, function (err, fileObj) {
+	 //        	if (err){
+	 //        	} 
+	 //        	else {
+	 //        		setTimeout(function(){
+	 //        			var imagePath = "/cfs/files/images/" + fileObj._id;
+	 //        			$(evt.target).css("background-image", "url('" + imagePath + "')");
+	 //        			$(evt.target).prev().prev().attr("value", imagePath);
+	 //        		}, 1000);
+	 //        	}
+	 //        });
+		// });
 	},
 	"change .badgeAvatar": function(evt){
 			evt.preventDefault();
