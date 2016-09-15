@@ -5,8 +5,8 @@ import "./badgeBoard.html";
 import "./badgeType/badgeType.js";
 
 Template.badgeBoard.onCreated(function(){
-	Meteor.subscribe("badges");
 	Meteor.subscribe("images");
+	Meteor.subscribe("badges");
 });
 
 Template.badgeBoard.helpers({

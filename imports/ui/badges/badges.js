@@ -6,8 +6,8 @@ import "./badges.html";
 import "./badge/badge.js";
 
 Template.badges.onCreated(function(){
-	Meteor.subscribe("badges");
 	Meteor.subscribe("images");
+	Meteor.subscribe("badges");
 });
 
 Template.badges.helpers({
