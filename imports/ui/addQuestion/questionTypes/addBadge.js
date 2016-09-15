@@ -20,7 +20,6 @@ Template.addBadge.helpers({
 Template.addBadge.events({
 	"click .addBadgeButton": function(evt, template){
 		evt.preventDefault();
-
 		var badgeFormInputs = $('form').serializeArray();
 		var badgeFormHash = {};
 		$.each(badgeFormInputs, function(key, value){
@@ -44,21 +43,20 @@ Template.addBadge.events({
 					alert('Error during upload: ' + error);
 				} 
 				else {
-					alert('File "' + fileObj.name + '" successfully uploaded');
+					let imageId = upload.config.fileId;
+					badgeFormHash["avatar"] = imageId;
+					Meteor.call("addBadge", badgeFormHash, function(error, result){
+						if (error){
+						}
+						else{
+							FlowRouter.go("/");
+						}
+					});
 				}
 				template.currentUpload.set(false);
 			});
 			upload.start();
-			let imageId = upload.config.fileId;
-			badgeFormHash["avatar"] = imageId;
+			
 		}
-
-		Meteor.call("addBadge", badgeFormHash, function(error, result){
-			if (error){
-			}
-			else{
-				FlowRouter.go("/");
-			}
-		});
 	}
 });
