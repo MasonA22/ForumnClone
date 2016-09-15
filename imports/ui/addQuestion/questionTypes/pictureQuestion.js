@@ -40,11 +40,11 @@ Template.pictureQuestion.events({
 				} 
 				else {
 					alert('File "' + fileObj.name + '" successfully uploaded');
-					var imagePath = "/" + fileObj.path;
+					var imagePath = "/" + fileObj.link;
 
 					console.log(fileObj);
 
-					$(evt.target).attr("background-french", "url('" + imagePath + "')");
+					$(evt.target).css("background", "url('" + imagePath + "')");
 					$(evt.target).prev().prev().attr("value", imagePath);
 				}
 				template.currentUpload.set(false);

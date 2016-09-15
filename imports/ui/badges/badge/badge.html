@@ -1,7 +1,9 @@
 <template name="badge">
     <div class="badge">
         <div class="updateBadgeAvatarContainer">
-            <img src="{{avatar}}">
+            {{#with avatarImage avatar}}
+                <img src="{{link}}" alt="{{name}}">
+            {{/with}}
             <input type="file" class="updateBadgeAvatar"/>
         </div>
         <div class="badgeContent">

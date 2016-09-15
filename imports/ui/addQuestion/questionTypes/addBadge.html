@@ -6,7 +6,12 @@
             <span>Badge Description:</span>
             <input name="description" type="text" />
             <span>Badge Avatar:</span>
-            <input type="file" class="badgeAvatar" />
+            {{#with currentUpload}}
+                Uploading <b>{{file.name}}</b>: 
+                <span id="progress">{{progress.get}}%</span>
+            {{else}}
+                <input type="file" class="badgeAvatar" />
+            {{/with}}
         </div>
         <button class="addBadgeButton" disabled>Save</button>
     </form>

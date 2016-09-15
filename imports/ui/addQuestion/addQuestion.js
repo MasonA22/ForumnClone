@@ -334,18 +334,20 @@ Template.addQuestion.events({
 	"change .badgeAvatar": function(evt){
 			evt.preventDefault();
 
-			FS.Utility.eachFile(event, function(file) {
-		        Images.insert(file, function (err, fileObj) {
-		        	if (err){
-		        	} 
-		        	else {
-		        		setTimeout(function(){
-		        			var imagePath = "/cfs/files/images/" + fileObj._id;
-		        			$(evt.target).attr("value", imagePath);
-		        		}, 1000);
-		        	}
-		        });
-			});
+
+
+			// FS.Utility.eachFile(event, function(file) {
+		 //        Images.insert(file, function (err, fileObj) {
+		 //        	if (err){
+		 //        	} 
+		 //        	else {
+		 //        		setTimeout(function(){
+		 //        			var imagePath = "/cfs/files/images/" + fileObj._id;
+		 //        			$(evt.target).attr("value", imagePath);
+		 //        		}, 1000);
+		 //        	}
+		 //        });
+			// });
 	},
 	"click .addRoomButton": function(evt, template){
 		evt.preventDefault();
@@ -369,25 +371,6 @@ Template.addQuestion.events({
 		else{
 			$(evt.target).closest(".questionForm").find("button").attr("disabled", "disabled");
 		}
-	},
-	"click .addBadgeButton": function(evt, template){
-		evt.preventDefault();
-
-		var badgeFormInputs = $('form').serializeArray();
-		var badgeFormHash = {};
-		$.each(badgeFormInputs, function(key, value){
-			var name = value["name"];
-			badgeFormHash[name] = value["value"];
-		});
-		var badgeAvatar = $(".badgeAvatar").attr("value");
-		badgeFormHash["avatar"] = badgeAvatar;
-		Meteor.call("addBadge", badgeFormHash, function(error, result){
-			if (error){
-			}
-			else{
-				FlowRouter.go("/");
-			}
-		});
 	},
 	"click .addFeedbackTypeButton": function(evt, template){
 		evt.preventDefault();
