@@ -3,18 +3,8 @@ import { Images } from "../../../api/images.js";
 
 import "./addBadge.html";
 
-Template.addBadge.onCreated(function(){
-	this.currentUpload = new ReactiveVar(false);
-});
-
 Template.addBadge.onRendered(function(){
     $("form").find("input").filter(":visible:first").focus();
-});
-
-Template.addBadge.helpers({
-	currentUpload: function () {
-		return Template.instance().currentUpload.get();
-	}
 });
 
 Template.addBadge.events({
@@ -34,10 +24,6 @@ Template.addBadge.events({
 				chunkSize: 'dynamic'
 			}, false);
 
-			upload.on('start', function () {
-				template.currentUpload.set(this);
-			});
-
 			upload.on('end', function (error, fileObj) {
 				if (error) {
 					alert('Error during upload: ' + error);
@@ -53,7 +39,6 @@ Template.addBadge.events({
 						}
 					});
 				}
-				template.currentUpload.set(false);
 			});
 			upload.start();
 			
