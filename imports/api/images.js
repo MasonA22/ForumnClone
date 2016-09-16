@@ -19,3 +19,9 @@ if (Meteor.isServer) {
         return Images.find().cursor;
     });
 }
+
+Meteor.methods({
+    deleteImage: function(imageId) {
+        Images.remove(imageId);
+    }
+});
