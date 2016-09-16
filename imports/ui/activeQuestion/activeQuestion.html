@@ -64,7 +64,9 @@
 						{{#if questionFormHash.isPicture}}
 							{{#each questionFormHash.answers}}
 								<div class="answerContainer image" questionId={{../_id}}>
-									<img src="{{this.imagePath}}">
+									{{#with avatarImage imageId}}
+										<img src="{{link}}" alt="{{name}}">
+									{{/with}}
 								</div>
 							{{/each}}
 						{{else}}

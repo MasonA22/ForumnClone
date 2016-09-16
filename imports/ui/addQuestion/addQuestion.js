@@ -186,7 +186,7 @@ Template.addQuestion.events({
 	"click .addPictureAnswer": function(evt, template){
 		evt.preventDefault();
 
-		var newHiddenImage = $("<input type='hidden' name='imagePath' class='hiddenImageId' value='' />");
+		var newHiddenImage = $("<input type='hidden' name='imageId' class='hiddenImageId' value='' />");
 		var newCaption = $("<input type='text' name='caption' class='pictureCaption' placeholder='Enter caption here' />");
 		var newInput = $("<input type='file' name='answer' class='answer pictureAnswer' />");
 		var newHidden = $("<input type='hidden' name='correct' class='hiddenAnswer' value='false' />");

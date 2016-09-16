@@ -3,6 +3,7 @@ import { Template } from "meteor/templating";
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { Questions } from "../../api/questions.js";
 import { Rooms } from "../../api/rooms.js";
+import { Images } from "../../api/images.js";
 
 import "./activeQuestion.html";
 import "./activeQuestionGraph/activeQuestionGraph.js";
@@ -15,6 +16,7 @@ Template.activeQuestion.onCreated(function(){
 	const instance = Template.instance();
 	instance.state.set("showActiveQuestionGraph", false);
 	instance.state.set("showFeedbackSection", false);
+	Meteor.subscribe("images");
 	Meteor.subscribe("questions");
 });
 
@@ -98,7 +100,11 @@ Template.activeQuestion.helpers({
 	currentRoom: function(){
 		var roomId = Meteor.user().profile.currentRoomId;
 		return Rooms.findOne(roomId);
-	}
+	},
+	avatarImage: function(id) {
+        let image = Images.findOne(id);
+        return image;
+    }
 });
 
 Template.activeQuestion.events({

@@ -39,7 +39,7 @@ Template.pictureQuestion.events({
 				} 
 				else {
 					let fileId = fileObj._id;
-					$(evt.target).prevAll(".hiddenImageId").val(fileId);
+					$(evt.target).prev().prev().val(fileId);
 				}
 				template.currentUpload.set(false);
 			});
@@ -48,7 +48,6 @@ Template.pictureQuestion.events({
 	},
 	"click .addPictureQuestionButton": function(evt, template){
 		evt.preventDefault();
-
 		var questionFormInputs = $('form').serializeArray();
 		var questionType = "isPicture";
 		var questionFormHash = {};
@@ -64,7 +63,7 @@ Template.pictureQuestion.events({
 			if (name === "caption"){
 				value["value"] ? caption = value["value"] : caption = "No caption";
 			}
-			else if (name === "imagePath"){
+			else if (name === "imageId"){
 				imageId = value["value"];
 			}
 
