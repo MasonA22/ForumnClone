@@ -3,18 +3,8 @@ import { Images } from "../../../api/images.js";
 
 import "./pictureQuestion.html";
 
-Template.pictureQuestion.onCreated(function(){
-	this.currentUpload = new ReactiveVar(false);
-});
-
 Template.pictureQuestion.onRendered(function(){
 	$("form").find("input").filter(":visible:first").focus();
-});
-
-Template.pictureQuestion.helpers({
-	currentUpload: function () {
-		return Template.instance().currentUpload.get();
-	}
 });
 
 Template.pictureQuestion.events({
@@ -29,10 +19,6 @@ Template.pictureQuestion.events({
 				chunkSize: 'dynamic'
 			}, false);
 
-			upload.on('start', function () {
-				template.currentUpload.set(this);
-			});
-
 			upload.on('end', function (error, fileObj) {
 				if (error) {
 					alert('Error during upload: ' + error);
@@ -41,7 +27,6 @@ Template.pictureQuestion.events({
 					let fileId = fileObj._id;
 					$(evt.target).prev().prev().val(fileId);
 				}
-				template.currentUpload.set(false);
 			});
 			upload.start();
 		}
