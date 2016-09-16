@@ -2,9 +2,13 @@
     <div class="badgeBoardContainer">
         <div class="badgeBoardInfo">
             <div class="badgeBoardInfoAvatar">
-                {{#with avatarImage avatar}}
-                    <img src="{{link}}" alt="{{name}}">
-                {{/with}}
+                {{#if avatar}}
+                    {{#with avatarImage avatar}}
+                        <img src="{{link}}" alt="{{name}}">
+                    {{/with}}
+                {{else}}
+                    <img>
+                {{/if}}
             </div>
             <div class="badgeBoardInfoContent">
                 <div class="badgeBoardInfoName">
