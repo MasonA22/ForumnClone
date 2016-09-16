@@ -29,9 +29,9 @@ Schemas.Answers = new SimpleSchema({
 		defaultValue: "",
 		optional: true
 	},
-	imagePath: {
+	imageId: {
 		type: String,
-		label: "Question Image Path",
+		label: "Question Image ID",
 		optional: true
 	}
 });

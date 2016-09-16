@@ -20,7 +20,6 @@ Template.pictureQuestion.helpers({
 Template.pictureQuestion.events({
 	"change .pictureAnswer": function(evt, template){
 		evt.preventDefault();
-
 		if (evt.currentTarget.files && evt.currentTarget.files[0]) {
 			// We upload only one file, in case 
 			// multiple files were selected
@@ -39,31 +38,73 @@ Template.pictureQuestion.events({
 					alert('Error during upload: ' + error);
 				} 
 				else {
-					alert('File "' + fileObj.name + '" successfully uploaded');
-					var imagePath = "/" + fileObj.link;
-
-					console.log(fileObj);
-
-					$(evt.target).css("background", "url('" + imagePath + "')");
-					$(evt.target).prev().prev().attr("value", imagePath);
+					let fileId = fileObj._id;
+					$(evt.target).prevAll(".hiddenImageId").val(fileId);
 				}
 				template.currentUpload.set(false);
 			});
 			upload.start();
 		}
+	},
+	"click .addPictureQuestionButton": function(evt, template){
+		evt.preventDefault();
 
-		// FS.Utility.eachFile(event, function(file) {
-	 //        Images.insert(file, function (err, fileObj) {
-	 //        	if (err){
-	 //        	} 
-	 //        	else {
-	 //        		setTimeout(function(){
-	 //        			var imagePath = "/cfs/files/images/" + fileObj._id;
-	 //        			$(evt.target).css("background-image", "url('" + imagePath + "')");
-	 //        			$(evt.target).prev().prev().attr("value", imagePath);
-	 //        		}, 1000);
-	 //        	}
-	 //        });
-		// });
+		var questionFormInputs = $('form').serializeArray();
+		var questionType = "isPicture";
+		var questionFormHash = {};
+		var answersArray = [];
+		var caption;
+		var imageId;
+		var roomId = $(".roomSelectionDropDown").val();
+
+		$.each(questionFormInputs, function(key, value){
+			var name = value["name"];
+			var answerCount = answersArray.length + 1;
+
+			if (name === "caption"){
+				value["value"] ? caption = value["value"] : caption = "No caption";
+			}
+			else if (name === "imagePath"){
+				imageId = value["value"];
+			}
+
+			if (name === "correct"){
+				var answerHash = {};
+				answerHash["text"] = caption;
+				answerHash["imageId"] = imageId;
+				answerHash["votes"] = 0;
+				answerHash["users"] = [];
+				answerHash["correct"] = value["value"];
+				answersArray.push(answerHash);
+			}
+			else{
+				if (name != "caption"){
+					questionFormHash[name] = value["value"];
+				}
+			}
+		});
+		
+		var wagerEnabled = $(".wagerToggle").attr("wagerEnabled");
+		if (wagerEnabled === "true"){
+			questionFormHash["wagerEnabled"] = true;
+		}
+		var feedbackEnabled = $(".feedbackToggle").attr("feedbackEnabled");
+		if (feedbackEnabled === "true"){
+			questionFormHash["feedbackEnabled"] = true;
+			questionFormHash["feedback"] = {};
+			questionFormHash["feedback"]["good"] = 0;
+			questionFormHash["feedback"]["bad"] = 0;
+		}
+		questionFormHash[questionType] = true;
+		questionFormHash["answers"] = answersArray;
+		questionFormHash["roomId"] = roomId;
+
+		Meteor.call("addQuestion", questionType, questionFormHash, function(error, result){
+			if (error){
+			}
+			else{
+				FlowRouter.go("/");
+			}
+		});
 	}
 });

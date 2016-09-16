@@ -164,67 +164,6 @@ Template.addQuestion.events({
 			}
 		});
 	},
-	"click .addPictureQuestionButton": function(evt, template){
-		evt.preventDefault();
-
-		var questionFormInputs = $('form').serializeArray();
-		var questionType = template.state.get("questionType");
-		var questionFormHash = {};
-		var answersArray = [];
-		var caption;
-		var imagePath;
-		var roomId = $(".roomSelectionDropDown").val();
-
-		$.each(questionFormInputs, function(key, value){
-			var name = value["name"];
-			var answerCount = answersArray.length + 1;
-
-			if (name === "caption"){
-				value["value"] ? caption = value["value"] : caption = "No caption";
-			}
-			else if (name === "imagePath"){
-				imagePath = value["value"];
-			}
-
-			if (name === "correct"){
-				var answerHash = {};
-				answerHash["text"] = caption;
-				answerHash["imagePath"] = imagePath;
-				answerHash["votes"] = 0;
-				answerHash["users"] = [];
-				answerHash["correct"] = value["value"];
-				answersArray.push(answerHash);
-			}
-			else{
-				if (name != "caption"){
-					questionFormHash[name] = value["value"];
-				}
-			}
-		});
-		
-		var wagerEnabled = $(".wagerToggle").attr("wagerEnabled");
-		if (wagerEnabled === "true"){
-			questionFormHash["wagerEnabled"] = true;
-		}
-		var feedbackEnabled = $(".feedbackToggle").attr("feedbackEnabled");
-		if (feedbackEnabled === "true"){
-			questionFormHash["feedbackEnabled"] = true;
-			questionFormHash["feedback"] = {};
-			questionFormHash["feedback"]["good"] = 0;
-			questionFormHash["feedback"]["bad"] = 0;
-		}
-		questionFormHash[questionType] = true;
-		questionFormHash["answers"] = answersArray;
-		questionFormHash["roomId"] = roomId;
-
-		Meteor.call("addQuestion", questionType, questionFormHash, function(error, result){
-			if (error){
-			}
-			else{
-				FlowRouter.go("/");
-			}
-		});
-	},
 	"click .addAnswer": function(evt, template){
 		evt.preventDefault();
 
@@ -247,14 +186,14 @@ Template.addQuestion.events({
 	"click .addPictureAnswer": function(evt, template){
 		evt.preventDefault();
 
-		var newHiddenImage = $("<input type='hidden' name='imagePath' class='hiddenImagePath' value='' />");
+		var newHiddenImage = $("<input type='hidden' name='imagePath' class='hiddenImageId' value='' />");
 		var newCaption = $("<input type='text' name='caption' class='pictureCaption' placeholder='Enter caption here' />");
 		var newInput = $("<input type='file' name='answer' class='answer pictureAnswer' />");
 		var newHidden = $("<input type='hidden' name='correct' class='hiddenAnswer' value='false' />");
 		var newMarkCorrect = $("<div class='markCorrect disabled'>Mark as correct answer</div>");
 
 		$('.markCorrect').last().after(newHiddenImage);
-		$('.hiddenImagePath').last().after(newCaption);
+		$('.hiddenImageId').last().after(newCaption);
 		$('.pictureCaption').last().after(newInput);
 		$('.answer').last().after(newHidden);
 		$('.hiddenAnswer').last().after(newMarkCorrect);
@@ -330,24 +269,6 @@ Template.addQuestion.events({
 	 //        	}
 	 //        });
 		// });
-	},
-	"change .badgeAvatar": function(evt){
-			evt.preventDefault();
-
-
-
-			// FS.Utility.eachFile(event, function(file) {
-		 //        Images.insert(file, function (err, fileObj) {
-		 //        	if (err){
-		 //        	} 
-		 //        	else {
-		 //        		setTimeout(function(){
-		 //        			var imagePath = "/cfs/files/images/" + fileObj._id;
-		 //        			$(evt.target).attr("value", imagePath);
-		 //        		}, 1000);
-		 //        	}
-		 //        });
-			// });
 	},
 	"click .addRoomButton": function(evt, template){
 		evt.preventDefault();

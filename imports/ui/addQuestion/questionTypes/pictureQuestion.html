@@ -5,18 +5,13 @@
 			<input type="text" name="question" />
 		</div>
 		<span>Answer:</span>
-		<input type="hidden" name="imagePath" class="hiddenImagePath" value="" />
+		<input type="hidden" name="imageId" class="hiddenImageId" value="" />
 		<input type="text" class="pictureCaption" name="caption" placeholder="Enter caption here" />
-		{{#with currentUpload}}
-			Uploading <b>{{file.name}}</b>: 
-			<span id="progress">{{progress.get}}%</span>
-		{{else}}
-			<input type="file" class="answer correctAnswer pictureAnswer" />
-		{{/with}}
+		<input type="file" class="answer correctAnswer pictureAnswer" />
 		<input type="hidden" name="correct" class="hiddenAnswer" value="true" />
 		<div class="markCorrect">Mark as correct answer</div>
 
-		<input type="hidden" name="imagePath" class="hiddenImagePath" value="" />
+		<input type="hidden" name="imageId" class="hiddenImageId" value="" />
 		<input type="text" class="pictureCaption" name="caption" placeholder="Enter caption here" />
 		<input type="file" class="answer pictureAnswer" />
 		<input type="hidden" name="correct" class="hiddenAnswer" value="false" />
