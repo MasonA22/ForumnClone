@@ -5,26 +5,26 @@
 	font-size: 14px;
 	padding: 20px;
 	@include blue-background-box;
-}
 
-.image {
-	margin-bottom: 10px;
-	padding-bottom: 10px;
-	border-bottom: 1px solid black;
-}
+	.image {
+		margin-bottom: 10px;
+		padding-bottom: 10px;
+		border-bottom: 1px solid black;
 
-.deleteImage {
-	float: right;
-	cursor: pointer;
-}
+		input:read-only{
+			background-color: $secondary-transparent;
+		}
 
-.imageName {
-	border: none;
-	outline: none;
-	width: 50%;
-	padding: 2px 4px 2px 4px;
-}
+		.imageName {
+			border: none;
+			outline: none;
+			width: 50%;
+			padding: 2px 4px 2px 4px;
+		}
 
-.image input:read-only{
-	background-color: $secondary-transparent;
+		.deleteImage {
+			float: right;
+			cursor: pointer;
+		}
+	}
 }
