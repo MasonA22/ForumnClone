@@ -20,6 +20,7 @@ module.exports = {
         },
         env: {
             ROOT_URL: 'http://138.197.138.68/',
+            PORT: 80,
             MONGO_URL: 'mongodb://localhost/meteor'
         },
 
