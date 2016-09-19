@@ -1,9 +1,8 @@
 <template name="activeQuestion">
 	<div class="currentRoomContainer">
 		<div>{{currentRoom.name}}</div>
-		<div class="returnToLobby">(← Return to Lobby)</div>
+		<span class="returnToLobby">(← Return to Lobby)</span>
 	</div>
-
 	{{#if answeredQuestion}}
 		{{#each activeQuestion}}
 			{{#if showActiveQuestionGraph}}

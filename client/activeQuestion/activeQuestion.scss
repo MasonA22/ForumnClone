@@ -110,10 +110,14 @@
 	text-align: right;
 	font-size: 12px;
 	margin-bottom: 10px;
-}
 
-.returnToLobby{
-	cursor: pointer;
+	.returnToLobby {
+		cursor: pointer;
+
+		&:hover {
+			color: $direct;
+		}
+	}
 }
 
 @media all and (max-width: 50em) {
