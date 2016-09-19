@@ -26,7 +26,6 @@ module.exports = {
             MONGO_URL: 'mongodb://localhost/meteor'
         },
         dockerImage: 'abernix/meteord:base',
-
         //dockerImage: 'kadirahq/meteord'
         deployCheckWaitTime: 60
     },
