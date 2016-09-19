@@ -25,6 +25,7 @@ module.exports = {
             ROOT_URL: 'http://138.197.138.68/',
             MONGO_URL: 'mongodb://localhost/meteor'
         },
+        dockerImage: 'abernix/meteord:base',
 
         //dockerImage: 'kadirahq/meteord'
         deployCheckWaitTime: 60
