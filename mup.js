@@ -12,13 +12,14 @@ module.exports = {
     },
 
     meteor: {
-        name: 'ForumLive',
-        path: '../ForumLive',
+        name: 'forum-live',
+        path: '../forum-live',
         servers: {
             one: {}
         },
         buildOptions: {
             serverOnly: true,
+            debug: true
         },
         env: {
             ROOT_URL: 'http://138.197.138.68/',
