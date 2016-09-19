@@ -3,15 +3,17 @@ module.exports = {
         one: {
             host: '138.197.138.68',
             username: 'root',
-            // pem:
-            password: "SHaolinsoccer10"
+            password: "SHaolinsoccer10",
+            opts: {
+                port: 80
+            }
             // or leave blank for authenticate from ssh-agent
         }
     },
 
     meteor: {
         name: 'ForumLive',
-        path: '../app',
+        path: '../ForumLive',
         servers: {
             one: {}
         },
@@ -20,7 +22,6 @@ module.exports = {
         },
         env: {
             ROOT_URL: 'http://138.197.138.68/',
-            PORT: 80,
             MONGO_URL: 'mongodb://localhost/meteor'
         },
 
