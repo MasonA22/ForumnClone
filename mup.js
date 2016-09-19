@@ -5,7 +5,7 @@ module.exports = {
             username: 'root',
             password: "SHaolinsoccer10",
             opts: {
-                port: 80
+                port: 22
             }
             // or leave blank for authenticate from ssh-agent
         }
