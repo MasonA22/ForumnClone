@@ -79,6 +79,12 @@
 		linear-gradient(#5A894A, #6C993A);
 	box-shadow: inset 3px 3px rgb(105, 100, 100);
 
+	&:hover {
+		div {
+			color: rgb(161, 226, 106);
+		}
+	}
+
 	div {
 		@include vertical-align;
 		font-family: "press_start";
