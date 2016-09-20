@@ -43,12 +43,12 @@ Template.navbar.events({
 		$(".start-menu-arrow").toggleClass("rotate");
 		$(".mobile-dropdown-menu").slideToggle("fast", function(){
 		});
-		$(".headerImage").toggleClass("headerImageActive");
+		$(".headerImage").toggleClass("active");
 	},
 	"click .mobile-dropdown-menu li a": function(){
 		$(".start-menu-arrow").removeClass("rotate");
 		$(".mobile-dropdown-menu").slideToggle("fast", function(){
-			$(".headerImage").removeClass("headerImageActive");
+			$(".headerImage").removeClass("active");
 		});
 	}
 });
