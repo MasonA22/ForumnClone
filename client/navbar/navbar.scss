@@ -8,21 +8,21 @@
 	text-align: center;
 	color: $navbar-primary;
 	background-color: $secondary-transparent;
-}
 
-.navbar a{
-	color: inherit;
-	padding: 3px;
-	text-decoration: none;
-}
+	a {
+		color: inherit;
+		padding: 3px;
+		text-decoration: none;
 
-.navbar a:hover{
-	color: $secondary;
-	@include animation-transition;
-}
+		&:hover {
+			color: $secondary;
+			@include animation-transition;
+		}
 
-.navbar a.active{
-	color: $secondary;
+		&.active {
+			color: $secondary;
+		}
+	}
 }
 
 .hamburger-menu-icon{
@@ -48,22 +48,22 @@
 .mobile-dropdown-menu{
 	display: none;
 	padding: 20px 0px 0px 0px;
+
+	li {
+		list-style-type: none;
+		padding-top: 5px;
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		a {
+			padding: 0px;
+		}
+	}
 }
 
-.mobile-dropdown-menu li{
-	list-style-type: none;
-	padding-top: 5px;
-}
-
-.mobile-dropdown-menu li a{
-	padding: 0px;
-}
-
-.mobile-dropdown-menu li:hover{
-	cursor: pointer;
-}
-
-.headerLink{
+.headerLink {
 	padding: 0px !important;
 }
 
@@ -99,12 +99,12 @@
 
 .headerImageActive{ 
 	background-image: repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.66), black 1px, transparent 1px, transparent 3px);
-}
 
-.headerImageActive div{ 
-	color: rgb(161, 226, 106);
-	-webkit-perspective: 500px;
-	perspective: 500px;
+	div { 
+		color: rgb(161, 226, 106);
+		-webkit-perspective: 500px;
+		perspective: 500px;
+	}
 }
 
 .start-menu-icon{
