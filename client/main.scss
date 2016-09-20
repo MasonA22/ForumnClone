@@ -2,13 +2,13 @@
 @import "mixins";
 @import "fonts";
 
-*{
+* {
 	padding: 0px;
 	margin: 0px;
     font-family: "source_code";
 }
 
-body{
+body {
     background-color: $secondary-light;
 }
 
@@ -17,7 +17,7 @@ a {
     color: initial;
 }
 
-#main{
+#main {
 	min-height: 100vh;
     background-color: $secondary-light;
     background-image:
@@ -26,7 +26,7 @@ a {
         );
 }
 
-.noselect{
+.noselect {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -36,17 +36,17 @@ a {
     -webkit-tap-highlight-color: transparent;
 }
 
-.centreContainer{
+.centreContainer {
 	max-width: 400px;
 	margin: 0 auto;
     position: relative;
 }
 
-form{
+form {
     @include blue-background-box;
 }
 
-form input{
+form input {
     width: 100%;
     height: 30px;
     margin: 5px 0px 5px 0px;
@@ -58,7 +58,7 @@ form input{
     background-color: $secondary-light;
 }
 
-form button{
+form button {
     margin-top: 10px;
     width: 100%;
     height: 25px;
@@ -66,21 +66,21 @@ form button{
     border: 1px solid $primary;
 }
 
-form input[type="text"], form input[type="number"], form input[type="password"], form input[type="email"]{
+form input[type="text"], form input[type="number"], form input[type="password"], form input[type="email"] {
     padding-left: 10px;
     font-size: 14px;
 }
 
-.adminCollectionHeader{
+.adminCollectionHeader {
     font-weight: bold;
     margin-bottom: 7px;
 }
 
 @media all and (max-width: 50em) {
-    .centreContainer{
+    .centreContainer {
         padding: 20px;
     }
-    #main{
+    #main {
         padding: 20px;
     }
 }
