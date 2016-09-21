@@ -23,12 +23,12 @@ Template.badge.events({
         evt.preventDefault();
         $(evt.currentTarget).next().click();
     },
-    "change .updateBadgeAvatarContainer": function(evt, template){
+    "change .updateImageContainer": function(evt, template){
         evt.preventDefault();
         let badgeId = this._id;
-        if ($(evt.currentTarget).find(".updateBadgeAvatar")[0].files && $(evt.currentTarget).find(".updateBadgeAvatar")[0].files[0]) {
+        if ($(evt.currentTarget).find(".updateImage")[0].files && $(evt.currentTarget).find(".updateImage")[0].files[0]) {
             var upload = Images.insert({
-                file: $(evt.currentTarget).find(".updateBadgeAvatar")[0].files[0],
+                file: $(evt.currentTarget).find(".updateImage")[0].files[0],
                 streams: 'dynamic',
                 chunkSize: 'dynamic'
             }, false);
@@ -50,7 +50,7 @@ Template.badge.events({
             upload.start();
         }
     },
-    "click .deleteBadge": function(evt){
+    "click .delete": function(evt){
         evt.preventDefault();
         var badgeId = this._id;
         Meteor.call("deleteBadge", badgeId);

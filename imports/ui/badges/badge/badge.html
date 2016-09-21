@@ -1,6 +1,6 @@
 <template name="badge">
-    <div class="badge">
-        <div class="updateBadgeAvatarContainer">
+    <div class="adminCollectionObject">
+        <div class="updateImageContainer">
             {{#if avatar}}
                 {{#with avatarImage avatar}}
                     <img src="{{link}}" alt="{{name}}">
@@ -8,11 +8,11 @@
             {{else}}
                 <img>
             {{/if}}
-            <input type="file" class="updateBadgeAvatar"/>
+            <input type="file" class="updateImage"/>
         </div>
         <div class="badgeContent">
             {{name}}
-            <span class="deleteBadge">
+            <span class="delete">
                 Delete
             </span>
         </div>

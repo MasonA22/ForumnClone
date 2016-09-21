@@ -15,12 +15,12 @@ Template.rooms.helpers({
 });
 
 Template.rooms.events({
-	"click .deleteRoom": function(evt){
+	"click .delete": function(evt){
 		evt.preventDefault();
 		var roomId = this._id;
 		Meteor.call("deleteRoom", roomId);
 	},
-	"focusout .roomName": function(evt){
+	"focusout .name": function(evt){
 		evt.preventDefault();
 		var roomId = this._id;
 		var name = $(evt.target).val();
