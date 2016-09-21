@@ -1,48 +1,44 @@
 @import "../colours";
 @import "../mixins";
 
-.notifications{
+.notifications {
 	margin-bottom: 20px;
 	background-color: $direct-transparent;
 	padding: 10px;
 	font-size: 19px;
 	border: 2px solid black;
 	position: relative;
-}
 
-.notification{
-	margin-top: 5px;
-	font-size: 14px;
-	list-style-position: inside;
-}
+	.clearNotifications {
+		position: absolute;
+		font-size: 15px;
+		font-weight: bold;
+		right: 0px;
+		top: 0px;
+		width: 28px;
+		height: 28px;
+		border-radius: 20px;
+		text-align: center;
+		margin-top: -15px;
+		margin-right: -15px;
+		color: white;
+		background-color: black;
+		cursor: pointer;
 
-.clearNotifications{
-	position: absolute;
-	font-size: 15px;
-	font-weight: bold;
-	right: 0px;
-	top: 0px;
-	width: 28px;
-	height: 28px;
-	border-radius: 20px;
-	text-align: center;
-	margin-top: -15px;
-	margin-right: -15px;
-	color: white;
-	background-color: black;
-	cursor: pointer;
-}
+		&:hover {
+			color: $direct-transparent;
+			@include animation-transition;
+		}
 
-.clearNotifications div{
-	margin-top: -1px;
-	@include vertical-align;
-}
+		div {
+			margin-top: -1px;
+			@include vertical-align;
+		}
+	}
 
-.clearNotifications:hover{
-	color: $direct-transparent;
-	@include animation-transition;
-}
-
-.notificationCreatedAt{
-	font-style: italic;
+	.notification {
+		margin-top: 5px;
+		font-size: 14px;
+		list-style-position: inside;
+	}
 }
