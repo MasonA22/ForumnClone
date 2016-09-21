@@ -30,11 +30,6 @@ Meteor.methods({
 			createdAt: new Date()
 		});
 	},
-	deleteRoom: function(roomId){
-		console.log("Deleting room...");
-		Rooms.remove(roomId);
-		Questions.remove({"questionFormHash.roomId": roomId});
-	},
 	editRoom: function(roomId, name){
 		console.log("Editing room...");
 		Rooms.update({_id: roomId},{
@@ -42,5 +37,10 @@ Meteor.methods({
 				name: name
 			}
 		});
+	},
+	deleteRoom: function(roomId){
+		console.log("Deleting room...");
+		Rooms.remove(roomId);
+		Questions.remove({"questionFormHash.roomId": roomId});
 	}
 });

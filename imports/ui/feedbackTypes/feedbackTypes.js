@@ -15,9 +15,15 @@ Template.feedbackTypes.helpers({
 });
 
 Template.feedbackTypes.events({
-    "click .deleteFeedbackType": function(evt){
+	"focusout .name": function(evt){
+		evt.preventDefault();
+		let feedbackTypeId = this._id;
+		let name = $(evt.target).val();
+		Meteor.call("editFeedbackType", feedbackTypeId, name);
+	},
+    "click .delete": function(evt){
         evt.preventDefault();
-        var feedbackTypeId = this._id;
+        let feedbackTypeId = this._id;
         Meteor.call("deleteFeedbackType", feedbackTypeId);
     }
 });

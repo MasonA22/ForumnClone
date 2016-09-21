@@ -1,13 +1,13 @@
 <template name="feedbackTypes">
     {{#if feedbackTypes.count}}
-        <div class="feedbackTypes">
+        <div class="adminCollectionContainer">
             <div class="adminCollectionHeader">
                 Feedback Types
             </div>
             {{#each feedbackTypes}}
-                <div class="feedbackType">
-                    {{name}} 
-                    <span class="deleteFeedbackType">
+                <div class="adminCollectionObject">
+                    <input class="name" value={{name}} readonly="readonly" />
+                    <span class="delete">
                         Delete
                     </span>
                 </div>

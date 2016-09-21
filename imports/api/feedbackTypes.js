@@ -29,6 +29,14 @@ Meteor.methods({
 			createdAt: new Date()
 		});
 	},
+	editFeedbackType: function(feedbackTypeId, name){
+		console.log("Editing room...");
+		FeedbackTypes.update({_id: feedbackTypeId},{
+			$set: {
+				name: name
+			}
+		});
+	},
 	deleteFeedbackType: function(feedbackTypeId){
 		console.log("Deleting feedback type...");
 		FeedbackTypes.remove(feedbackTypeId);
