@@ -24,22 +24,22 @@ a {
             linear-gradient(
               $secondary-light, $secondary
         );
-}
 
-.noSelect {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-}
+    &.noSelect {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
 
-.centreContainer {
-	max-width: 400px;
-	margin: 0 auto;
-    position: relative;
+    .centreContainer {
+        max-width: 400px;
+        margin: 0 auto;
+        position: relative;
+    }
 }
 
 form {
@@ -122,10 +122,11 @@ form {
 }
 
 @media all and (max-width: 50em) {
-    .centreContainer {
-        padding: 20px;
-    }
     #main {
         padding: 20px;
+
+        .centreContainer {
+            padding: 20px;
+        }
     }
 }
