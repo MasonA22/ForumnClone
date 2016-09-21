@@ -17,13 +17,13 @@ Template.rooms.helpers({
 Template.rooms.events({
 	"focusout .name": function(evt){
 		evt.preventDefault();
-		var roomId = this._id;
-		var name = $(evt.target).val();
+		let roomId = this._id;
+		let name = $(evt.target).val();
 		Meteor.call("editRoom", roomId, name);
 	},
 	"click .delete": function(evt){
 		evt.preventDefault();
-		var roomId = this._id;
+		let roomId = this._id;
 		Meteor.call("deleteRoom", roomId);
 	}
 });

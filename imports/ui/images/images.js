@@ -15,6 +15,12 @@ Template.images.helpers({
 });
 
 Template.images.events({
+	"focusout .name": function(evt){
+		evt.preventDefault();
+		let imageId = this._id;
+		let name = $(evt.target).val();
+		Meteor.call("editImage", imageId, name);
+	},
 	"click .delete": function(evt) {
 		evt.preventDefault();
 		let imageId = this._id;

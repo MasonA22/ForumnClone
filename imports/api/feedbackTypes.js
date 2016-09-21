@@ -30,7 +30,7 @@ Meteor.methods({
 		});
 	},
 	editFeedbackType: function(feedbackTypeId, name){
-		console.log("Editing room...");
+		console.log("Editing feedback type...");
 		FeedbackTypes.update({_id: feedbackTypeId},{
 			$set: {
 				name: name

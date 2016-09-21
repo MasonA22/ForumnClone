@@ -20,6 +20,14 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
+    editImage: function(imageId, name){
+        console.log("Editing image...");
+        Images.update({_id: imageId},{
+            $set: {
+                name: name
+            }
+        });
+    },
     deleteImage: function(imageId) {
         Images.remove(imageId);
     }
