@@ -22,68 +22,81 @@
 		&.active {
 			color: $secondary;
 		}
-	}
-}
 
-.mobile-dropdown-menu {
-	display: none;
-	padding: 20px 0px 0px 0px;
+		.forumLiveLogo {
+			width: 70px;
+			font-size: 13px;
+			position: absolute;
+			right: 0;
+			margin-top: -25px;
+			margin-right: 10px;
 
-	li {
-		list-style-type: none;
-		padding-top: 5px;
-
-		&:hover {
-			cursor: pointer;
-		}
-
-		a {
-			padding: 0px;
-		}
-	}
-}
-
-.headerLink {
-	padding: 0px !important;
-}
-
-.headerImage {
-	display: none;
-	padding: 50px 0px;
-	text-align: center;
-	font-size: 2em;
-	margin-bottom: 10px;
-	width: 100%;
-	background-color: $primary-green;
-	background-image:
-		linear-gradient(#5A894A, #6C993A);
-	box-shadow: inset 3px 3px rgb(105, 100, 100);
-
-	&:hover {
-		div {
-			color: rgb(161, 226, 106);
+			div {
+				font-family: "press_start";
+			}
 		}
 	}
 
-	&.active { 
-		background-image: repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.66), black 1px, transparent 1px, transparent 3px);
+	.mobile-dropdown-menu {
+		display: none;
+		padding: 20px 0px 0px 0px;
 
-		div { 
-			color: rgb(161, 226, 106);
-			-webkit-perspective: 500px;
-			perspective: 500px;
+		li {
+			list-style-type: none;
+			padding-top: 5px;
+
+			&:hover {
+				cursor: pointer;
+			}
+
+			a {
+				padding: 0px;
+			}
 		}
 	}
 
-	div {
-		@include vertical-align;
-		font-family: "press_start";
-		color: rgb(52, 81, 27);
-		text-shadow: 2px 2px #23370F;
-		transform: perspective(200px) rotateX(30deg);
-		-webkit-transform: perspective(200px) rotateX(30deg);
-		-webkit-font-smoothing: subpixel-antialiased;
-		word-spacing: -20px;
+	.headerLink {
+		padding: 0px !important;
+		display: none;
+
+		.headerImage {
+			padding: 50px 0px;
+			text-align: center;
+			font-size: 2em;
+			margin-bottom: 10px;
+			width: 100%;
+			background-color: $primary-green;
+			background-image:
+				linear-gradient(#5A894A, #6C993A);
+			box-shadow: inset 3px 3px rgb(105, 100, 100);
+
+			&:hover {
+				div {
+					color: rgb(161, 226, 106);
+				}
+			}
+
+			&.active { 
+				background-image: repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.66), black 1px, transparent 1px, transparent 3px);
+
+				div { 
+					color: rgb(161, 226, 106);
+					-webkit-perspective: 500px;
+					perspective: 500px;
+				}
+			}
+
+			div {
+				@include vertical-align;
+				font-family: "press_start";
+				color: rgb(52, 81, 27);
+				text-shadow: 2px 2px #23370F;
+				transform: perspective(200px) rotateX(30deg);
+				-webkit-transform: perspective(200px) rotateX(30deg);
+				-webkit-font-smoothing: subpixel-antialiased;
+				word-spacing: -20px;
+			}
+		}
 	}
 }
 
@@ -135,19 +148,6 @@
 	background-color: #D0D0D0;
 }
 
-.forumLiveLogo {
-	width: 70px;
-	font-size: 13px;
-	position: absolute;
-	right: 0;
-	margin-top: -25px;
-	margin-right: 10px;
-
-	div {
-		font-family: "press_start";
-	}
-}
-
 .navbarScore {
 	font-size: 12px;
 	margin-bottom: 20px;
@@ -174,6 +174,10 @@
 				color: $secondary-light;
 			}
 		}
+
+		.headerLink {
+			display: block;
+		}
 	}
 
 	.navbarScore {
@@ -188,10 +192,6 @@
 
     .navbar-nonmobile {
     	display: none;
-    }
-
-    .headerImage {
-        display: block;
     }
 
     .headerPowerButtonOn, .headerPowerButtonOff {
