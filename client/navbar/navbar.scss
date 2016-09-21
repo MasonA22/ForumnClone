@@ -98,54 +98,54 @@
 			}
 		}
 	}
-}
 
-.start-menu-icon {
-	display: none;
-	width: 45px;
-	height: 15px;
-	background-color: #6C6C6C;
-	border-radius: 10px;
-	right: 0;
-	position: absolute;
-	margin-right: 40px;
-	box-shadow: 2px 2px #5A5A5A;
-	cursor: pointer;
-	-webkit-tap-highlight-color:transparent;
+	.headerPowerButton {
+		display: none;
+		position: absolute;
+		width: 10px;
+		height: 10px;
+		border-radius: 20px;
 
-	&:active {
-		box-shadow: inset 4px 2px #5A5A5A;
-	}
+		&.on {
+			background-color: rgb(200, 32, 32);
+		}
 
-	.start-menu-arrow {
-		@include slow-animation-transition;
-		font-size: 17px;
-		text-align: center;
-		margin-top: -4px;
-		font-weight: bold;
-
-		&.rotate {
-			transform: rotate(180deg);
-			-webkit-transform: rotate(180deg);
-			margin-top: -1px;
+		&.off {
+			background-color: #D0D0D0;
 		}
 	}
-}
 
-.headerPowerButtonOn, .headerPowerButtonOff {
-	display: none;
-	position: absolute;
-	width: 10px;
-	height: 10px;
-	border-radius: 20px;
-}
+	.start-menu-icon {
+		display: none;
+		width: 45px;
+		height: 15px;
+		background-color: #6C6C6C;
+		border-radius: 10px;
+		right: 0;
+		position: absolute;
+		margin-right: 40px;
+		box-shadow: 2px 2px #5A5A5A;
+		cursor: pointer;
+		-webkit-tap-highlight-color:transparent;
 
-.headerPowerButtonOn {
-	background-color: rgb(200, 32, 32);
-}
+		&:active {
+			box-shadow: inset 4px 2px #5A5A5A;
+		}
 
-.headerPowerButtonOff {
-	background-color: #D0D0D0;
+		.start-menu-arrow {
+			@include slow-animation-transition;
+			font-size: 17px;
+			text-align: center;
+			margin-top: -4px;
+			font-weight: bold;
+
+			&.rotate {
+				transform: rotate(180deg);
+				-webkit-transform: rotate(180deg);
+				margin-top: -1px;
+			}
+		}
+	}
 }
 
 .navbarScore {
@@ -178,24 +178,24 @@
 		.headerLink {
 			display: block;
 		}
+
+		.start-menu-icon { 
+			display: block;
+		}
+
+		.headerPowerButton {
+			display: block;
+		}
+
+		.navbar-nonmobile {
+			display: none;
+		}
 	}
 
 	.navbarScore {
 		.navbarScoreEmblem {
 			background-color: $primary-dark;
 		}
-	}
-	
-	.start-menu-icon { 
-		display: block;
-	}
-
-    .navbar-nonmobile {
-    	display: none;
-    }
-
-    .headerPowerButtonOn, .headerPowerButtonOff {
-    	display: block;
-    }
+	}   
 }
 
