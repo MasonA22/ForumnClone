@@ -1,13 +1,13 @@
 <template name="images">
 	{{#if images.count}}
-		<div class="images">
+		<div class="adminCollectionContainer">
 			<div class="adminCollectionHeader">
 			    Images
 			</div>
 			{{#each images}}
-				<div class="image">
-					<input class="imageName" value={{name}} readonly="readonly" />
-					<span class="deleteImage">Delete</span>
+				<div class="adminCollectionObject">
+					<input class="name" value={{name}} readonly="readonly" />
+					<span class="delete">Delete</span>
 				</div>
 			{{/each}}
 		</div>

@@ -15,9 +15,9 @@ Template.images.helpers({
 });
 
 Template.images.events({
-	"click .deleteImage": function(evt) {
+	"click .delete": function(evt) {
 		evt.preventDefault();
-		var imageId = this._id;
+		let imageId = this._id;
 		Meteor.call("deleteImage", imageId);
 	}
 });
