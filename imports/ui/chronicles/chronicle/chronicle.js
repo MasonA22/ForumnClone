@@ -26,6 +26,11 @@ Template.chronicle.helpers({
             return false;
         }
     },
+    question: function() {
+        let questionId = FlowRouter.getParam("_id");
+        let question = Questions.findOne(questionId);
+        return question;
+    },
     rankOrder: function(){
         let questionId = FlowRouter.getParam("_id");
         let question = Questions.findOne(questionId);
