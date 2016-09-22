@@ -1,5 +1,6 @@
 import { Meteor } from "meteor/meteor";
 import { Template } from "meteor/templating";
+import { FlowRouter } from 'meteor/kadira:flow-router';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { Questions } from "../../../api/questions.js";
 
@@ -26,13 +27,13 @@ Template.chronicle.helpers({
         }
     },
     rankOrder: function(){
-        var questionId = this._id;
-        var question = Questions.findOne(questionId);
+        let questionId = FlowRouter.getParam("_id");
+        let question = Questions.findOne(questionId);
         if (question){
-            var rank = question.rank;
-            var newRank = [];
+            let rank = question.rank;
+            let newRank = [];
             $.each(rank, function(index, value){
-                var email = Meteor.users.findOne(value).emails[0].address;
+                let email = Meteor.users.findOne(value).emails[0].address;
                 newRank.push(email);
             });
             return newRank;
