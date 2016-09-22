@@ -77,7 +77,7 @@ privateRoutes.route('/history', {
 	}
 });
 
-privateRoutes.route('/chronicles/:_id', {
+privateRoutes.route('/history/:_id', {
 	name: 'chronicle',
 	action() {
 		BlazeLayout.render('layout', { main: 'chronicle' });
