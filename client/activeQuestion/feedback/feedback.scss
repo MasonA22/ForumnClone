@@ -3,63 +3,63 @@
 
 .feedbackContainer {
 	text-align: center;
-}
 
-.feedbackHeader {
-	font-size: 20px;
-	font-weight: bold;
-	margin-bottom: 10px;
-}
-
-.feedbackVote {
-	font-size: 25px;
-	cursor: pointer;
-	width: 40%;
-	height: 100px;
-	display: inline-block;
-	@include white-background-box;
-
-	&:hover {
-		background-color: $direct;
-		@include animation-transition;
+	.feedbackHeader {
+		font-size: 20px;
+		font-weight: bold;
+		margin-bottom: 10px;
 	}
 
-	.up {
-		height: 100%;
-		content: url("../../thumbs_up.png");
+	.feedbackSelectionContainer {
+		margin-top: 10px;
+
+		.feedbackSelection {
+			cursor: pointer;
+			display: inline-block;
+			@include white-background-box;
+
+			&.active, &:hover {
+				@include blue-background-box;
+				@include animation-transition;
+			}
+		}
 	}
 
-	.down {
-		transform: rotate(180deg);
-		-webkit-transform: rotate(180deg);
-		height: 100%;
-		content: url("../../thumbs_up.png");
+	.feedbackSubmit {
+		cursor: pointer;
+		margin-top: 10px;
+		@include blue-background-box;
+		background-color: $primary-green;
 	}
 
-	div {
-		text-align: center;
-		@include vertical-align;
+	.feedbackVote {
+		font-size: 25px;
+		cursor: pointer;
+		width: 40%;
+		height: 100px;
+		display: inline-block;
+		@include white-background-box;
+
+		&:hover {
+			background-color: $direct;
+			@include animation-transition;
+		}
+
+		.up {
+			height: 100%;
+			content: url("../../thumbs_up.png");
+		}
+
+		.down {
+			transform: rotate(180deg);
+			-webkit-transform: rotate(180deg);
+			height: 100%;
+			content: url("../../thumbs_up.png");
+		}
+
+		div {
+			text-align: center;
+			@include vertical-align;
+		}
 	}
-}
-
-.feedbackSelectionContainer {
-	margin-top: 10px;
-}
-
-.feedbackSelection {
-	cursor: pointer;
-	display: inline-block;
-	@include white-background-box;
-}
-
-.feedbackSelection.active, .feedbackSelection:hover {
-	@include blue-background-box;
-	@include animation-transition;
-}
-
-.feedbackSubmit {
-	cursor: pointer;
-	margin-top: 10px;
-	@include blue-background-box;
-	background-color: $primary-green;
 }
