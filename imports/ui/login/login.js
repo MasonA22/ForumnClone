@@ -3,10 +3,6 @@ import { Template } from "meteor/templating";
 
 import "./login.html";
 
-// Template.login.onCreated(function(){
-// 	Meteor.subscribe("allUsers");
-// });
-
 Template.login.onRendered(function(){
 	$("#li-email").focus();
 });
@@ -27,7 +23,6 @@ Template.login.events({
 	},
 	"click button": function(evt, template){
 		evt.preventDefault();
-
 		$("#li-email").prop("disabled", "disabled");
 		$(evt.target).prop("disabled", "disabled");
 		$(evt.target).text("Logging in. Please wait...");
