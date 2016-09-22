@@ -70,7 +70,7 @@ privateRoutes.route('/logout', {
 	},
 });
 
-privateRoutes.route('/chronicles', {
+privateRoutes.route('/history', {
 	name: 'chronicles',
 	action() {
 		BlazeLayout.render('layout', { main: 'chronicles' });

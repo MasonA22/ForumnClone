@@ -121,6 +121,20 @@ form {
     }
 }
 
+.linkBoxContainer {
+    color: $primary;
+    padding: 20px;
+    border: 1px solid $primary;
+    cursor: pointer;
+    background-color: $secondary-transparent;
+    word-wrap: break-word;
+
+    &:hover {
+        background-color: $secondary-light;
+        @include animation-transition;
+    }
+}
+
 @media all and (max-width: 50em) {
     #main {
         padding: 20px;

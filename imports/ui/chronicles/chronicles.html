@@ -1,7 +1,15 @@
 <template name="chronicles">
     <div class="chronicles">
-        {{#each questions}}
-            {{> chronicleQuestion}}
-        {{/each}}
+    	{{#if questions.count}}
+    		{{#each questions}}
+    		    {{> chronicleQuestion}}
+    		{{/each}}
+    	{{else}}
+    		<a href="{{pathFor route="home"}}">
+	    		<div class="linkBoxContainer">
+	    			Currently, there is no history available (because no questions have been asked yet!). <br><br> Click here to return home.
+	    		</div>
+    		</a>
+    	{{/if}}
     </div>
 </template>
