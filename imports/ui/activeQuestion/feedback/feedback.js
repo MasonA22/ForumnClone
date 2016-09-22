@@ -10,6 +10,7 @@ Template.feedback.onCreated(function(){
 	this.state = new ReactiveDict();
 	const instance = Template.instance();
 	instance.state.set("showSuggestedFeedbackSection", false);
+	Meteor.subscribe("feedbackTypes");
 });
 
 Template.feedback.helpers({
