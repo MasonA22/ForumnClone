@@ -56,35 +56,36 @@
 			</div>
 		{{/if}}
 		{{#if activeQuestion}}
-			<span class="removeActiveQuestion">
+			<span class="removeActiveQuestion adminControlOption">
 				Remove Active:
 			</span>
 		{{else}}
-			<span class="makeActiveQuestion">
+			<span class="makeActiveQuestion adminControlOption">
 				Make Active:
 			</span>
 		{{/if}}
 		<input type="number" class="startTimerSeconds" value=0 />
 		<span> | </span>
-		<span class="resetVotes">
+		<span class="resetVotes adminControlOption">
 			Reset Votes
 		</span>
 		<span> | </span>
-		<span class="toggleQuestionFeedback">
+		<span class="toggleQuestionFeedback adminControlOption">
 			Feedback
 		</span>
 		<span> | </span>
-		<span class="toggleQuestionWager">
+		<span class="toggleQuestionWager adminControlOption">
 			Wager
 		</span>
 		<span> | </span>
-		<span class="deleteQuestion">
+		<span class="deleteQuestion adminControlOption">
 			Delete
 		</span>
 		{{#if questionFormHash.isPoll}}
-			<span class="questionJson">Generate Data JSON</span>
 			<span> | </span>
-			<span class="resetQuestionData">Reset Data</span>
+			<span class="questionJson adminControlOption">Generate Data JSON</span>
+			<span> | </span>
+			<span class="resetQuestionData adminControlOption">Reset Data</span>
 		{{/if}}
 	</div>
 </template>

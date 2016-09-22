@@ -1,26 +1,26 @@
 @import "../mixins";
 @import "../colours";
 
-.questions{
+.questions {
 	@include blue-background-box;
 	padding: 20px;
 }
 
-.editQuestionsContainer{
+.editQuestionsContainer {
 	font-size: 12px;
 	text-align: right;
 	margin-bottom: 10px;
 }
 
-.editQuestions{
+.editQuestions {
 	cursor: pointer;
 }
 
-.editQuestionHeader input:read-only, .editAnswers input:read-only, .editPoints input:read-only{
+.editQuestionHeader input:read-only, .editAnswers input:read-only, .editPoints input:read-only {
 	background-color: $secondary-transparent;
 }
 
-.editQuestionHeader input, .editAnswers input, .editPoints input{
+.editQuestionHeader input, .editAnswers input, .editPoints input {
 	background-color: $secondary-light;
 	padding: 2px 4px 2px 4px;
 	border: none;
@@ -28,89 +28,90 @@
 	@include animation-transition;
 }
 
-.editPoints input{
+.editPoints input {
 	width: 50px;
 	text-overflow: ellipsis;
 }
 
-.questionText{
+.questionText {
 	width: 70%;
 }
 
-.editAnswers input{
+.editAnswers input {
 	max-width: 70px;
 }
 
-.question{
+.question {
 	font-size: 14px;
 	margin-bottom: 10px;
 	padding-bottom: 5px;
 	border-bottom: 1px solid black;
 }
 
-.questionHeader{
+.questionHeader {
 	font-weight: bold;
 	margin-bottom: 5px;
 }
 
-.makeActiveQuestion, .removeActiveQuestion, .resetVotes, .deleteQuestion, .questionJson, .resetQuestionData, .toggleQuestionFeedback, .toggleQuestionWager{
-	font-size: 15px;
-	cursor: pointer;
+.question > * {
+	opacity: 0.3;
 }
 
-.question > *{
-	opacity: 0.2;
-}
-
-.question .questionDetails{
+.question .questionDetails {
 	font-size: 11px;
 	text-align: right;
 }
 
-.questionSessionName{
+.questionSessionName {
 	width: auto;
 	text-align: right;
 }
 
-.questionAskOrder{
+.questionAskOrder {
 	width: 20px;
 }
 
-.makeActiveQuestion:hover, .removeActiveQuestion:hover, .resetVotes:hover, .deleteQuestion:hover, .questionJson:hover, .resetQuestionData:hover, .toggleQuestionFeedback:hover, .toggleQuestionWager:hover{
-	opacity: 1;
-	@include animation-transition;
+.adminControlOption {
+	font-size: 15px;
+	cursor: pointer;
+
+	&:hover {
+		opacity: 1;
+		color: $primary-red;
+		@include animation-transition;
+	}
 }
 
-.question.activeQuestion > *{
+.question.activeQuestion > * {
 	opacity: 1;
 }
 
-.question.alreadyAsked > *{
+.question.alreadyAsked > * {
 	color: $primary-red;
 }
 
-.pointsWorthContainer{
+.pointsWorthContainer {
 	margin-top: 10px;
 }
 
-.pointsWorthContainer, .optionEnabledContainer{
+.pointsWorthContainer, .optionEnabledContainer {
 	font-size: 12px;
 	text-align: right;
 }
 
-.startTimerSeconds{
+.startTimerSeconds {
 	width: 35px;
 	padding-left: 3px;
 }
 
-.questionRoomName{
+.questionRoomName {
 	font-size: 11px;
 }
 
-.feedbackGood{
+.feedbackGood {
 	color: #328C67;
 }
 
-.feedbackBad{
+.feedbackBad {
 	color: rgb(152, 61, 97);
 }
