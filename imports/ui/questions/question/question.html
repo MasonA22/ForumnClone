@@ -43,19 +43,6 @@
 			<span>Points Worth: </span>
 			<input type="number" value={{questionFormHash.points}} readonly="readonly" />
 		</div>
-		{{#if questionFormHash.wagerEnabled}}
-			<div class="optionEnabledContainer">
-				<span>Wager Enabled</span>
-			</div>
-		{{/if}}
-		{{#if questionFormHash.feedbackEnabled}}
-			<div class="optionEnabledContainer">
-				<span>Feedback Enabled: </span>
-				<span class="feedbackGood">{{questionFormHash.feedback.good}}</span>
-				<span>/</span>
-				<span class="feedbackBad">{{questionFormHash.feedback.bad}}</span>
-			</div>
-		{{/if}}
 		{{#if activeQuestion}}
 			<span class="removeActiveQuestion adminControlOption">
 				Remove Active:
@@ -72,11 +59,22 @@
 		</span>
 		<span> | </span>
 		<span class="toggleQuestionFeedback adminControlOption">
-			Feedback
+			{{#if questionFormHash.feedbackEnabled}}
+				<span>Feedback On</span>
+				(<span class="feedbackGood">{{questionFormHash.feedback.good}}</span>
+				<span>/</span>
+				<span class="feedbackBad">{{questionFormHash.feedback.bad}}</span>)
+			{{else}}
+				<span class="disabled">Feedback Off</span>
+			{{/if}}
 		</span>
 		<span> | </span>
 		<span class="toggleQuestionWager adminControlOption">
-			Wager
+			{{#if questionFormHash.wagerEnabled}}
+				<span>Wager On</span>
+			{{else}}
+				<span class="disabled">Wager Off</span>
+			{{/if}}
 		</span>
 		<span> | </span>
 		<span class="deleteQuestion adminControlOption">
