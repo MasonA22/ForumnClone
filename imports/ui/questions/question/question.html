@@ -29,10 +29,11 @@
 						<span> | </span>
 						<span>Votes: </span>
 						{{this.votes}}
-						{{#if this.correct}}
-							<span> | </span>
-							<span>Correct Answer: </span>
-							{{this.correct}}
+						<span> | </span>
+						{{#if isCorrect this.correct}}
+							<span>Correct</span>
+						{{else}}
+							<span>Incorrect</span>
 						{{/if}}
 					</li>
 				</div>

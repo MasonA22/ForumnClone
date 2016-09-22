@@ -10,10 +10,10 @@
 	font-size: 12px;
 	text-align: right;
 	margin-bottom: 10px;
-}
 
-.editQuestions {
-	cursor: pointer;
+	.editQuestions {
+		cursor: pointer;
+	}
 }
 
 .editQuestionHeader input:read-only, .editAnswers input:read-only, .editPoints input:read-only {

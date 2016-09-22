@@ -32,5 +32,13 @@ Template.question.helpers({
 				}
 			}
 		}
+	},
+	isCorrect: function(correct) {
+		if (correct === "true") {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 });
