@@ -1,5 +1,6 @@
 import { Meteor } from "meteor/meteor";
 import { Template } from "meteor/templating";
+import { FlowRouter } from 'meteor/kadira:flow-router';
 import { ActivateQuestions } from "../../api/activateQuestions.js";
 import { ActivateBadges } from "../../api/activateBadges.js";
 
@@ -12,16 +13,16 @@ Template.navbar.onCreated(function(){
 
 Template.navbar.helpers({
 	userName: function(){
-		var user = Meteor.user();
-		var emailArray = user.emails[0].address.split("@");
-		var userName = emailArray[0].substring(0, 8);
+		let user = Meteor.user();
+		let emailArray = user.emails[0].address.split("@");
+		let userName = emailArray[0].substring(0, 8);
 		return userName;
 	},
 	isQuestionActive: function(){ 
-		var user = Meteor.user();
+		let user = Meteor.user();
 		if (Meteor.user()){ 
-			var currentRoomId = Meteor.user().profile.currentRoomId;
-			var activeQuestion = ActivateQuestions.findOne({roomId: currentRoomId});
+			let currentRoomId = Meteor.user().profile.currentRoomId;
+			let activeQuestion = ActivateQuestions.findOne({roomId: currentRoomId});
 			if (activeQuestion){
 				return true;
 			}
@@ -35,6 +36,17 @@ Template.navbar.helpers({
 	},
 	activateBadges: function(){
 		return ActivateBadges.find({});
+	},
+	inRoom: function() {
+		let currentRoute = FlowRouter.getRouteName();
+		let user = Meteor.user();
+		let currentRoomId = Meteor.user().profile.currentRoomId;
+		if (currentRoute === "home" && currentRoomId) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 });
 
@@ -50,5 +62,10 @@ Template.navbar.events({
 		$(".mobile-dropdown-menu").slideToggle("fast", function(){
 			$(".headerImage").removeClass("active");
 		});
+	},
+	"click .returnToLobby": function(evt){
+		evt.preventDefault();
+		var userId = Meteor.userId();
+		Meteor.call("removeCurrentRoom", userId);
 	}
 });

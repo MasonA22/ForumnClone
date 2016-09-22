@@ -2,7 +2,11 @@
 	<div class="navbar">
 		<div class="navbar-nonmobile">
 			{{#if currentUser}}
-				<a href="{{pathFor route="home"}}">Home</a>
+				{{#if inRoom}}
+					<a class="returnToLobby">Return to Lobby</a>
+				{{else}}
+					<a href="{{pathFor route="home"}}">Home</a>
+				{{/if}}
 				<span>|</span>
 				<a class="{{isActiveRoute 'scoreBoard'}}" href="{{pathFor route="scoreBoard"}}">Score Board</a>
 				<span>|</span>
@@ -49,7 +53,11 @@
 		{{/if}}
 		<ul class="mobile-dropdown-menu">
 			{{#if currentUser}}
-				<li><a href="{{pathFor route="home"}}">Home</a></li>
+				{{#if inRoom}}
+					<li><a class="returnToLobby">Return to Lobby</a></li>
+				{{else}}
+					<li><a href="{{pathFor route="home"}}">Home</a></li>
+				{{/if}}
 				<li><a class="{{isActiveRoute 'scoreBoard'}}" href="{{pathFor route="scoreBoard"}}">Score Board</a></li>
 				<li><a class="{{isActiveRoute 'chronicles'}}" href="{{pathFor route="chronicles"}}">History</a></li>
 				{{#if activateBadges.count}}
