@@ -10,7 +10,7 @@ Template.login.onRendered(function(){
 Template.login.events({
 	"keyup #li-email": function(evt, template){
 		evt.preventDefault();
-		var email = $("#li-email").val(),
+		let email = $("#li-email").val(),
 			regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/,
 			emailCheck = regex.test(email);
 
@@ -26,12 +26,13 @@ Template.login.events({
 		$("#li-email").prop("disabled", "disabled");
 		$(evt.target).prop("disabled", "disabled");
 		$(evt.target).text("Logging in. Please wait...");
-		var email = template.find("#li-email").value;
-		email = email.toLowerCase();
-		var defaultPassword = "welcome";
-		var isAdmin = false;
+		let email = template.find("#li-email").value.toLowerCase(),
+			defaultPassword = "welcome",
+			isAdmin = false,
+			isSuperAdmin = false;
 		if (email === "kylebachan@gmail.com" || email === "admin@admin.com"){
 			isAdmin = true;
+			isSuperAdmin = true;
 		}
 
 		Accounts.createUser({
@@ -39,6 +40,7 @@ Template.login.events({
 			password: defaultPassword,
 			profile: {
 				isAdmin: isAdmin,
+				isSuperAdmin: isSuperAdmin,
 				currentRoomId: null
 			}
 		}, function(error, result){

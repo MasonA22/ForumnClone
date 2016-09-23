@@ -117,23 +117,9 @@
 			</div>
 		{{/each}}
 	</div>
-
-	<div class="generateVSJson userManagementContainer">
-		Generate VR JSON
-	</div>
-
-	<div class="generateAllJson userManagementContainer">
-		Generate All Data JSON
-	</div>
-
-	<div class="generatePollJson userManagementContainer">
-		Generate Poll Data JSON
-	</div>
-
 	<div class="initData userManagementContainer">
 		Init App Data
 	</div>
-
 	<div class="activateBadges userManagementContainer">
 		{{#if activateBadges.count}}
 			Deactivate Badges
@@ -141,4 +127,15 @@
 			Activate Badges
 		{{/if}}
 	</div>
+	{{#if currentUser.profile.isSuperAdmin}}
+		<div class="generateVSJson userManagementContainer">
+			Generate VR JSON
+		</div>
+		<div class="generateAllJson userManagementContainer">
+			Generate All Data JSON
+		</div>
+		<div class="generatePollJson userManagementContainer">
+			Generate Poll Data JSON
+		</div>
+	{{/if}}
 </template>
