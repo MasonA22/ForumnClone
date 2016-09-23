@@ -4,6 +4,11 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 var Schemas = {};
 
 Schemas.UserProfile = new SimpleSchema({
+    isSuperAdmin: {
+        type: Boolean,
+        label: "isSuperAdmin Flag",
+        defaultValue: false
+    },
     isAdmin: {
         type: Boolean,
         label: "isAdmin Flag",
