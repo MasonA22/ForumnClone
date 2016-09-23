@@ -3,7 +3,9 @@
 	<div id="main" class="noSelect">
 		{{> navbar}}
 		<div class="centreContainer">
-			{{> notifications}}
+			{{#if currentUser}}
+				{{> notifications}}
+			{{/if}}			
 			{{> Template.dynamic template=main}}
 		</div>
 		{{> footer}}
