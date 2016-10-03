@@ -11,6 +11,7 @@ import "../images/images.js";
 Template.home.onCreated(function(){
 	this.state = new ReactiveDict();
 	const instance = Template.instance();
+	instance.state.set("activeQuestion", true);
 	instance.state.set("questions", false);
 	instance.state.set("rooms", false);
 	instance.state.set("badges", false);

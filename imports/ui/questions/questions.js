@@ -13,12 +13,18 @@ Template.questions.onCreated(function(){
 
 Template.questions.helpers({
 	questions: function(){
-		var roomId = Meteor.user().profile.currentRoomId;
-		if (roomId){
-			return Questions.find({"questionFormHash.roomId": roomId}, {sort: {"questionFormHash.askOrder": 1}});
+		let activeQuestion = Template.currentData().activeQuestion;
+		let roomId = Meteor.user().profile.currentRoomId;
+		if (activeQuestion) {
+			return Questions.find({activeQuestion: activeQuestion, "questionFormHash.roomId": roomId});
 		}
-		else{
-			return Questions.find({});
+		else {
+			if (roomId){
+				return Questions.find({"questionFormHash.roomId": roomId}, {sort: {"questionFormHash.askOrder": 1}});
+			}
+			else{
+				return Questions.find({});
+			}
 		}
 	},
 	rooms: function(){

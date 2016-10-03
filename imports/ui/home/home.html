@@ -6,6 +6,19 @@
 			{{> selectRoom}}
 		{{/if}}
 		{{#if currentUser.profile.isAdmin}}
+			{{#if currentUser.profile.currentRoomId}}
+				<div class="adminManagementContainer {{#if showAdminSection 'activeQuestion'}}active{{/if}} canOpen" adminOption="activeQuestion">
+					<div class="adminManagementHeader">
+						Active Question
+						<span class="adminManagementArrow">→</span>
+					</div>
+					{{#if showAdminSection "activeQuestion"}}
+						<div class="adminManagementContent">
+							{{> questions activeQuestion=true}}
+						</div>
+					{{/if}}
+				</div>
+			{{/if}}
 			<div class="adminManagementContainer {{#if showAdminSection 'questions'}}active{{/if}} canOpen" adminOption="questions">
 				<div class="adminManagementHeader">
 					Questions
