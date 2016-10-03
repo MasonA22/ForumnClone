@@ -12,13 +12,13 @@
                 Rank Order (users who got the answer correct):
             </div>
             <div class="chronicleQuestionRanksContent">
-                {{#each rankOrder}}
-                    {{#if equals currentUser.emails.[0].address this}}
+                {{#each question.rank}}
+                    {{#if equals currentUser._id this}}
                         <span class="chronicleQuestionCurrentUser">
-                            {{this}}
+                            {{emailAddress this}}
                         </span>
                     {{else}}
-                        {{this}}
+                        {{emailAddress this}}
                     {{/if}}
                 {{/each}}
             </div>

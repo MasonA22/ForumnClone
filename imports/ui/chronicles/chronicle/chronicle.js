@@ -31,21 +31,9 @@ Template.chronicle.helpers({
         let question = Questions.findOne(questionId);
         return question;
     },
-    rankOrder: function(){
-        let questionId = FlowRouter.getParam("_id");
-        let question = Questions.findOne(questionId);
-        if (question){
-            let rank = question.rank;
-            let newRank = [];
-            $.each(rank, function(index, value){
-                let email = Meteor.users.findOne(value).emails[0].address;
-                newRank.push(email);
-            });
-            return newRank;
-        }
-        else{
-            return false;
-        }
+    emailAddress: function(userId) {
+        let user = Meteor.users.findOne(userId);
+        return user.emails[0].address;
     }
 });
 
