@@ -2,17 +2,17 @@
     <div class="chronicleQuestionGraph">
         <div class="activeQuestionGraphHeader">
             <span> Question: </span>
-            {{questionFormHash.question}}
-            {{#if questionFormHash.isInput}}
+            {{question.questionFormHash.question}}
+            {{#if question.questionFormHash.isInput}}
                 <div class="activeQuestionGraphAnswer">
                     <span>Answer: </span>
-                    {{questionFormHash.inputAnswer}}
+                    {{question.questionFormHash.inputAnswer}}
                 </div>
             {{/if}}
-            {{#if questionFormHash.isTrivia}}
+            {{#if question.questionFormHash.isTrivia}}
                 <div class="activeQuestionGraphAnswer">
                     <span>Answer: </span>
-                    {{#each questionFormHash.answers}}
+                    {{#each question.questionFormHash.answers}}
                         {{#if equals this.correct "true"}}
                             {{this.text}}
                         {{/if}}

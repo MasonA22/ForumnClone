@@ -23,6 +23,14 @@ Template.chronicleQuestionGraph.onRendered(function(){
     }, false);
 });
 
+Template.chronicleQuestionGraph.helpers({
+    question: function(){
+        let questionId = FlowRouter.getParam("_id");
+        let question = Questions.findOne(questionId);
+        return question;
+    }
+});
+
 function doneResizing(questionId){
     drawChart(questionId);
 }
