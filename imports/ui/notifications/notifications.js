@@ -11,16 +11,6 @@ Template.notifications.onCreated(function(){
 Template.notifications.helpers({
 	notifications: function(){
 		return Notifications.find({});
-	},
-	showNotifications: function(){
-		var userId = Meteor.userId();
-		var notificationCount = Notifications.find({userId: userId, seen: false}).fetch().length;
-		if (notificationCount > 0){
-			return true;
-		}
-		else{
-			return false;
-		}
 	}
 });
 
