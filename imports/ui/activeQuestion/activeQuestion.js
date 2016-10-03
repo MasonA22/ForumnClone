@@ -22,16 +22,16 @@ Template.activeQuestion.onCreated(function(){
 
 Template.activeQuestion.helpers({
 	activeQuestion: function() {
-		var roomId = Meteor.user().profile.currentRoomId;
+		let roomId = Meteor.user().profile.currentRoomId;
 		return Questions.find({activeQuestion: true, "questionFormHash.roomId": roomId});
 	},
 	answeredQuestion: function() {
 		if (Meteor.user()){
-			var roomId = Meteor.user().profile.currentRoomId,
+			let roomId = Meteor.user().profile.currentRoomId,
 				question = Questions.findOne({activeQuestion: true, "questionFormHash.roomId": roomId}),
 				questionId;
 			question ? questionId = question._id : questionId = null;
-			var questions = Meteor.user().profile.questionsUsersHaveVotedOn;
+			let questions = Meteor.user().profile.questionsUsersHaveVotedOn;
 			if (questions.indexOf(questionId) != -1){
 				return true;
 			}
@@ -44,31 +44,32 @@ Template.activeQuestion.helpers({
 		}
 	},
 	rankNumber: function(){
-		var roomId = Meteor.user().profile.currentRoomId;
-		var activeQuestion = Questions.findOne({activeQuestion: true, "questionFormHash.roomId": roomId});
-		activeQuestion ? rankNumber = activeQuestion.rank.length + 1 : rankNumber = 0;
+		let roomId = Meteor.user().profile.currentRoomId,
+			questionId = this._id,
+			question = Questions.findOne(questionId),
+			rankNumber = question.rank.length + 1;
 		return rankNumber;
 	},
 	triviaPointsWorth: function(){
-		var roomId = Meteor.user().profile.currentRoomId;
-		var question = Questions.findOne({activeQuestion: true, "questionFormHash.roomId": roomId});
-		var points, rankIndex;
-		question ? points = question.questionFormHash.points : points = 0;
-		question ? rankIndex = question.rank.length + 1 : rankIndex = 1;
-		var rankPoints = Math.round(points / rankIndex);
+		let roomId = Meteor.user().profile.currentRoomId,
+			questionId = this._id,
+			question = Questions.findOne(questionId),
+			points = question.questionFormHash.points, 
+			rankIndex = question.rank.length + 1,
+			rankPoints = Math.round(points / rankIndex);
 		if (rankPoints === 0){
 			rankPoints = 1;
 		}
-		var totalPoints = points * 2 + rankPoints;
+		let totalPoints = points * 2 + rankPoints;
 		return totalPoints;
 	},
 	rankPoints: function(){
-		var roomId = Meteor.user().profile.currentRoomId;
-		var question = Questions.findOne({activeQuestion: true, "questionFormHash.roomId": roomId});
-		var points, rankIndex;
-		question ? points = question.questionFormHash.points : points = 0;
-		question ? rankIndex = question.rank.length + 1 : rankIndex = 1;
-		var rankPoints = Math.round(points / rankIndex);
+		let roomId = Meteor.user().profile.currentRoomId,
+			questionId = this._id,
+			question = Questions.findOne(questionId),
+			points = question.questionFormHash.points, 
+			rankIndex = question.rank.length + 1,
+			rankPoints = Math.round(points / rankIndex);
 		if (rankPoints === 0){
 			rankPoints = 1;
 		}
