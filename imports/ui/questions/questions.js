@@ -65,14 +65,15 @@ Template.questions.events({
 	},
 	"click .makeActiveQuestion": function(evt, template){
 		evt.preventDefault();
-		var questionId = this._id;
-		var startTime;
-		var showTimer = false;
+		let questionId = this._id,
+			startTime,
+			showTimer = false,
+			roomId = this.questionFormHash.roomId;
 		$(evt.target).next().val() ? startTime = $(evt.target).next().val() : startTime = 0;
 		if (startTime > 0){
 			showTimer = true;
 		}
-		Meteor.call("makeActiveQuestion", questionId, showTimer, startTime);
+		Meteor.call("makeActiveQuestion", questionId, showTimer, startTime, roomId);
 	},
 	"click .removeActiveQuestion": function(evt, template){
 		evt.preventDefault();

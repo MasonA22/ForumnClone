@@ -269,10 +269,8 @@ Meteor.methods({
 			}
 		});
 	},
-	makeActiveQuestion: function(questionId, showTimer, startTime){
+	makeActiveQuestion: function(questionId, showTimer, startTime, roomId){
 		console.log("Making this the active question...");
-		var roomId = Questions.findOne(questionId).questionFormHash.roomId;
-
 		// setting all the other questions to be inactive
 		Questions.update({"questionFormHash.roomId": roomId},{
 			$set: {
