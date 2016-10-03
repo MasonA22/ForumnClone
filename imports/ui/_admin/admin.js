@@ -9,7 +9,9 @@ import "./admin.html";
 Template.admin.onCreated(function(){
 	this.state = new ReactiveDict();
 	const instance = Template.instance();
-	instance.state.set("massNotification", false);
+	instance.state.set("showMassNotification", false);
+	instance.state.set("showOnlineUsers", false);
+	instance.state.set("showOfflineUsers", false);
 	Meteor.subscribe("presences");
 	Meteor.subscribe("allUsers");
 	Meteor.subscribe("activateBadges");
@@ -17,9 +19,27 @@ Template.admin.onCreated(function(){
 });
 
 Template.admin.helpers({
-	massNotification: function(){
+	showMassNotification: function(){
 		const instance = Template.instance();
-		if (instance.state.get("massNotification")){
+		if (instance.state.get("showMassNotification")){
+			return true;
+		}
+		else{
+			return false;
+		}
+	},
+	showOnlineUsers: function() {
+		const instance = Template.instance();
+		if (instance.state.get("showOnlineUsers")){
+			return true;
+		}
+		else{
+			return false;
+		}
+	},
+	showOfflineUsers: function() {
+		const instance = Template.instance();
+		if (instance.state.get("showOfflineUsers")){
 			return true;
 		}
 		else{
@@ -82,7 +102,6 @@ Template.admin.events({
 	},
 	"click .assignPoints": function(evt, template){
 		evt.preventDefault();
-
 		if ($(evt.target).nextAll(".assignPointsContainer:first").is(":visible")){
 			$(evt.target).nextAll(".assignPointsContainer:first").css("display", "none");
 		}
@@ -92,7 +111,6 @@ Template.admin.events({
 	},
 	"click .assignPointsBtn": function(evt, template){
 		evt.preventDefault();
-		
 		var assignPointsReason = $(evt.target).prev().val();
 		var assignPointsNumber;
 		$.isNumeric($(evt.target).prev().prev().prev().val()) ? assignPointsNumber = $(evt.target).prev().prev().prev().val() : assignPointsNumber = 0;
@@ -110,19 +128,18 @@ Template.admin.events({
 		});
 		Meteor.call("createNotification", userId, message);
 	},
-	"click .massNotificationHeader": function(evt, template){
+	"click .adminManagementHeader": function(evt, template){
 		evt.preventDefault();
-
-		if (template.state.get("massNotification")){
-			template.state.set("massNotification", false);
+		let adminOption = $(evt.target).attr("adminOption");
+		if (template.state.get(adminOption)){
+			template.state.set(adminOption, false);
 		}
 		else{
-			template.state.set("massNotification", true);
+			template.state.set(adminOption, true);
 		}
 	},
 	"click .massNotificationBtn": function(evt, template){
 		evt.preventDefault();
-		
 		var massNotificationMessage = template.find("#massNotificationMessage").value;
 		var allIds = Meteor.users.find({}).map(function(user){
 			return user._id;
@@ -130,19 +147,17 @@ Template.admin.events({
 		var message = "Mass Notification: " + massNotificationMessage;
 		$.each(allIds, function(key, value){
 			Meteor.call("createNotification", value, message, function(error, result){
-				template.state.set("massNotification", false);
+				template.state.set("showMassNotification", false);
 			});
 		});
 	},
 	"click .deleteUser": function(evt, template){
 		evt.preventDefault();
-
 		var userId = this._id;
 		Meteor.call("deleteUser", userId);
 	},
 	"click .generateVSJson": function(evt, template){
 		evt.preventDefault();
-
 		var users = Meteor.users.find({"profile.isAdmin": false}, {sort: {"profile.score": -1}}).map(function(user){
 			return user;
 		});

@@ -1,9 +1,10 @@
 <template name="admin">
-	<div class="massNotification userManagementContainer">
-		<span class="massNotificationHeader">
+	<div class="adminManagementContainer {{#unless showMassNotification}}notActive{{/unless}}">
+		<div class="adminManagementHeader" adminOption="showMassNotification">
 			Send Mass Notification
-		</span>
-		{{#if massNotification}}
+			<span class="adminManagementArrow">→</span>
+		</div>
+		{{#if showMassNotification}}
 			<div class="massNotificationContainer">
 				<form>
 					<span>Enter a message to send to everyone</span>
@@ -14,113 +15,119 @@
 		{{/if}}
 	</div>
 
-	<div class="onlineUsers">
-		<div class="onlineUsersHeader">
+	<div class="adminManagementContainer {{#unless showOnlineUsers}}notActive{{/unless}}">
+		<div class="adminManagementHeader" adminOption="showOnlineUsers">
 			Online Users
+			<span class="adminManagementArrow">→</span>
 		</div>
-		{{#each onlineUsers}}
-			<div class="onlineUser">
-				<span>User: </span>
-				{{emails.[0].address}}
-				<span>Score: </span>
-				{{profile.score}}
-				<div class="onlineUserControls">
-					{{#if profile.isAdmin}}
-						<span class="makeAdmin">
-							Disable Admin
+		{{#if showOnlineUsers}}
+			{{#each onlineUsers}}
+				<div class="onlineUser">
+					<span>User: </span>
+					{{emails.[0].address}}
+					<span>Score: </span>
+					{{profile.score}}
+					<div class="onlineUserControls">
+						{{#if profile.isAdmin}}
+							<span class="makeAdmin">
+								Disable Admin
+							</span>
+						{{else}}
+							<span class="makeAdmin">
+								Make Admin
+							</span>
+						{{/if}}
+						<span> | </span>
+						{{#if profile.isModerator}}
+							<span class="makeModerator">
+								Disable Moderator
+							</span>
+						{{else}}
+							<span class="makeModerator">
+								Make Moderator
+							</span>
+						{{/if}}
+						<span> | </span>
+						<span class="assignPoints">
+							Assign Points
 						</span>
-					{{else}}
-						<span class="makeAdmin">
-							Make Admin
+						<span> | </span>
+						<span class="deleteUser">
+							Delete User
 						</span>
-					{{/if}}
-					<span> | </span>
-					{{#if profile.isModerator}}
-						<span class="makeModerator">
-							Disable Moderator
-						</span>
-					{{else}}
-						<span class="makeModerator">
-							Make Moderator
-						</span>
-					{{/if}}
-					<span> | </span>
-					<span class="assignPoints">
-						Assign Points
-					</span>
-					<span> | </span>
-					<span class="deleteUser">
-						Delete User
-					</span>
-					<div class="assignPointsContainer">
-						<form>
-							<span>Points</span>
-							<input type="number" name="points" id="assignPointsNumber" />
-							<span>Reason for Distribution</span>
-							<input type="text" name="reason" id="assignPointsReason"/>
-							<button class="assignPointsBtn">Save</button>
-						</form>
+						<div class="assignPointsContainer">
+							<form>
+								<span>Points</span>
+								<input type="number" name="points" id="assignPointsNumber" />
+								<span>Reason for Distribution</span>
+								<input type="text" name="reason" id="assignPointsReason"/>
+								<button class="assignPointsBtn">Save</button>
+							</form>
+						</div>
 					</div>
 				</div>
-			</div>
-		{{/each}}
+			{{/each}}
+		{{/if}}
 	</div>
 
-	<div class="offlineUsers">
-		<div class="offlineUsersHeader">
+	<div class="adminManagementContainer {{#unless showOfflineUsers}}notActive{{/unless}}">
+		<div class="adminManagementHeader" adminOption="showOfflineUsers">
 			Offline Users
+			<span class="adminManagementArrow">→</span>
 		</div>
-		{{#each offlineUsers}}
-			<div class="onlineUser">
-				<span>User: </span>
-				{{emails.[0].address}}
-				<span>Score: </span>
-				{{profile.score}}
-				<div class="onlineUserControls">
-					{{#if profile.isAdmin}}
-						<span class="makeAdmin">
-							Disable Admin
+		{{#if showOfflineUsers}}
+			{{#each offlineUsers}}
+				<div class="onlineUser">
+					<span>User: </span>
+					{{emails.[0].address}}
+					<span>Score: </span>
+					{{profile.score}}
+					<div class="onlineUserControls">
+						{{#if profile.isAdmin}}
+							<span class="makeAdmin">
+								Disable Admin
+							</span>
+						{{else}}
+							<span class="makeAdmin">
+								Make Admin
+							</span>
+						{{/if}}
+						<span> | </span>
+						{{#if profile.isModerator}}
+							<span class="makeModerator">
+								Disable Moderator
+							</span>
+						{{else}}
+							<span class="makeModerator">
+								Make Moderator
+							</span>
+						{{/if}}
+						<span> | </span>
+						<span class="assignPoints">
+							Assign Points
 						</span>
-					{{else}}
-						<span class="makeAdmin">
-							Make Admin
+						<span> | </span>
+						<span class="deleteUser">
+							Delete User
 						</span>
-					{{/if}}
-					<span> | </span>
-					{{#if profile.isModerator}}
-						<span class="makeModerator">
-							Disable Moderator
-						</span>
-					{{else}}
-						<span class="makeModerator">
-							Make Moderator
-						</span>
-					{{/if}}
-					<span> | </span>
-					<span class="assignPoints">
-						Assign Points
-					</span>
-					<span> | </span>
-					<span class="deleteUser">
-						Delete User
-					</span>
-					<div class="assignPointsContainer">
-						<form>
-							<span>Points</span>
-							<input type="number" name="points" id="assignPointsNumber" />
-							<span>Reason for Distribution</span>
-							<input type="text" name="reason" id="assignPointsReason"/>
-							<button class="assignPointsBtn">Save</button>
-						</form>
+						<div class="assignPointsContainer">
+							<form>
+								<span>Points</span>
+								<input type="number" name="points" id="assignPointsNumber" />
+								<span>Reason for Distribution</span>
+								<input type="text" name="reason" id="assignPointsReason"/>
+								<button class="assignPointsBtn">Save</button>
+							</form>
+						</div>
 					</div>
 				</div>
-			</div>
-		{{/each}}
+			{{/each}}
+		{{/if}}
 	</div>
-	<div class="initData userManagementContainer">
+	<div class="initData adminManagementContainer notActive">
 		Init App Data
 	</div>
-	<div class="activateBadges userManagementContainer">
+	<div class="activateBadges adminManagementContainer notActive">
 		{{#if activateBadges.count}}
 			Deactivate Badges
 		{{else}}
@@ -128,13 +135,13 @@
 		{{/if}}
 	</div>
 	{{#if currentUser.profile.isSuperAdmin}}
-		<div class="generateVSJson userManagementContainer">
+		<div class="generateVSJson adminManagementContainer notActive">
 			Generate VR JSON
 		</div>
-		<div class="generateAllJson userManagementContainer">
+		<div class="generateAllJson adminManagementContainer notActive">
 			Generate All Data JSON
 		</div>
-		<div class="generatePollJson userManagementContainer">
+		<div class="generatePollJson adminManagementContainer notActive">
 			Generate Poll Data JSON
 		</div>
 	{{/if}}

@@ -16,31 +16,29 @@
 	margin-top: 10px;
 }
 
-.onlineUsersHeader, .offlineUsersHeader{
-	text-align: center;
-	color: $primary;
-	margin-bottom: 10px;
-	font-style: italic;
-}
-
-.massNotificationContainer{
-	margin-top: 10px;
-}
-
 .assignPointsContainer{
 	display: none;
 }
 
-.userManagementContainer{
-	cursor: pointer;
-}
+.adminManagementContainer {
+	&.notActive {
+		@include blue-background-box;
+		cursor: pointer;
+		margin-top: 10px;
+	}
+	
+	&:hover {
+		background-color: $secondary-light;
+		@include animation-transition;
+	}
 
-.userManagementContainer:hover{
-	background-color: $secondary-light;
-	@include animation-transition;
-}
+	.adminManagementHeader {
+		&.active {
+			margin-bottom: 10px;
+		}
 
-.onlineUsers, .offlineUsers, .userManagementContainer{
-	margin-top: 10px;
-	@include blue-background-box;
+		.adminManagementArrow {
+			float: right;
+		}
+	}
 }
