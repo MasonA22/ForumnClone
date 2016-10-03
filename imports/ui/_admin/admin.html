@@ -1,10 +1,10 @@
 <template name="admin">
-	<div class="adminManagementContainer {{#if showMassNotification}}active{{/if}} canOpen" adminOption="showMassNotification">
+	<div class="adminManagementContainer {{#if showAdminSection 'massNotification'}}active{{/if}} canOpen" adminOption="massNotification">
 		<div class="adminManagementHeader">
 			Send Mass Notification
 			<span class="adminManagementArrow">→</span>
 		</div>
-		{{#if showMassNotification}}
+		{{#if showAdminSection 'massNotification'}}
 			<form>
 				<span>Enter a message to send to everyone</span>
 				<input type="text" id="massNotificationMessage"/>
@@ -12,12 +12,12 @@
 			</form>
 		{{/if}}
 	</div>
-	<div class="adminManagementContainer {{#if showOnlineUsers}}active{{/if}} canOpen" adminOption="showOnlineUsers">
+	<div class="adminManagementContainer {{#if showAdminSection 'onlineUsers'}}active{{/if}} canOpen" adminOption="onlineUsers">
 		<div class="adminManagementHeader">
 			Online Users
 			<span class="adminManagementArrow">→</span>
 		</div>
-		{{#if showOnlineUsers}}
+		{{#if showAdminSection 'onlineUsers'}}
 			{{#if onlineUsers.count}}
 				{{#each onlineUsers}}
 					<div class="onlineUser">
@@ -70,12 +70,12 @@
 			{{/if}}
 		{{/if}}
 	</div>
-	<div class="adminManagementContainer {{#if showOfflineUsers}}active{{/if}} canOpen" adminOption="showOfflineUsers">
+	<div class="adminManagementContainer {{#if showAdminSection 'offlineUsers'}}active{{/if}} canOpen" adminOption="offlineUsers">
 		<div class="adminManagementHeader">
 			Offline Users
 			<span class="adminManagementArrow">→</span>
 		</div>
-		{{#if showOfflineUsers}}
+		{{#if showAdminSection 'offlineUsers'}}
 			{{#if offlineUsers.count}}
 				{{#each offlineUsers}}
 					<div class="onlineUser">

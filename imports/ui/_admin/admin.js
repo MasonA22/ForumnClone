@@ -9,9 +9,9 @@ import "./admin.html";
 Template.admin.onCreated(function(){
 	this.state = new ReactiveDict();
 	const instance = Template.instance();
-	instance.state.set("showMassNotification", false);
-	instance.state.set("showOnlineUsers", false);
-	instance.state.set("showOfflineUsers", false);
+	instance.state.set("massNotification", false);
+	instance.state.set("onlineUsers", false);
+	instance.state.set("offlineUsers", false);
 	Meteor.subscribe("presences");
 	Meteor.subscribe("allUsers");
 	Meteor.subscribe("activateBadges");
@@ -19,30 +19,12 @@ Template.admin.onCreated(function(){
 });
 
 Template.admin.helpers({
-	showMassNotification: function(){
+	showAdminSection: function(sectionType) {
 		const instance = Template.instance();
-		if (instance.state.get("showMassNotification")){
+		if (instance.state.get(sectionType)) {
 			return true;
 		}
-		else{
-			return false;
-		}
-	},
-	showOnlineUsers: function() {
-		const instance = Template.instance();
-		if (instance.state.get("showOnlineUsers")){
-			return true;
-		}
-		else{
-			return false;
-		}
-	},
-	showOfflineUsers: function() {
-		const instance = Template.instance();
-		if (instance.state.get("showOfflineUsers")){
-			return true;
-		}
-		else{
+		else {
 			return false;
 		}
 	},
