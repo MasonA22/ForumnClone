@@ -1,21 +1,19 @@
 <template name="admin">
-	<div class="adminManagementContainer {{#if showMassNotification}}active{{/if}}">
-		<div class="adminManagementHeader" adminOption="showMassNotification">
+	<div class="adminManagementContainer {{#if showMassNotification}}active{{/if}} canOpen" adminOption="showMassNotification">
+		<div class="adminManagementHeader">
 			Send Mass Notification
 			<span class="adminManagementArrow">→</span>
 		</div>
 		{{#if showMassNotification}}
-			<div class="massNotificationContainer">
-				<form>
-					<span>Enter a message to send to everyone</span>
-					<input type="text" id="massNotificationMessage"/>
-					<button class="massNotificationBtn">Save</button>
-				</form>
-			</div>
+			<form>
+				<span>Enter a message to send to everyone</span>
+				<input type="text" id="massNotificationMessage"/>
+				<button class="massNotificationBtn">Save</button>
+			</form>
 		{{/if}}
 	</div>
-	<div class="adminManagementContainer {{#if showOnlineUsers}}active{{/if}}">
-		<div class="adminManagementHeader" adminOption="showOnlineUsers">
+	<div class="adminManagementContainer {{#if showOnlineUsers}}active{{/if}} canOpen" adminOption="showOnlineUsers">
+		<div class="adminManagementHeader">
 			Online Users
 			<span class="adminManagementArrow">→</span>
 		</div>
@@ -72,8 +70,8 @@
 			{{/if}}
 		{{/if}}
 	</div>
-	<div class="adminManagementContainer {{#if showOfflineUsers}}active{{/if}}">
-		<div class="adminManagementHeader" adminOption="showOfflineUsers">
+	<div class="adminManagementContainer {{#if showOfflineUsers}}active{{/if}} canOpen" adminOption="showOfflineUsers">
+		<div class="adminManagementHeader">
 			Offline Users
 			<span class="adminManagementArrow">→</span>
 		</div>
@@ -130,10 +128,10 @@
 			{{/if}}
 		{{/if}}
 	</div>
-	<div class="initData adminManagementContainer notActive">
+	<div class="initData adminManagementContainer">
 		Init App Data
 	</div>
-	<div class="activateBadges adminManagementContainer notActive">
+	<div class="activateBadges adminManagementContainer">
 		{{#if activateBadges.count}}
 			Deactivate Badges
 		{{else}}
@@ -141,13 +139,13 @@
 		{{/if}}
 	</div>
 	{{#if currentUser.profile.isSuperAdmin}}
-		<div class="generateVSJson adminManagementContainer notActive">
+		<div class="generateVSJson adminManagementContainer">
 			Generate VR JSON
 		</div>
-		<div class="generateAllJson adminManagementContainer notActive">
+		<div class="generateAllJson adminManagementContainer">
 			Generate All Data JSON
 		</div>
-		<div class="generatePollJson adminManagementContainer notActive">
+		<div class="generatePollJson adminManagementContainer">
 			Generate Poll Data JSON
 		</div>
 	{{/if}}

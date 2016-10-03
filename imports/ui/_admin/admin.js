@@ -130,7 +130,7 @@ Template.admin.events({
 	},
 	"click .adminManagementHeader": function(evt, template){
 		evt.preventDefault();
-		let adminOption = $(evt.target).attr("adminOption");
+		let adminOption = $(evt.target).closest(".adminManagementContainer").attr("adminOption");
 		if (template.state.get(adminOption)){
 			template.state.set(adminOption, false);
 		}

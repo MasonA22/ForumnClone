@@ -1,29 +1,14 @@
 @import "../colours";
 @import "../mixins";
 
-.onlineUser{
-	margin-bottom: 10px;
-	padding-bottom: 5px;
-	border-bottom: 1px solid black;
-	word-wrap: break-word;
-}
-
-.makeAdmin, .makeModerator, .assignPoints, .deleteUser{
-	cursor: pointer;
-}
-
-.assignPointsContainer{
-	margin-top: 10px;
-}
-
-.assignPointsContainer{
-	display: none;
-}
-
 .adminManagementContainer {
 	@include blue-background-box;
 	cursor: pointer;
 	margin-top: 10px;
+
+	&.canOpen {
+		padding: 0px;
+	}
 
 	&:hover {
 		@include animation-transition;
@@ -45,9 +30,32 @@
 			}
 		}
 	}
+
+	form {
+		margin-top: 0px;
+		padding-top: 0px;
+		border: none;
+	}
+
+	.onlineUser {
+		margin-bottom: 10px;
+		padding-bottom: 5px;
+		border-bottom: 1px solid black;
+		word-wrap: break-word;
+
+		.makeAdmin, .makeModerator, .assignPoints, .deleteUser {
+			cursor: pointer;
+		}
+
+		.assignPointsContainer {
+			display: none;
+			margin-top: 10px;
+		}
+	}
 	
 	.adminManagementHeader {
 		cursor: pointer;
+		padding: 10px;
 		.adminManagementArrow {
 			float: right;
 		}
