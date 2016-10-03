@@ -19,7 +19,7 @@ module.exports = {
         },
         buildOptions: {
             serverOnly: true,
-            debug: true
+            debug: false
         },
         env: {
             ROOT_URL: 'http://138.197.138.68/',
