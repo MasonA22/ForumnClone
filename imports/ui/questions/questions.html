@@ -14,15 +14,15 @@
 		</div>
 	{{/if}}
 	{{#if questions.count}}
-		<div class="questions">
-			<div class="editQuestionsContainer">
-				<span class="editQuestions" editEnabled="false">
-					Edit
-				</span>
-			</div>
-			{{#each questions}}
-				{{> question}}
-			{{/each}}
+		<div class="editQuestionsContainer">
+			<span class="editQuestions" editEnabled="false">
+				Edit
+			</span>
 		</div>
+		{{#each questions}}
+			{{> question}}
+		{{/each}}
+	{{else}}
+		There are no questions available.
 	{{/if}}
 </template>

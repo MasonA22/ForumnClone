@@ -1,11 +1,6 @@
 @import "../mixins";
 @import "../colours";
 
-.questions {
-	@include blue-background-box;
-	padding: 20px;
-}
-
 .editQuestionsContainer {
 	font-size: 12px;
 	text-align: right;
