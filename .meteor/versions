@@ -61,7 +61,7 @@ modules-runtime@0.7.6
 mongo@1.1.12
 mongo-id@1.0.5
 npm-bcrypt@0.9.1
-npm-mongo@1.5.49
+npm-mongo@1.5.50
 observe-sequence@1.0.12
 ordered-dict@1.0.8
 ostrio:cookies@2.0.5
@@ -82,7 +82,7 @@ shell-server@0.2.1
 spacebars@1.0.13
 spacebars-compiler@1.0.13
 srp@1.0.9
-standard-minifier-css@1.2.0
+standard-minifier-css@1.2.1
 standard-minifier-js@1.2.0
 templating@1.2.15
 templating-compiler@1.2.15
