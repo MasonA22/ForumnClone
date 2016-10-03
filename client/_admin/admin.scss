@@ -61,45 +61,49 @@
 		}
 	}
 
-	.adminCollectionObject {
-	    margin-bottom: 10px;
-	    padding-bottom: 10px;
-	    border-bottom: 1px solid black;
+	.adminManagementContent {
+		padding: 0 10px;
 
-	    input:read-only {
-	        background-color: $secondary-transparent;
-	    }
+		.adminCollectionObject {
+		    margin-bottom: 10px;
+		    padding-bottom: 10px;
+		    border-bottom: 1px solid black;
 
-	    input[type="file"] {
-	        visibility: hidden;
-	    }
+		    input:read-only {
+		        background-color: $secondary-transparent;
+		    }
 
-	    .name {
-	        border: none;
-	        outline: none;
-	        width: 50%;
-	        padding: 2px 4px 2px 4px;
-	    }
+		    input[type="file"] {
+		        visibility: hidden;
+		    }
 
-	    .delete {
-	        float: right;
-	        cursor: pointer;
-	    }
+		    .name {
+		        border: none;
+		        outline: none;
+		        width: 50%;
+		        padding: 2px 4px 2px 4px;
+		    }
 
-	    .updateImageContainer {
-	        width: 10px;
-	        height: 10px;
-	        border: 1px solid black;
-	        float: left;
-	        margin-top: 3px;
-	        margin-right: 5px;
-	        cursor: pointer;
+		    .delete {
+		        float: right;
+		        cursor: pointer;
+		    }
 
-	        img {
-	            width: 10px;
-	            height: 10px;
-	            display: block;
-	        }
-	    }
+		    .updateImageContainer {
+		        width: 10px;
+		        height: 10px;
+		        border: 1px solid black;
+		        float: left;
+		        margin-top: 3px;
+		        margin-right: 5px;
+		        cursor: pointer;
+
+		        img {
+		            width: 10px;
+		            height: 10px;
+		            display: block;
+		        }
+		    }
+		}
 	}
 }

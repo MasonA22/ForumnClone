@@ -13,7 +13,9 @@
 					<span class="adminManagementArrow">→</span>
 				</div>
 				{{#if showAdminSection "rooms"}}
-					{{> rooms}}
+					<div class="adminManagementContent">
+						{{> rooms}}
+					</div>
 				{{/if}}
 			</div>
 			<div class="adminManagementContainer {{#if showAdminSection 'badges'}}active{{/if}} canOpen" adminOption="badges">
@@ -22,7 +24,9 @@
 					<span class="adminManagementArrow">→</span>
 				</div>
 				{{#if showAdminSection "badges"}}
-					{{> badges}}
+					<div class="adminManagementContent">
+						{{> badges}}
+					</div>
 				{{/if}}
 			</div>
 			<div class="adminManagementContainer {{#if showAdminSection 'feedbackTypes'}}active{{/if}} canOpen" adminOption="feedbackTypes">
@@ -31,7 +35,9 @@
 					<span class="adminManagementArrow">→</span>
 				</div>
 				{{#if showAdminSection "feedbackTypes"}}
-					{{> feedbackTypes}}
+					<div class="adminManagementContent">
+						{{> feedbackTypes}}
+					</div>
 				{{/if}}
 			</div>
 			<div class="adminManagementContainer {{#if showAdminSection 'images'}}active{{/if}} canOpen" adminOption="images">
@@ -40,7 +46,9 @@
 					<span class="adminManagementArrow">→</span>
 				</div>
 				{{#if showAdminSection "images"}}
-					{{> images}}
+					<div class="adminManagementContent">
+						{{> images}}
+					</div>
 				{{/if}}
 			</div>
 		{{/if}}
