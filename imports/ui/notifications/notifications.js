@@ -10,8 +10,7 @@ Template.notifications.onCreated(function(){
 
 Template.notifications.helpers({
 	notifications: function(){
-		var userId = Meteor.userId();
-		return Notifications.find({userId: userId, seen: false});
+		return Notifications.find({});
 	},
 	showNotifications: function(){
 		var userId = Meteor.userId();

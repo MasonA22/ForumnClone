@@ -25,7 +25,7 @@ Notifications.attachSchema(new SimpleSchema({
 
 if (Meteor.isServer) {
 	Meteor.publish("notifications", function(){
-		return Notifications.find({});
+		return Notifications.find({userId: this.userId, seen: false});
 	});
 }
 
