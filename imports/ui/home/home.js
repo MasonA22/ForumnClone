@@ -15,6 +15,7 @@ Template.home.onCreated(function(){
 	instance.state.set("rooms", false);
 	instance.state.set("badges", false);
 	instance.state.set("feedbackTypes", false);
+	instance.state.set("images", false);
 });
 
 Template.home.helpers({
@@ -33,7 +34,6 @@ Template.home.events({
 	"click .adminManagementHeader": function(evt, template) {
 		evt.preventDefault();
 		let adminOption = $(evt.target).closest(".adminManagementContainer").attr("adminOption");
-		console.log(adminOption);
 		if (template.state.get(adminOption)){
 			template.state.set(adminOption, false);
 		}

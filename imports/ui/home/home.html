@@ -34,7 +34,15 @@
 					{{> feedbackTypes}}
 				{{/if}}
 			</div>
-			{{> images}}
+			<div class="adminManagementContainer {{#if showAdminSection 'images'}}active{{/if}} canOpen" adminOption="images">
+				<div class="adminManagementHeader">
+					Images
+					<span class="adminManagementArrow">→</span>
+				</div>
+				{{#if showAdminSection "images"}}
+					{{> images}}
+				{{/if}}
+			</div>
 		{{/if}}
 	{{else}}
 		{{>login}}

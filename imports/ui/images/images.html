@@ -1,15 +1,12 @@
 <template name="images">
 	{{#if images.count}}
-		<div class="adminCollectionContainer">
-			<div class="adminCollectionHeader">
-			    Images
+		{{#each images}}
+			<div class="adminCollectionObject">
+				<input class="name" value={{name}} readonly="readonly" />
+				<span class="delete">Delete</span>
 			</div>
-			{{#each images}}
-				<div class="adminCollectionObject">
-					<input class="name" value={{name}} readonly="readonly" />
-					<span class="delete">Delete</span>
-				</div>
-			{{/each}}
-		</div>
+		{{/each}}
+	{{else}}
+		There are no images available.
 	{{/if}}
 </template>
