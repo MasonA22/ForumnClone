@@ -1,17 +1,14 @@
 <template name="feedbackTypes">
     {{#if feedbackTypes.count}}
-        <div class="adminCollectionContainer">
-            <div class="adminCollectionHeader">
-                Feedback Types
+        {{#each feedbackTypes}}
+            <div class="adminCollectionObject">
+                <input class="name" value={{name}} readonly="readonly" />
+                <span class="delete">
+                    Delete
+                </span>
             </div>
-            {{#each feedbackTypes}}
-                <div class="adminCollectionObject">
-                    <input class="name" value={{name}} readonly="readonly" />
-                    <span class="delete">
-                        Delete
-                    </span>
-                </div>
-            {{/each}}
-        </div>
+        {{/each}}
+    {{else}}
+        There are no feedback types available.
     {{/if}}
 </template>

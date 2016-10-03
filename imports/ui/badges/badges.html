@@ -1,12 +1,9 @@
 <template name="badges">
     {{#if badges.count}}
-        <div class="adminCollectionContainer">
-            <div class="adminCollectionHeader">
-                Badges
-            </div>
-            {{#each badges}}
-                {{> badge}}
-            {{/each}}
-        </div>
+        {{#each badges}}
+            {{> badge}}
+        {{/each}}
+    {{else}}
+    	There are no badges available.
     {{/if}}
 </template>

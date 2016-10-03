@@ -5,12 +5,35 @@
 		{{else}}
 			{{> selectRoom}}
 		{{/if}}
-		
 		{{#if currentUser.profile.isAdmin}}
 			{{> questions}}
-			{{> rooms}}
-			{{> badges}}
-			{{> feedbackTypes}}
+			<div class="adminManagementContainer {{#if showAdminSection 'rooms'}}active{{/if}} canOpen" adminOption="rooms">
+				<div class="adminManagementHeader">
+					Rooms
+					<span class="adminManagementArrow">→</span>
+				</div>
+				{{#if showAdminSection "rooms"}}
+					{{> rooms}}
+				{{/if}}
+			</div>
+			<div class="adminManagementContainer {{#if showAdminSection 'badges'}}active{{/if}} canOpen" adminOption="badges">
+				<div class="adminManagementHeader">
+					Badges
+					<span class="adminManagementArrow">→</span>
+				</div>
+				{{#if showAdminSection "badges"}}
+					{{> badges}}
+				{{/if}}
+			</div>
+			<div class="adminManagementContainer {{#if showAdminSection 'feedbackTypes'}}active{{/if}} canOpen" adminOption="feedbackTypes">
+				<div class="adminManagementHeader">
+					Feedback Types
+					<span class="adminManagementArrow">→</span>
+				</div>
+				{{#if showAdminSection "feedbackTypes"}}
+					{{> feedbackTypes}}
+				{{/if}}
+			</div>
 			{{> images}}
 		{{/if}}
 	{{else}}

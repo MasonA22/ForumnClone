@@ -1,15 +1,12 @@
 <template name="rooms">
 	{{#if rooms.count}}
-		<div class="adminCollectionContainer">
-			<div class="adminCollectionHeader">
-			    Rooms
+		{{#each rooms}}
+			<div class="adminCollectionObject">
+				<input class="name" value={{name}} readonly="readonly" />
+				<span class="delete">Delete</span>
 			</div>
-			{{#each rooms}}
-				<div class="adminCollectionObject">
-					<input class="name" value={{name}} readonly="readonly" />
-					<span class="delete">Delete</span>
-				</div>
-			{{/each}}
-		</div>
+		{{/each}}
+	{{else}}
+		There are no rooms available.
 	{{/if}}
 </template>

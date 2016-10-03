@@ -68,59 +68,6 @@ form {
     }
 }
 
-.adminCollectionContainer {
-    @include blue-background-box;
-    font-size: 14px;
-    padding: 20px;
-    
-    .adminCollectionHeader {
-        font-weight: bold;
-        margin-bottom: 7px;
-    }
-
-    .adminCollectionObject {
-        margin-bottom: 10px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid black;
-
-        input:read-only {
-            background-color: $secondary-transparent;
-        }
-
-        input[type="file"] {
-            visibility: hidden;
-        }
-
-        .name {
-            border: none;
-            outline: none;
-            width: 50%;
-            padding: 2px 4px 2px 4px;
-        }
-
-        .delete {
-            float: right;
-            cursor: pointer;
-        }
-
-        .updateImageContainer {
-            width: 10px;
-            height: 10px;
-            border: 1px solid black;
-            float: left;
-            margin-top: 3px;
-            margin-right: 5px;
-            cursor: pointer;
-
-            img {
-                width: 10px;
-                height: 10px;
-                display: block;
-            }
-        }
-    }
-}
-
 .linkBoxContainer {
     color: $primary;
     padding: 10px;
