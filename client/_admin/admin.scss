@@ -21,22 +21,33 @@
 }
 
 .adminManagementContainer {
-	&.notActive {
+	@include blue-background-box;
+	cursor: pointer;
+	margin-top: 10px;
+
+	&:hover {
+		@include animation-transition;
+		background-color: $secondary-light;
+	}
+
+	&.active {
 		@include blue-background-box;
-		cursor: pointer;
-		margin-top: 10px;
+		cursor: initial;
+
+		.adminManagementHeader {
+			margin-bottom: 10px;
+			font-size: 18px;
+			.adminManagementArrow {
+				@include animation-transition;
+				-ms-transform: rotate(90deg); /* IE 9 */
+				-webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+				transform: rotate(90deg);
+			}
+		}
 	}
 	
-	&:hover {
-		background-color: $secondary-light;
-		@include animation-transition;
-	}
-
 	.adminManagementHeader {
-		&.active {
-			margin-bottom: 10px;
-		}
-
+		cursor: pointer;
 		.adminManagementArrow {
 			float: right;
 		}
