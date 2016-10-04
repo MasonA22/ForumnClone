@@ -26,8 +26,7 @@ Template.activeQuestion.onCreated(function(){
 
 Template.activeQuestion.helpers({
 	activeQuestion: function() {
-		let roomId = Meteor.user().profile.currentRoomId;
-		return Questions.find({activeQuestion: true, "questionFormHash.roomId": roomId});
+		return Questions.find({});
 	},
 	answeredQuestion: function() {
 		if (Meteor.user()){

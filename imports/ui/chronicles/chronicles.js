@@ -5,8 +5,11 @@ import { Questions } from "../../api/questions.js";
 import "./chronicles.html";
 import "./chronicleQuestion/chronicleQuestion.js";
 
-Template.chronicles.onCreated(function(){
-	Meteor.subscribe("questions");
+Template.chronicles.onCreated(function() {
+	let self = this;
+	self.autorun(function() {
+		self.subscribe("questions");
+	});
 });
 
 Template.chronicles.helpers({

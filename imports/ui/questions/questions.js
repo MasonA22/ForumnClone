@@ -6,8 +6,18 @@ import { Rooms } from "../../api/rooms.js";
 import "./questions.html";
 import "./question/question.js";
 
-Template.questions.onCreated(function(){
-	Meteor.subscribe("questions");
+Template.questions.onCreated(function() {
+	let self = this;
+	self.autorun(function() {
+		let activeQuestion = Template.currentData().activeQuestion;
+		if (activeQuestion) {
+			let roomId = Meteor.user().profile.currentRoomId;
+			self.subscribe("activeQuestion", roomId);
+		}
+		else {
+			self.subscribe("questions");
+		}
+	});
 	Meteor.subscribe("rooms");
 });
 

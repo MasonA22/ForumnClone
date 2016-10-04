@@ -19,61 +19,6 @@
 					{{/if}}
 				</div>
 			{{/if}}
-			<div class="adminManagementContainer {{#if showAdminSection 'questions'}}active{{/if}} canOpen" adminOption="questions">
-				<div class="adminManagementHeader">
-					All Questions
-					<span class="adminManagementArrow">→</span>
-				</div>
-				{{#if showAdminSection "questions"}}
-					<div class="adminManagementContent">
-						{{> questions}}
-					</div>
-				{{/if}}
-			</div>
-			<div class="adminManagementContainer {{#if showAdminSection 'rooms'}}active{{/if}} canOpen" adminOption="rooms">
-				<div class="adminManagementHeader">
-					Rooms
-					<span class="adminManagementArrow">→</span>
-				</div>
-				{{#if showAdminSection "rooms"}}
-					<div class="adminManagementContent">
-						{{> rooms}}
-					</div>
-				{{/if}}
-			</div>
-			<div class="adminManagementContainer {{#if showAdminSection 'badges'}}active{{/if}} canOpen" adminOption="badges">
-				<div class="adminManagementHeader">
-					Badges
-					<span class="adminManagementArrow">→</span>
-				</div>
-				{{#if showAdminSection "badges"}}
-					<div class="adminManagementContent">
-						{{> badges}}
-					</div>
-				{{/if}}
-			</div>
-			<div class="adminManagementContainer {{#if showAdminSection 'feedbackTypes'}}active{{/if}} canOpen" adminOption="feedbackTypes">
-				<div class="adminManagementHeader">
-					Feedback Types
-					<span class="adminManagementArrow">→</span>
-				</div>
-				{{#if showAdminSection "feedbackTypes"}}
-					<div class="adminManagementContent">
-						{{> feedbackTypes}}
-					</div>
-				{{/if}}
-			</div>
-			<div class="adminManagementContainer {{#if showAdminSection 'images'}}active{{/if}} canOpen" adminOption="images">
-				<div class="adminManagementHeader">
-					Images
-					<span class="adminManagementArrow">→</span>
-				</div>
-				{{#if showAdminSection "images"}}
-					<div class="adminManagementContent">
-						{{> images}}
-					</div>
-				{{/if}}
-			</div>
 		{{/if}}
 	{{else}}
 		{{>login}}

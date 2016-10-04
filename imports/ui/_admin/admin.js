@@ -5,17 +5,28 @@ import { Questions } from "../../api/questions.js";
 import { ActivateBadges } from "../../api/activateBadges.js";
 
 import "./admin.html";
+import "../questions/questions.js";
+import "../rooms/rooms.js";
+import "../badges/badges.js";
+import "../feedbackTypes/feedbackTypes.js";
+import "../images/images.js";
 
 Template.admin.onCreated(function(){
 	this.state = new ReactiveDict();
 	const instance = Template.instance();
+	instance.state.set("questions", false);
+	instance.state.set("rooms", false);
+	instance.state.set("badges", false);
+	instance.state.set("feedbackTypes", false);
+	instance.state.set("images", false);
 	instance.state.set("massNotification", false);
 	instance.state.set("onlineUsers", false);
 	instance.state.set("offlineUsers", false);
+
 	Meteor.subscribe("presences");
 	Meteor.subscribe("allUsers");
 	Meteor.subscribe("activateBadges");
-	Meteor.subscribe("questions");
+	// Meteor.subscribe("questions");
 });
 
 Template.admin.helpers({
