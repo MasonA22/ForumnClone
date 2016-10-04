@@ -1,7 +1,7 @@
 <template name="badge">
     <div class="adminCollectionObject">
         <div class="updateImageContainer">
-            {{#if avatar}}
+            {{#if avatarImage avatar}}
                 {{#with avatarImage avatar}}
                     <img src="{{link}}" alt="{{name}}">
                 {{/with}}
