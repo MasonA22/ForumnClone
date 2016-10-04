@@ -17,7 +17,7 @@ Template.activeQuestion.onCreated(function(){
 	instance.state.set("showActiveQuestionGraph", false);
 	instance.state.set("showFeedbackSection", false);
 	Meteor.subscribe("images");
-	Meteor.subscribe("questions");
+	// Meteor.subscribe("questions");
 });
 
 Template.activeQuestion.helpers({
