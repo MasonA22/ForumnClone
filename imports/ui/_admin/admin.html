@@ -1,7 +1,7 @@
 <template name="admin">
 	<div class="adminManagementContainer {{#if showAdminSection 'questions'}}active{{/if}} canOpen" adminOption="questions">
 		<div class="adminManagementHeader">
-			All Questions
+			Questions
 			<span class="adminManagementArrow">→</span>
 		</div>
 		{{#if showAdminSection "questions"}}
@@ -18,17 +18,6 @@
 		{{#if showAdminSection "rooms"}}
 			<div class="adminManagementContent">
 				{{> rooms}}
-			</div>
-		{{/if}}
-	</div>
-	<div class="adminManagementContainer {{#if showAdminSection 'badges'}}active{{/if}} canOpen" adminOption="badges">
-		<div class="adminManagementHeader">
-			Badges
-			<span class="adminManagementArrow">→</span>
-		</div>
-		{{#if showAdminSection "badges"}}
-			<div class="adminManagementContent">
-				{{> badges}}
 			</div>
 		{{/if}}
 	</div>
@@ -195,6 +184,17 @@
 			Deactivate Badges
 		{{else}}
 			Activate Badges
+		{{/if}}
+	</div>
+	<div class="adminManagementContainer {{#if showAdminSection 'badges'}}active{{/if}} canOpen" adminOption="badges">
+		<div class="adminManagementHeader">
+			Badges
+			<span class="adminManagementArrow">→</span>
+		</div>
+		{{#if showAdminSection "badges"}}
+			<div class="adminManagementContent">
+				{{> badges}}
+			</div>
 		{{/if}}
 	</div>
 	{{#if currentUser.profile.isSuperAdmin}}

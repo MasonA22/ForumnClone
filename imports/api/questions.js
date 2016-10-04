@@ -197,6 +197,9 @@ if (Meteor.isServer) {
 	Meteor.publish("activeQuestion", function(roomId) {
 		return Questions.find({activeQuestion: true, "questionFormHash.roomId": roomId});
 	});
+	Meteor.publish("alreadyAskedQuestions", function() {
+		return Questions.find({alreadyAsked: true});
+	});
 }
 
 Meteor.methods({

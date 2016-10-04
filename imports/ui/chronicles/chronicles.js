@@ -8,12 +8,12 @@ import "./chronicleQuestion/chronicleQuestion.js";
 Template.chronicles.onCreated(function() {
 	let self = this;
 	self.autorun(function() {
-		self.subscribe("questions");
+		self.subscribe("alreadyAskedQuestions");
 	});
 });
 
 Template.chronicles.helpers({
     questions: function(){
-        return Questions.find({alreadyAsked: true});
+        return Questions.find({});
     }
 });

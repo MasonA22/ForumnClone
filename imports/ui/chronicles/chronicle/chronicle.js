@@ -12,8 +12,11 @@ Template.chronicle.onCreated(function(){
     this.state = new ReactiveDict();
     const instance = Template.instance();
     instance.state.set("showChronicleGraph", false);
-    Meteor.subscribe("allUsers");
-    Meteor.subscribe("questions");
+    let self = this;
+    self.autorun(function() {
+        self.subscribe("allUsers");
+        self.subscribe("alreadyAskedQuestions");
+    });
 });
 
 Template.chronicle.helpers({
