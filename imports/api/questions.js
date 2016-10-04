@@ -191,8 +191,11 @@ Questions.attachSchema(new SimpleSchema({
 }));
 
 if (Meteor.isServer) {
-	Meteor.publish("questions", function(){
+	Meteor.publish("questions", function() {
 		return Questions.find({});
+	});
+	Meteor.publish("activeQuestion", function(roomId) {
+		return Questions.find({activeQuestion: true, "questionFormHash.roomId": roomId});
 	});
 }
 

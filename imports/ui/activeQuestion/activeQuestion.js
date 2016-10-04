@@ -17,7 +17,11 @@ Template.activeQuestion.onCreated(function(){
 	instance.state.set("showActiveQuestionGraph", false);
 	instance.state.set("showFeedbackSection", false);
 	Meteor.subscribe("images");
-	// Meteor.subscribe("questions");
+	let self = this;
+	self.autorun(function() {
+		let roomId = Meteor.user().profile.currentRoomId;
+		self.subscribe("activeQuestion", roomId);
+	});
 });
 
 Template.activeQuestion.helpers({
