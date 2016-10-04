@@ -1,16 +1,29 @@
 import { Meteor } from "meteor/meteor";
 import { Template } from "meteor/templating";
+import { ReactiveDict } from 'meteor/reactive-dict';
 import { FeedbackTypes } from "../../api/feedbackTypes.js";
 
 import "./feedbackTypes.html";
 
-Template.feedbackTypes.onCreated(function(){
+Template.feedbackTypes.onCreated(function() {
+    this.state = new ReactiveDict();
+    const instance = Template.instance();
+    instance.state.set("editEnabled", false);
 	Meteor.subscribe("feedbackTypes");
 });
 
 Template.feedbackTypes.helpers({
     feedbackTypes: function(){
         return FeedbackTypes.find({});
+    },
+    editEnabled: function() {
+        const instance = Template.instance();
+        if (instance.state.get("editEnabled")){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 });
 
@@ -28,17 +41,11 @@ Template.feedbackTypes.events({
     },
     "click .adminManagementEdit": function(evt, template){
         evt.preventDefault();
-        let editEnabled = $(evt.target).attr("editEnabled");
-        let adminOption = $(evt.target).closest(".adminManagementContainer").attr("adminOption");
-        if (editEnabled == "true") {
-            $(".adminManagementContainer[adminOption='" + adminOption + "'] input").not(".startTimerSeconds").attr("readonly", "readonly");
-            $(evt.target).attr("editEnabled", "false");
-            $(evt.target).html("Edit");
+        if (template.state.get("editEnabled")) {
+            template.state.set("editEnabled", false);
         }
         else {
-            $(".adminManagementContainer[adminOption='" + adminOption + "'] input").not(".startTimerSeconds").attr("readonly", false);
-            $(evt.target).attr("editEnabled", "true");
-            $(evt.target).html("Lock Editing");
+            template.state.set("editEnabled", true);
         }
     }
 });

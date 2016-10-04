@@ -1,3 +1,6 @@
+import { Template } from "meteor/templating";
+import { ReactiveDict } from 'meteor/reactive-dict';
+
 import "./home.html";
 import "../login/login.js";
 import "../activeQuestion/activeQuestion.js";

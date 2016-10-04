@@ -1,13 +1,17 @@
 <template name="rooms">
 	<div class="adminManagementEditContainer">
-		<span class="adminManagementEdit" editEnabled="false">
-			Edit
+		<span class="adminManagementEdit">
+			{{#if editEnabled}}
+				Lock Editing
+			{{else}}
+				Edit
+			{{/if}}
 		</span>
 	</div>
 	{{#if rooms.count}}
 		{{#each rooms}}
 			<div class="adminCollectionObject">
-				<input class="name" value={{name}} readonly="readonly" />
+				<input class="name" value={{name}} readonly="{{#unless editEnabled}}readonly{{/unless}}" />
 				<span class="delete">Delete</span>
 			</div>
 		{{/each}}

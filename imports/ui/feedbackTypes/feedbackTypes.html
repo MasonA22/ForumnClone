@@ -1,13 +1,17 @@
 <template name="feedbackTypes">
     <div class="adminManagementEditContainer">
-        <span class="adminManagementEdit" editEnabled="false">
-            Edit
+        <span class="adminManagementEdit">
+            {{#if editEnabled}}
+                Lock Editing
+            {{else}}
+                Edit
+            {{/if}}
         </span>
     </div>
     {{#if feedbackTypes.count}}
         {{#each feedbackTypes}}
             <div class="adminCollectionObject">
-                <input class="name" value={{name}} readonly="readonly" />
+                <input class="name" value={{name}} readonly="{{#unless editEnabled}}readonly{{/unless}}" />
                 <span class="delete">
                     Delete
                 </span>
