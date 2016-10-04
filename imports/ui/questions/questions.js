@@ -121,19 +121,13 @@ Template.questions.events({
 	"click .editQuestions": function(evt, template){
 		evt.preventDefault();
 		var editEnabled = $(evt.target).attr("editEnabled");
-		if (editEnabled == "true"){
-			$(".editQuestionHeader input").attr("readonly", "readonly");
-			$(".editAnswers input").attr("readonly", "readonly");
-			$(".editPoints input").attr("readonly", "readonly");
-			$(".adminCollectionObject input").attr("readonly", "readonly");
+		if (editEnabled == "true") {
+			$(".adminManagementContent input").not(".startTimerSeconds").attr("readonly", "readonly");
 			$(evt.target).attr("editEnabled", "false");
 			$(evt.target).html("Edit");
 		}
 		else{
-			$(".editQuestionHeader input").attr("readonly", false);
-			$(".editAnswers input").attr("readonly", false);
-			$(".editPoints input").attr("readonly", false);
-			$(".adminCollectionObject input").attr("readonly", false);
+			$(".adminManagementContent input").not(".startTimerSeconds").attr("readonly", false);
 			$(evt.target).attr("editEnabled", "true");
 			$(evt.target).html("Lock Editing");
 		}
