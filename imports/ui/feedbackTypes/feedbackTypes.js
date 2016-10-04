@@ -25,5 +25,20 @@ Template.feedbackTypes.events({
         evt.preventDefault();
         let feedbackTypeId = this._id;
         Meteor.call("deleteFeedbackType", feedbackTypeId);
+    },
+    "click .adminManagementEdit": function(evt, template){
+        evt.preventDefault();
+        let editEnabled = $(evt.target).attr("editEnabled");
+        let adminOption = $(evt.target).closest(".adminManagementContainer").attr("adminOption");
+        if (editEnabled == "true") {
+            $(".adminManagementContainer[adminOption='" + adminOption + "'] input").not(".startTimerSeconds").attr("readonly", "readonly");
+            $(evt.target).attr("editEnabled", "false");
+            $(evt.target).html("Edit");
+        }
+        else {
+            $(".adminManagementContainer[adminOption='" + adminOption + "'] input").not(".startTimerSeconds").attr("readonly", false);
+            $(evt.target).attr("editEnabled", "true");
+            $(evt.target).html("Lock Editing");
+        }
     }
 });

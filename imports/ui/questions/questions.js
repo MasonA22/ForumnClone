@@ -118,7 +118,7 @@ Template.questions.events({
 		var questionId = this._id;
 		Meteor.call("resetQuestionData", questionId);
 	},
-	"click .editQuestions": function(evt, template){
+	"click .adminManagementEdit": function(evt, template){
 		evt.preventDefault();
 		let editEnabled = $(evt.target).attr("editEnabled");
 		let adminOption = $(evt.target).closest(".adminManagementContainer").attr("adminOption");

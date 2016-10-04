@@ -56,6 +56,7 @@
 	.adminManagementHeader {
 		cursor: pointer;
 		padding: 10px;
+		
 		.adminManagementArrow {
 			float: right;
 		}
@@ -63,6 +64,16 @@
 
 	.adminManagementContent {
 		padding: 0 10px;
+
+		.adminManagementEditContainer {
+			font-size: 12px;
+			text-align: right;
+			margin-bottom: 10px;
+
+			.adminManagementEdit {
+				cursor: pointer;
+			}
+		}
 		
 		.roomSelectionContainer {
 			margin: 0px 0px 10px 0px;
