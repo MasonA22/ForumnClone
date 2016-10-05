@@ -11,7 +11,7 @@ import "./feedbackUser/feedbackUser.js";
 Template.historyQuestionDetail.onCreated(function(){
     this.state = new ReactiveDict();
     const instance = Template.instance();
-    instance.state.set("showChronicleGraph", false);
+    instance.state.set("showHistoryQuestionGraph", false);
     let self = this;
     self.autorun(function() {
         let questionId = FlowRouter.getParam("_id");
@@ -21,9 +21,9 @@ Template.historyQuestionDetail.onCreated(function(){
 });
 
 Template.historyQuestionDetail.helpers({
-    showChronicleGraph: function(){
+    showHistoryQuestionGraph: function(){
         const instance = Template.instance();
-        if (instance.state.get("showChronicleGraph")){
+        if (instance.state.get("showHistoryQuestionGraph")){
             return true;
         }
         else{
@@ -43,11 +43,11 @@ Template.historyQuestionDetail.helpers({
 Template.historyQuestionDetail.events({
     "click .chronicleGraph": function(evt, template){
         evt.preventDefault();
-        if (template.state.get("showChronicleGraph")){
-            template.state.set("showChronicleGraph", false);
+        if (template.state.get("showHistoryQuestionGraph")){
+            template.state.set("showHistoryQuestionGraph", false);
         }
         else{
-            template.state.set("showChronicleGraph", true);
+            template.state.set("showHistoryQuestionGraph", true);
         }
     }
 });
