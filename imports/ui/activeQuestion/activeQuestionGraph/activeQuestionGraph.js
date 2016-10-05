@@ -13,7 +13,7 @@ Template.activeQuestionGraph.onRendered(function() {
 	    orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
 	var templateThis = this;
 	var id;
-
+	
 	window.addEventListener(orientationEvent, function() {
 		if ($(".activeQuestionGraph").is(':visible')) {
 			templateThis.autorun(function() {
@@ -35,8 +35,7 @@ Template.activeQuestionGraph.helpers({
 	}
 });
 
-function drawChart(){
-
+function drawChart() {
 	var roomId = Meteor.user().profile.currentRoomId;
 	var activeQuestion = Questions.findOne({activeQuestion: true, "questionFormHash.roomId": roomId});
 	var activeQuestionTypeInput = activeQuestion.questionFormHash.isInput;
