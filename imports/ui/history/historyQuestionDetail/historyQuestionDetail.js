@@ -4,11 +4,11 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { Questions } from "../../../api/questions.js";
 
-import "./chronicleDetail.html";
-import "../chronicleQuestionGraph/chronicleQuestionGraph.js";
+import "./historyQuestionDetail.html";
+import "../historyQuestionGraph/historyQuestionGraph.js";
 import "./feedbackUser/feedbackUser.js";
 
-Template.chronicleDetail.onCreated(function(){
+Template.historyQuestionDetail.onCreated(function(){
     this.state = new ReactiveDict();
     const instance = Template.instance();
     instance.state.set("showChronicleGraph", false);
@@ -20,7 +20,7 @@ Template.chronicleDetail.onCreated(function(){
     });
 });
 
-Template.chronicleDetail.helpers({
+Template.historyQuestionDetail.helpers({
     showChronicleGraph: function(){
         const instance = Template.instance();
         if (instance.state.get("showChronicleGraph")){
@@ -40,7 +40,7 @@ Template.chronicleDetail.helpers({
     }
 });
 
-Template.chronicleDetail.events({
+Template.historyQuestionDetail.events({
     "click .chronicleGraph": function(evt, template){
         evt.preventDefault();
         if (template.state.get("showChronicleGraph")){

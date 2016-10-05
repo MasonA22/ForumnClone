@@ -6,8 +6,8 @@ import '../../ui/home/home.js';
 import '../../ui/addQuestion/addQuestion.js';
 import '../../ui/scoreBoard/scoreBoard.js';
 import '../../ui/badgeBoard/badgeBoard.js';
-import '../../ui/chronicles/chronicles.js';
-import '../../ui/chronicles/chronicleDetail/chronicleDetail.js';
+import '../../ui/history/history.js';
+import '../../ui/history/historyQuestionDetail/historyQuestionDetail.js';
 import '../../ui/_admin/admin.js';
 
 document.title = "Forum Live";
@@ -71,16 +71,16 @@ privateRoutes.route('/logout', {
 });
 
 privateRoutes.route('/history', {
-	name: 'chronicles',
+	name: 'history',
 	action() {
-		BlazeLayout.render('layout', { main: 'chronicles' });
+		BlazeLayout.render('layout', { main: 'history' });
 	}
 });
 
 privateRoutes.route('/history/:_id', {
-	name: 'chronicleDetail',
+	name: 'historyQuestionDetail',
 	action() {
-		BlazeLayout.render('layout', { main: 'chronicleDetail' });
+		BlazeLayout.render('layout', { main: 'historyQuestionDetail' });
 	}
 });
 

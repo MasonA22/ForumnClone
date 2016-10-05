@@ -1,8 +1,8 @@
-<template name="chronicles">
-    <div class="chronicles">
+<template name="history">
+    <div class="history">
     	{{#if questions.count}}
     		{{#each questions}}
-    		    {{> chronicleQuestion}}
+    		    {{> historyQuestion}}
     		{{/each}}
     	{{else}}
     		<a href="{{pathFor route="home"}}">

@@ -2,17 +2,17 @@ import { Meteor } from "meteor/meteor";
 import { Template } from "meteor/templating";
 import { Questions } from "../../api/questions.js";
 
-import "./chronicles.html";
-import "./chronicleQuestion/chronicleQuestion.js";
+import "./history.html";
+import "./historyQuestion/historyQuestion.js";
 
-Template.chronicles.onCreated(function() {
+Template.history.onCreated(function() {
 	let self = this;
 	self.autorun(function() {
 		self.subscribe("alreadyAskedQuestions");
 	});
 });
 
-Template.chronicles.helpers({
+Template.history.helpers({
     questions: function(){
         return Questions.find({});
     }

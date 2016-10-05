@@ -2,9 +2,9 @@ import { Template } from "meteor/templating";
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Questions } from "../../../api/questions.js";
 
-import "./chronicleQuestionGraph.html";
+import "./historyQuestionGraph.html";
 
-Template.chronicleQuestionGraph.onRendered(function() {
+Template.historyQuestionGraph.onRendered(function() {
     var questionId = FlowRouter.getParam("_id");
     this.autorun(function() {
         drawChart(questionId);
@@ -25,7 +25,7 @@ Template.chronicleQuestionGraph.onRendered(function() {
     }, false);
 });
 
-Template.chronicleQuestionGraph.helpers({
+Template.historyQuestionGraph.helpers({
     question: function() {
         let questionId = FlowRouter.getParam("_id");
         let question = Questions.findOne(questionId);

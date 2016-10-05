@@ -1,8 +1,8 @@
 import { Template } from "meteor/templating";
 
-import "./chronicleQuestion.html";
+import "./historyQuestion.html";
 
-Template.chronicleQuestion.helpers({
+Template.historyQuestion.helpers({
     correctAnswer: function(){
         var answers = this.questionFormHash.answers;
         var correctAnswer;
