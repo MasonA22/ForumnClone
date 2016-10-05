@@ -22,7 +22,7 @@ Template.questions.onCreated(function() {
 });
 
 Template.questions.helpers({
-	questions: function(){
+	questions: function() {
 		let activeQuestion = Template.currentData().activeQuestion;
 		let roomId = Meteor.user().profile.currentRoomId;
 		if (activeQuestion) {
@@ -37,8 +37,17 @@ Template.questions.helpers({
 			}
 		}
 	},
-	rooms: function(){
+	rooms: function() {
 		return Rooms.find({});
+	},
+	activeQuestion: function () {
+		let activeQuestion = Template.currentData().activeQuestion;
+		if (activeQuestion) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 });
 

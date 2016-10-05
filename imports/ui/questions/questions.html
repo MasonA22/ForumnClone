@@ -2,7 +2,13 @@
 	{{#if rooms.count}}
 		<div class="roomSelectionContainer">
 			<select class="roomSelectionDropDown">
-				<option value="">All Rooms</option>
+				<option value="">
+					{{#if activeQuestion}}
+						Return to Lobby
+					{{else}}
+						All Rooms
+					{{/if}}
+				</option>
 				{{#each rooms}}
 					{{#if equals _id currentUser.profile.currentRoomId}}
 						<option selected value="{{_id}}">{{name}}</option>
