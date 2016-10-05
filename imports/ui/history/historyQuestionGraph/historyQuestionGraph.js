@@ -16,7 +16,7 @@ Template.historyQuestionGraph.onRendered(function() {
     var id;
 
     window.addEventListener(orientationEvent, function() {
-        if ($(".chronicleQuestionGraph").is(':visible')) {
+        if ($(".historyQuestionGraph").is(':visible')) {
             templateThis.autorun(function() {
                 clearTimeout(id);
                 id = setTimeout(doneResizing, 1000);
@@ -46,7 +46,7 @@ function drawChart(questionId) {
     if (chronicleQuestionTypeInput) {
         console.log("Generating doughnut chart...");
 
-        var chronicleQuestionGraphContext = document.getElementById('chronicleQuestionGraph').getContext('2d');
+        var historyQuestionGraphContext = document.getElementById('historyQuestionGraph').getContext('2d');
         var answerData = question.questionFormHash.answerData;
         var data = [
             {
@@ -102,13 +102,13 @@ function drawChart(questionId) {
             window.myDoughnutChart.destroy();
         }
 
-        window.myDoughnutChart = new Chart(chronicleQuestionGraphContext).Doughnut(data,options);
+        window.myDoughnutChart = new Chart(historyQuestionGraphContext).Doughnut(data,options);
     }
     else {
         console.log("Generating bar chart...");
-        var chronicleQuestionGraph = document.getElementById('chronicleQuestionGraph');
-        if (chronicleQuestionGraph){
-            var chronicleQuestionGraphContext = chronicleQuestionGraph.getContext('2d');
+        var historyQuestionGraph = document.getElementById('historyQuestionGraph');
+        if (historyQuestionGraph){
+            var historyQuestionGraphContext = historyQuestionGraph.getContext('2d');
             var answersArray = question.questionFormHash.answers;
             answersArray = $.map(answersArray, function(element, index){
                 if (element.text.length < 15){
@@ -139,7 +139,7 @@ function drawChart(questionId) {
                 window.barChart.destroy();
             }
 
-            window.barChart = new Chart(chronicleQuestionGraphContext).Bar(graphData);
+            window.barChart = new Chart(historyQuestionGraphContext).Bar(graphData);
         }
     }
 }
