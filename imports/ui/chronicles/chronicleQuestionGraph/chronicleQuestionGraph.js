@@ -18,7 +18,7 @@ Template.chronicleQuestionGraph.onRendered(function(){
     window.addEventListener(orientationEvent, function() {
         templateThis.autorun(function(){
             clearTimeout(id);
-            id = setTimeout(doneResizing(questionId), 1000);
+            id = setTimeout(doneResizing, 1000);
         });
     }, false);
 });
@@ -31,7 +31,9 @@ Template.chronicleQuestionGraph.helpers({
     }
 });
 
-function doneResizing(questionId){
+function doneResizing() {
+    let questionId = FlowRouter.getParam("_id");
+    let question = Questions.findOne(questionId);
     drawChart(questionId);
 }
 
