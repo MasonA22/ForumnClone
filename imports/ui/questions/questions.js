@@ -1,5 +1,6 @@
 import { Meteor } from "meteor/meteor";
 import { Template } from "meteor/templating";
+import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Questions } from "../../api/questions.js";
 import { Rooms } from "../../api/rooms.js";
 
@@ -92,7 +93,13 @@ Template.questions.events({
 		if (startTime > 0){
 			showTimer = true;
 		}
-		Meteor.call("makeActiveQuestion", questionId, showTimer, startTime, roomId);
+		Meteor.call("makeActiveQuestion", questionId, showTimer, startTime, roomId, function(error, result) {
+			if (error) {
+			}
+			else {
+				FlowRouter.go("home");
+			}
+		});
 	},
 	"click .removeActiveQuestion": function(evt, template){
 		evt.preventDefault();

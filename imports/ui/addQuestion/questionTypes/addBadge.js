@@ -1,4 +1,5 @@
 import { Template } from "meteor/templating";
+import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Images } from "../../../api/images.js";
 
 import "./addBadge.html";
