@@ -200,6 +200,9 @@ if (Meteor.isServer) {
 	Meteor.publish("alreadyAskedQuestions", function() {
 		return Questions.find({alreadyAsked: true});
 	});
+	Meteor.publish("singleQuestion", function(questionId) {
+		return Questions.find({_id: questionId});
+	});
 }
 
 Meteor.methods({

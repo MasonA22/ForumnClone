@@ -14,8 +14,9 @@ Template.chronicle.onCreated(function(){
     instance.state.set("showChronicleGraph", false);
     let self = this;
     self.autorun(function() {
+        let questionId = FlowRouter.getParam("_id");
+        self.subscribe("singleQuestion", questionId);
         self.subscribe("allUsers");
-        self.subscribe("alreadyAskedQuestions");
     });
 });
 
@@ -30,8 +31,7 @@ Template.chronicle.helpers({
         }
     },
     question: function() {
-        let questionId = FlowRouter.getParam("_id");
-        let question = Questions.findOne(questionId);
+        let question = Questions.findOne();
         return question;
     },
     emailAddress: function(userId) {
