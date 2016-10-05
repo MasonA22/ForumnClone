@@ -4,8 +4,8 @@ import { Questions } from "../../../api/questions.js";
 
 import "./activeQuestionGraph.html";
 
-Template.activeQuestionGraph.onRendered(function(){
-	this.autorun(function(){
+Template.activeQuestionGraph.onRendered(function() {
+	this.autorun(function() {
 		drawChart();
 	});
 
@@ -15,8 +15,8 @@ Template.activeQuestionGraph.onRendered(function(){
 	var id;
 
 	window.addEventListener(orientationEvent, function() {
-		if ($(".activeQuestionGraph").is(':visible')){
-			templateThis.autorun(function(){
+		if ($(".activeQuestionGraph").is(':visible')) {
+			templateThis.autorun(function() {
 				clearTimeout(id);
 				id = setTimeout(doneResizing, 1000);
 			});

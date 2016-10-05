@@ -4,9 +4,9 @@ import { Questions } from "../../../api/questions.js";
 
 import "./chronicleQuestionGraph.html";
 
-Template.chronicleQuestionGraph.onRendered(function(){
+Template.chronicleQuestionGraph.onRendered(function() {
     var questionId = FlowRouter.getParam("_id");
-    this.autorun(function(){
+    this.autorun(function() {
         drawChart(questionId);
     });
 
@@ -16,15 +16,17 @@ Template.chronicleQuestionGraph.onRendered(function(){
     var id;
 
     window.addEventListener(orientationEvent, function() {
-        templateThis.autorun(function(){
-            clearTimeout(id);
-            id = setTimeout(doneResizing, 1000);
-        });
+        if ($(".chronicleQuestionGraph").is(':visible')) {
+            templateThis.autorun(function() {
+                clearTimeout(id);
+                id = setTimeout(doneResizing, 1000);
+            });
+        }
     }, false);
 });
 
 Template.chronicleQuestionGraph.helpers({
-    question: function(){
+    question: function() {
         let questionId = FlowRouter.getParam("_id");
         let question = Questions.findOne(questionId);
         return question;
@@ -37,11 +39,11 @@ function doneResizing() {
     drawChart(questionId);
 }
 
-function drawChart(questionId){
+function drawChart(questionId) {
     var question = Questions.findOne(questionId);
     var chronicleQuestionTypeInput = question.questionFormHash.isInput;
 
-    if (chronicleQuestionTypeInput){
+    if (chronicleQuestionTypeInput) {
         console.log("Generating doughnut chart...");
 
         var chronicleQuestionGraphContext = document.getElementById('chronicleQuestionGraph').getContext('2d');
@@ -102,7 +104,7 @@ function drawChart(questionId){
 
         window.myDoughnutChart = new Chart(chronicleQuestionGraphContext).Doughnut(data,options);
     }
-    else{
+    else {
         console.log("Generating bar chart...");
         var chronicleQuestionGraph = document.getElementById('chronicleQuestionGraph');
         if (chronicleQuestionGraph){
