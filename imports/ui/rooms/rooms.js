@@ -9,7 +9,11 @@ Template.rooms.onCreated(function(){
 	this.state = new ReactiveDict();
 	const instance = Template.instance();
 	instance.state.set("editEnabled", false);
-	Meteor.subscribe("rooms");
+	
+	let self = this;
+	self.autorun(function() {
+		self.subscribe("rooms");
+	});
 });
 
 Template.rooms.helpers({

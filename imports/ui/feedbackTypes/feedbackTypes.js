@@ -9,7 +9,11 @@ Template.feedbackTypes.onCreated(function() {
     this.state = new ReactiveDict();
     const instance = Template.instance();
     instance.state.set("editEnabled", false);
-	Meteor.subscribe("feedbackTypes");
+
+    let self = this;
+    self.autorun(function() {
+        self.subscribe("feedbackTypes");
+    });
 });
 
 Template.feedbackTypes.helpers({

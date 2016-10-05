@@ -5,7 +5,10 @@ import { Notifications } from "../../api/notifications.js";
 import "./notifications.html";
 
 Template.notifications.onCreated(function(){
-	Meteor.subscribe("notifications");
+	let self = this;
+	self.autorun(function() {
+		self.subscribe("notifications");
+	});
 });
 
 Template.notifications.helpers({

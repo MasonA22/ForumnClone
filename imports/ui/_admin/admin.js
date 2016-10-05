@@ -23,9 +23,13 @@ Template.admin.onCreated(function(){
 	instance.state.set("onlineUsers", false);
 	instance.state.set("offlineUsers", false);
 
-	Meteor.subscribe("presences");
-	Meteor.subscribe("allUsers");
-	Meteor.subscribe("activateBadges");
+	let self = this;
+	self.autorun(function() {
+		self.subscribe("presences");
+		self.subscribe("allUsers");
+		self.subscribe("activateBadges");
+	});
+
 	// Meteor.subscribe("questions");
 });
 

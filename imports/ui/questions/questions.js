@@ -17,8 +17,8 @@ Template.questions.onCreated(function() {
 		else {
 			self.subscribe("questions");
 		}
+		self.subscribe("rooms");
 	});
-	Meteor.subscribe("rooms");
 });
 
 Template.questions.helpers({

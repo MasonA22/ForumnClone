@@ -5,13 +5,16 @@ import { Badges } from "../../api/badges.js";
 import "./badges.html";
 import "./badge/badge.js";
 
-Template.badges.onCreated(function(){
-	Meteor.subscribe("images");
-	Meteor.subscribe("badges");
+Template.badges.onCreated(function() {
+	let self = this;
+	self.autorun(function() {
+		self.subscribe("images");
+		self.subscribe("badges");
+	});
 });
 
 Template.badges.helpers({
-    badges: function(){
+    badges: function() {
         return Badges.find({});
     }
 });

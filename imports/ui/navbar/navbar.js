@@ -7,8 +7,11 @@ import { ActivateBadges } from "../../api/activateBadges.js";
 import "./navbar.html";
 
 Template.navbar.onCreated(function(){
-	Meteor.subscribe("activateBadges");
-	Meteor.subscribe("activateQuestions");
+	let self = this;
+	self.autorun(function() {
+		self.subscribe("activateBadges");
+		self.subscribe("activateQuestions");
+	});
 });
 
 Template.navbar.helpers({

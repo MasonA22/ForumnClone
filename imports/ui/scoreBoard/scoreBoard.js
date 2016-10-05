@@ -9,7 +9,11 @@ Template.scoreBoard.onCreated(function() {
 	this.state = new ReactiveDict();
 	const instance = Template.instance();
 	instance.state.set("showAllScores", false);
-	Meteor.subscribe("allUsers");
+
+	let self = this;
+	self.autorun(function() {
+		self.subscribe("allUsers");
+	});
 });
 
 Template.scoreBoard.helpers({

@@ -5,7 +5,10 @@ import { Images } from "../../api/images.js";
 import "./images.html";
 
 Template.images.onCreated(function(){
-	Meteor.subscribe("images");
+	let self = this;
+	self.autorun(function() {
+		self.subscribe("images");
+	});
 });
 
 Template.images.helpers({
