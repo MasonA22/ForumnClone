@@ -1,7 +1,7 @@
 <template name="historyQuestion">
     <a href="{{pathFor route='historyQuestionDetail' _id=this._id}}">
         <div class="linkBoxContainer">
-            <div class="chronicleQuestionSession">
+            <div class="historyQuestionSession">
                 {{questionFormHash.sessionName}}
             </div>
             <div>
@@ -14,7 +14,7 @@
             </div>
             {{#if currentUser.profile.isAdmin}}
                 {{#if questionFormHash.feedbackEnabled}}
-                    <div class="chronicleQuestionFeedback">
+                    <div class="historyQuestionFeedback">
                         <span>Feedback Enabled: </span>
                         <span class="feedbackGood">{{questionFormHash.feedback.good}}</span>
                         <span>/</span>

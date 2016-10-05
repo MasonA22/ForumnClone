@@ -1,54 +1,57 @@
 @import "../colours";
 @import "../mixins";
 
-.chronicleQuestionSession {
+.historyQuestionDetail {
+    .historyQuestionRanks, .historyQuestionFeedbackTable {
+        margin-top: 10px;
+        font-size: 14px;
+        @include white-background-box;
+
+        .historyQuestionHeader {
+            margin-bottom: 3px;
+            padding-bottom: 6px;
+            font-weight: bold;
+        }
+    }
+
+    .historyQuestionFeedbackTable {
+        padding: 5px;
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+    }
+
+    .historyQuestionRanks {
+        .historyQuestionRanksContent {
+            word-wrap: break-word;
+            .historyQuestionCurrentUser {
+                color: $direct;
+            }
+        }
+    }
+}
+
+.historyQuestionSession {
     font-size: 10px;
     font-weight: normal;
     font-style: italic;
     text-align: right;
     margin-bottom: 12px;
-}
 
-.chronicleQuestionFeedback {
-    margin-top: 10px;
-    text-align: right;
-}
-
-.chronicleQuestionRanks, .chronicleQuestionFeedbackTable {
-    margin-top: 10px;
-    font-size: 14px;
-    @include white-background-box;
-}
-
-.chronicleQuestionFeedbackTable {
-    padding: 5px;
-}
-
-.chronicleQuestionHeader {
-    margin-bottom: 3px;
-    padding-bottom: 6px;
-    font-weight: bold;
-}
-
-.chronicleQuestionRanksContent {
-    word-wrap: break-word;
-}
-
-.chronicleQuestionCurrentUser {
-    color: $direct;
+    .historyQuestionFeedback {
+        margin-top: 10px;
+        text-align: right;
+    }
 }
 
 .historyQuestionGraph {
     text-align: center;
     @include white-background-box;
-}
-
-.chronicleQuestionFeedbackTable table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-.chronicleQuestionFeedbackTable th, .chronicleQuestionFeedbackTable td {
-    border: 1px solid black;
-    padding: 5px;
 }

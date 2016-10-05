@@ -41,9 +41,9 @@ function doneResizing() {
 
 function drawChart(questionId) {
     var question = Questions.findOne(questionId);
-    var chronicleQuestionTypeInput = question.questionFormHash.isInput;
+    var historyQuestionTypeInput = question.questionFormHash.isInput;
 
-    if (chronicleQuestionTypeInput) {
+    if (historyQuestionTypeInput) {
         console.log("Generating doughnut chart...");
 
         var historyQuestionGraphContext = document.getElementById('historyQuestionGraph').getContext('2d');

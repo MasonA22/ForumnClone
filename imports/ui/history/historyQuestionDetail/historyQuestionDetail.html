@@ -1,20 +1,20 @@
 <template name="historyQuestionDetail">
-    <div class="chronicle">
+    <div class="historyQuestionDetail">
         {{#if showHistoryQuestionGraph}}
             {{> historyQuestionGraph}}
         {{else}}
-            <div class="linkBoxContainer chronicleGraph">
+            <div class="linkBoxContainer showGraph">
                 Click to see graph results.
             </div>
         {{/if}}
-        <div class="chronicleQuestionRanks">
-            <div class="chronicleQuestionHeader">
+        <div class="historyQuestionRanks">
+            <div class="historyQuestionHeader">
                 Rank Order (users who got the answer correct):
             </div>
-            <div class="chronicleQuestionRanksContent">
+            <div class="historyQuestionRanksContent">
                 {{#each question.rank}}
                     {{#if equals currentUser._id this}}
-                        <span class="chronicleQuestionCurrentUser">
+                        <span class="historyQuestionCurrentUser">
                             {{emailAddress this}}
                         </span>
                     {{else}}
@@ -24,8 +24,8 @@
             </div>
         </div>
         {{#if (or currentUser.profile.isAdmin currentUser.profile.isModerator)}}
-            <div class=chronicleQuestionFeedbackTable>
-                <div class="chronicleQuestionHeader">
+            <div class=historyQuestionFeedbackTable>
+                <div class="historyQuestionHeader">
                     Feedback:
                 </div>
                 <table>

@@ -41,7 +41,7 @@ Template.historyQuestionDetail.helpers({
 });
 
 Template.historyQuestionDetail.events({
-    "click .chronicleGraph": function(evt, template){
+    "click .showGraph": function(evt, template){
         evt.preventDefault();
         if (template.state.get("showHistoryQuestionGraph")){
             template.state.set("showHistoryQuestionGraph", false);
